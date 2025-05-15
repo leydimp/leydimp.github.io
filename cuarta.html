@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Aprende sobre etiquetas semánticas en HTML5">
+  <title>Cuarta Página</title>
+  <link rel="icon" href="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp">
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+    }
+    header {
+      background-color: #6c63ff;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+    nav {
+      background-color: #a9a6ff;
+      padding: 10px;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none !important;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 20px;
+    }
+    article {
+      background-color: #e8e8ff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+    article img {
+      display: block;
+      margin: 15px auto;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .info-btn {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #6c63ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin: 10px 5px;
+      font-weight: bold;
+    }
+    .info-btn:hover {
+      background-color: #4e43d3;
+    }
+    .linea {
+      margin: 10px 0;
+    }
+    footer {
+      background-color: #6c63ff;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ETIQUETAS SEMÁNTICAS EN HTML5</h1>
+    <p>Aprende a usar etiquetas como &lt;section&gt;, &lt;article&gt;, &lt;nav&gt; y &lt;footer&gt;</p>
+  </header>
+
+  <nav>
+    <ul id="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="segundaPagina.html">Segunda Página</a></li>
+      <li><a href="terceraPagina.html">Tercera Página</a></li>
+      <li><a href="cuartaPagina.html">Cuarta Página</a></li>
+      <li><a href="quintaPagina.html">Quinta Página</a></li>
+      <li><a href="presentacion.html">Presentación Personal</a></li>
+      <li><a href="ejemplo.html">Ejemplo</a></li>
+      <li><a href="entregable.html">Entregable</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <article>
+      <h2>¿Qué son las etiquetas semánticas?</h2>
+      <p>Las etiquetas semánticas son elementos de HTML que indican el significado del contenido que contienen. Ayudan a los navegadores, motores de búsqueda y tecnologías de asistencia a comprender mejor la estructura de la página.</p>
+      <img src="https://www.aulaclic.es/articulos/graficos/estructura-html5.jpg" alt="Ejemplo de etiquetas semánticas">
+
+      <h2>Beneficios de usarlas:</h2>
+      <p class="linea">✔️ Mejoran la accesibilidad.</p>
+      <p class="linea">✔️ Facilitan el mantenimiento del código.</p>
+      <p class="linea">✔️ Ayudan al posicionamiento en buscadores (SEO).</p>
+    </article>
+
+    <article>
+      <h2>Principales etiquetas semánticas</h2>
+      <p class="linea"><strong>&lt;header&gt;</strong>: Define la cabecera del sitio o sección.</p>
+      <p class="linea"><strong>&lt;nav&gt;</strong>: Contiene los enlaces de navegación.</p>
+      <p class="linea"><strong>&lt;main&gt;</strong>: Define el contenido principal del documento.</p>
+      <p class="linea"><strong>&lt;section&gt;</strong>: Agrupa contenido relacionado.</p>
+      <p class="linea"><strong>&lt;article&gt;</strong>: Contenido independiente y auto contenido.</p>
+      <p class="linea"><strong>&lt;aside&gt;</strong>: Información complementaria (como barras laterales).</p>
+      <p class="linea"><strong>&lt;footer&gt;</strong>: Pie de página o sección final.</p>
+      <img src="https://www.dreamhost.com/blog/wp-content/uploads/2024/06/03-over-nested-element-1024x908.jpg" alt="Elementos semánticos de HTML">
+    </article>
+
+    <article>
+      <h2>Aprende más sobre HTML semántico</h2>
+      <p>Haz clic en los botones a continuación para seguir aprendiendo desde sitios confiables:</p>
+      <a href="https://developer.mozilla.org/es/docs/Glossary/Semantics" target="_blank" class="info-btn">MDN Web Docs</a>
+      <a href="https://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank" class="info-btn">W3Schools</a>
+    </article>
+  </section>
+
+  <footer>
+    <p>© 2025 SENATI. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

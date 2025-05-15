@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Mi quinta página web con tablas">
+  <title>Quinta Página</title>
+  <link rel="icon" href="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1e0b33;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #9698f0;
+      padding: 10px;
+    }
+    nav ul {
+      list-style-type: none;
+      padding-left: 0;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px;
+    }
+    article {
+      flex: 3;
+      background-color: rgb(152, 189, 243);
+      padding: 20px;
+      margin-right: 20px;
+      border-radius: 10px;
+    }
+    aside {
+      flex: 1;
+      background-color: #e6e6e6;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    footer {
+      background-color: #497db1;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #003366;
+      color: white;
+    }
+    h2 {
+      color: #003366;
+    }
+    .resaltar {
+      background-color: #ffff99 !important;
+    }
+    .btn-js {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn-js:hover {
+      background-color: #002244;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp" alt="Logo SENATI" width="100">
+    <h1>BIENVENIDOS A MI QUINTA PAGINA WEB</h1>
+    <img src="https://disenowebakus.net/imagenes/articulos/thead-tbody-tfoot-tabla-html.jpg" alt="TABLAS EN HTML" width="400">
+  </header>
+
+  <nav>
+    <ul id="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="segundaPagina.html">Segunda Página</a></li>
+      <li><a href="terceraPagina.html">Tercera Página</a></li>
+      <li><a href="cuartaPagina.html">Cuarta Página</a></li>
+      <li><a href="quintaPagina.html">Quinta Página</a></li>
+      <li><a href="presentacion.html">Presentación Personal</a></li>
+      <li><a href="ejemplo.html">Ejemplo</a></li>
+      <li><a href="entregable.html">Entregable</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <article>
+      <h2>¿Qué es una tabla en HTML?</h2>
+      <p>Una tabla en HTML se crea usando las etiquetas básicas:</p>
+      <ul>
+        <li><code>&lt;table&gt;</code>: contenedor de la tabla.</li>
+        <li><code>&lt;tr&gt;</code>: representa una fila.</li>
+        <li><code>&lt;th&gt;</code>: representa una celda de encabezado.</li>
+        <li><code>&lt;td&gt;</code>: representa una celda de datos.</li>
+      </ul>
+
+      <h2>¿Cómo darle estilo a una tabla con CSS?</h2>
+      <p>Con CSS puedes cambiar colores, bordes, fuentes, alineación, espaciado, etc. Por ejemplo:</p>
+      <pre><code>table {
+}</code></pre>
+
+      <h2>¿Y cómo se usa JavaScript con tablas?</h2>
+      <p>Puedes hacer que una tabla cambie con eventos. Por ejemplo, usar un botón para resaltar todas las filas:</p>
+      <button onclick="resaltarTabla()" class="btn-js">Resaltar Tabla</button>
+
+      <table id="tabla-estudiantes">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Carrera</th>
+            <th>Edad</th>
+            <th>Nota Final</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Sergio Linares</td><td>Ingeniería de Software</td><td>20</td><td>18</td></tr>
+          <tr><td>Anabel Sarmiento</td><td>Seguridad</td><td>22</td><td>17</td></tr>
+          <tr><td>Carlos Ramos</td><td>Mecatrónica</td><td>21</td><td>19</td></tr>
+          <tr><td>Ray Montes</td><td>Enfermeria</td><td>21</td><td>15</td></tr>
+          <tr><td>Segundo Livares</td><td>Contador</td><td>20</td><td>17</td></tr>
+          <tr><td>Alberto Molina</td><td>Diseño grafico</td><td>23</td><td>21</td></tr>
+          <tr><td>Lucia Arellano</td><td>Textileria</td><td>20</td><td>20</td></tr>
+        </tbody>
+      </table>
+
+      <h2>¿Sabías que?</h2>
+      <p>HTML te permite organizar visualmente datos complejos, CSS lo hace más atractivo y JavaScript le da interactividad. ¡Combínalos para crear experiencias increíbles!</p>
+    </article>
+
+    <aside>
+      <h2>Consejo del día</h2>
+      <p>¡Siempre estructura tu HTML correctamente usando etiquetas semánticas como <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code> y <code>&lt;footer&gt;</code> para una mejor accesibilidad!</p>
+
+      <h3>Enlaces útiles</h3>
+      <ul>
+        <li><a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/table" target="_blank">MDN: Tablas en HTML</a></li>
+        <li><a href="https://www.w3schools.com/html/html_tables.asp" target="_blank">W3Schools: HTML Tables</a></li>
+        <li><a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank">CSS en MDN</a></li>
+        <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">JavaScript en MDN</a></li>
+      </ul>
+    </aside>
+  </section>
+
+  <footer>
+    <p>© 2025 Todos los Derechos Reservados | SENATI</p>
+  </footer>
+
+  <script>
+    function resaltarTabla() {
+      const filas = document.querySelectorAll('#tabla-estudiantes tr');
+      filas.forEach(fila => fila.classList.toggle('resaltar'));
+    }
+  </script>
+</body>
+</html>

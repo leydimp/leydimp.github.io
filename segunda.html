@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Temas clave HTML, CSS y JavaScript">
+  <title>Segunda Página</title>
+  <link rel="icon" href="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #eee6ed;
+      color: #333;
+    }
+    header {
+      background-color: #0f476d;
+      color: rgb(220, 219, 221);
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      width: 150px;
+    }
+    nav {
+      background-color: #04233a;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: rgb(220, 219, 221);
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 20px;
+    }
+    article {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0f476d;
+      margin-top: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #5e8aa0;
+      color: white;
+    }
+    .info-btn {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 15px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .info-btn:hover {
+      background-color: #005599;
+    }
+    .icono {
+      font-size: 1.4em;
+      color: #003366;
+      margin-right: 10px;
+    }
+    .resaltado {
+      font-weight: bold;
+      color: #005599;
+    }
+    .ejemplo-box {
+      background-color: #fff;
+      border: 2px dashed #aaa;
+      padding: 15px;
+      margin-top: 10px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      color: #444;
+      display: none;
+    }
+    .ejemplo-visible {
+      display: block;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp" alt="Logo SENATI">
+    <h1>TEMAS CLAVE DE HTML, CSS Y JAVASCRIPT</h1>
+    <p>Haz clic en las filas para ver ejemplos reales</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="terceraPagina.html">Tercera Página</a>
+    <a href="cuartaPagina.html">Cuarta Página</a>
+    <a href="quintaPagina.html">Quinta Página</a>
+    <a href="presentacion.html">Presentación</a>
+    <a href="ejemplo.html">Ejemplo</a>
+    <a href="entregable.html">Entregable</a>
+  </nav>
+
+  <section>
+    <article>
+      <h2><i class="bi bi-filetype-html icono"></i>Etiquetas comunes de <span class="resaltado">HTML</span></h2>
+      <table>
+        <thead>
+          <tr><th>Etiqueta</th><th>Descripción</th></tr>
+        </thead>
+        <tbody>
+          <tr onclick="mostrarEjemplo(`&lt;p&gt;Hola mundo&lt;/p&gt;`)"><td>&lt;p&gt;</td><td>Parrafos de texto</td></tr>
+          <tr onclick="mostrarEjemplo(`&lt;h1&gt;Título Principal&lt;/h1&gt;`)"><td>&lt;h1&gt;</td><td>Encabezado de nivel 1</td></tr>
+          <tr onclick="mostrarEjemplo(`&lt;a href='https://senati.edu.pe'&gt;Ir a SENATI&lt;/a&gt;`)"><td>&lt;a&gt;</td><td>Enlaces o vínculos</td></tr>
+          <tr onclick="mostrarEjemplo(`&lt;img src='imagen.jpg' alt='Descripción'&gt;`)"><td>&lt;img&gt;</td><td>Insertar imágenes</td></tr>
+          <tr onclick="mostrarEjemplo(`&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;/ul&gt;`)"><td>&lt;ul&gt;</td><td>Lista desordenada</td></tr>
+          <tr onclick="mostrarEjemplo(`&lt;ol&gt;&lt;li&gt;Primero&lt;/li&gt;&lt;/ol&gt;`)"><td>&lt;ol&gt;</td><td>Lista ordenada</td></tr>
+          <tr onclick="mostrarEjemplo(`&lt;table&gt;&lt;tr&gt;&lt;td&gt;Celda&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;`)"><td>&lt;table&gt;</td><td>Tabla HTML</td></tr>
+          <tr onclick="mostrarEjemplo(`&lt;form&gt;&lt;input type='text'&gt;&lt;/form&gt;`)"><td>&lt;form&gt;</td><td>Formulario</td></tr>
+          <tr onclick="mostrarEjemplo(`&lt;section&gt;&lt;p&gt;Contenido&lt;/p&gt;&lt;/section&gt;`)"><td>&lt;section&gt;</td><td>Sección de contenido</td></tr>
+          <tr onclick="mostrarEjemplo(`&lt;footer&gt;&copy; 2025&lt;/footer&gt;`)"><td>&lt;footer&gt;</td><td>Pie de página</td></tr>
+        </tbody>
+      </table>
+      <div id="ejemplo" class="ejemplo-box"></div>
+      <a class="info-btn" href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank">Aprender más sobre HTML</a>
+    </article>
+  </section>
+
+  <footer>
+    <p>© 2025 Leydi Mariluz | SENATI</p>
+  </footer>
+
+  <script>
+    function mostrarEjemplo(texto) {
+      const caja = document.getElementById("ejemplo");
+      caja.innerHTML = texto;
+      caja.classList.add("ejemplo-visible");
+    }
+  </script>
+</body>
+</html>
