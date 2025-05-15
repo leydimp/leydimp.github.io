@@ -9,7 +9,6 @@ document.getElementById("calcular").addEventListener("click", function() {
         resultado.textContent = "Ingrese números válidos.";
         return;
     }
-
     // Función para realizar la operación
     function calcular(a, b, op) {
         switch (op) {
@@ -21,7 +20,6 @@ document.getElementById("calcular").addEventListener("click", function() {
                 return "Operación inválida.";
         }
     }
-
     // Llamar la función y mostrar el resultado
     let resultadoFinal = calcular(num1, num2, operacion);
     resultado.textContent = "El resultado es: " + resultadoFinal;
