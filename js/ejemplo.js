@@ -1,26 +1,24 @@
-document.getElementById("calcular").addEventListener("click", function() {
+
+document.getElementById("calcular").addEventListener("click", function(){
     let num1 = parseFloat(document.getElementById("numero1").value);
     let num2 = parseFloat(document.getElementById("numero2").value);
     let operacion = document.getElementById("operacion").value;
     let resultado = document.getElementById("resultado");
-
-    // Validación: que no estén vacíos o sean inválidos
-    if (isNaN(num1) || isNaN(num2)) {
-        resultado.textContent = "Ingrese números válidos.";
+//validacion que no me esta enviando vacios
+    if(isNaN(num1)||isNaN(num2)){
+        resultado.textContent = "Ingrese números Valido";
         return;
     }
-    // Función para realizar la operación
-    function calcular(a, b, op) {
-        switch (op) {
-            case "suma":
-                return a + b;
-            case "resta":
-                return a - b;
-            default:
-                return "Operación inválida.";
-        }
+function calcular(a,b, op){
+    switch (op) {
+        case "suma":
+            return a+b;     
+        case "resta":
+            return a-b;
+        default:
+            return "Operación Inválida"
     }
-    // Llamar la función y mostrar el resultado
-    let resultadoFinal = calcular(num1, num2, operacion);
-    resultado.textContent = "El resultado es: " + resultadoFinal;
-});
+}
+let resultadoFinal = calcular(num1,num2,operacion);
+resultado.textContent="El Resultado es: "+resultadoFinal;
+})
