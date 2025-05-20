@@ -2,61 +2,69 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Temas clave HTML, CSS y JavaScript">
-  <title>Segunda Página</title>
+  <meta name="description" content="Temas clave HTML, CSS y JavaScript con estilo y humor">
+  <title>Temas Clave Web</title>
   <link rel="icon" href="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background-color: #eee6ed;
+      background: linear-gradient(to bottom right, #f1f1f1, #e6e6fa);
       color: #333;
     }
     header {
       background-color: #0f476d;
-      color: rgb(220, 219, 221);
+      color: white;
       padding: 20px;
       text-align: center;
     }
     header img {
-      width: 150px;
+      width: 120px;
     }
     nav {
       background-color: #04233a;
-      text-align: center;
       padding: 10px;
     }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li {
+      margin: 5px 10px;
+    }
     nav a {
-      color: rgb(220, 219, 221);
-      margin: 0 10px;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
     nav a:hover {
-      text-decoration: underline;
+      color: #a2d5f2;
     }
     section {
-      padding: 20px;
+      padding: 30px;
     }
     article {
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
     }
     h2 {
       color: #0f476d;
-      margin-top: 40px;
     }
     table {
       width: 100%;
+      margin-top: 20px;
       border-collapse: collapse;
-      margin: 20px 0;
-      background-color: white;
       border-radius: 8px;
       overflow: hidden;
-      cursor: pointer;
     }
     th, td {
       border: 1px solid #ccc;
@@ -64,17 +72,20 @@
       text-align: left;
     }
     th {
-      background-color: #5e8aa0;
+      background-color: #0f476d;
       color: white;
     }
+    tr:hover {
+      background-color: #f0f8ff;
+      cursor: pointer;
+    }
     .info-btn {
+      margin-top: 15px;
       display: inline-block;
-      margin: 10px 5px;
-      padding: 10px 15px;
       background-color: #003366;
       color: white;
-      border: none;
-      border-radius: 5px;
+      padding: 10px 15px;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
     }
@@ -87,79 +98,104 @@
       margin-right: 10px;
     }
     .resaltado {
+      color: #0077cc;
       font-weight: bold;
-      color: #005599;
     }
     .ejemplo-box {
-      background-color: #fff;
-      border: 2px dashed #aaa;
+      background-color: #eef;
+      border-left: 4px solid #0077cc;
       padding: 15px;
-      margin-top: 10px;
       font-family: monospace;
       white-space: pre-wrap;
-      color: #444;
+      margin-top: 15px;
       display: none;
     }
     .ejemplo-visible {
       display: block;
+    }
+    .gracioso {
+      font-style: italic;
+      color: #444;
+      margin-top: 10px;
     }
     footer {
       background-color: #003366;
       color: white;
       text-align: center;
       padding: 15px;
-      margin-top: 30px;
     }
   </style>
 </head>
 <body>
   <header>
     <img src="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp" alt="Logo SENATI">
-    <h1>TEMAS CLAVE DE HTML, CSS Y JAVASCRIPT</h1>
-    <p>Haz clic en las filas para ver ejemplos reales</p>
+    <h1>DOMINA HTML, CSS y JavaScript (sin llorar)</h1>
+    <p>Haz clic en las tablas para descubrir los secretos del universo web... o al menos del código.</p>
   </header>
 
   <nav>
-  <ul id="menu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
       <li><a href="segunda.html">Segunda Página</a></li>
       <li><a href="tercera.html">Tercera Página</a></li>
       <li><a href="cuarta.html">Cuarta Página</a></li>
       <li><a href="quinta.html">Quinta Página</a></li>
-      <li><a href="sexta.html">Sexta Página web</a></li>
+      <li><a href="sexta.html">Sexta Página</a></li>
       <li><a href="presentacion.html">Presentación Personal</a></li>
-      <li><a href="ejemplo.html">Ejemplo</a></li>
-      <li><a href="index.html">Inicio</a></li>
+      <li><a href="ejemplo.html">Ejemplos</a></li>
       <li><a href="entregable.html">Entregable</a></li>
     </ul>
   </nav>
 
   <section>
     <article>
-      <h2><i class="bi bi-filetype-html icono"></i>Etiquetas comunes de <span class="resaltado">HTML</span></h2>
+      <h2><i class="bi bi-filetype-html icono"></i>HTML Básico</h2>
       <table>
-        <thead>
-          <tr><th>Etiqueta</th><th>Descripción</th></tr>
-        </thead>
+        <thead><tr><th>Etiqueta</th><th>Descripción</th></tr></thead>
         <tbody>
-          <tr onclick="mostrarEjemplo(`&lt;p&gt;Hola mundo&lt;/p&gt;`)"><td>&lt;p&gt;</td><td>Parrafos de texto</td></tr>
-          <tr onclick="mostrarEjemplo(`&lt;h1&gt;Título Principal&lt;/h1&gt;`)"><td>&lt;h1&gt;</td><td>Encabezado de nivel 1</td></tr>
-          <tr onclick="mostrarEjemplo(`&lt;a href='https://senati.edu.pe'&gt;Ir a SENATI&lt;/a&gt;`)"><td>&lt;a&gt;</td><td>Enlaces o vínculos</td></tr>
-          <tr onclick="mostrarEjemplo(`&lt;img src='imagen.jpg' alt='Descripción'&gt;`)"><td>&lt;img&gt;</td><td>Insertar imágenes</td></tr>
-          <tr onclick="mostrarEjemplo(`&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;/ul&gt;`)"><td>&lt;ul&gt;</td><td>Lista desordenada</td></tr>
-          <tr onclick="mostrarEjemplo(`&lt;ol&gt;&lt;li&gt;Primero&lt;/li&gt;&lt;/ol&gt;`)"><td>&lt;ol&gt;</td><td>Lista ordenada</td></tr>
-          <tr onclick="mostrarEjemplo(`&lt;table&gt;&lt;tr&gt;&lt;td&gt;Celda&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;`)"><td>&lt;table&gt;</td><td>Tabla HTML</td></tr>
-          <tr onclick="mostrarEjemplo(`&lt;form&gt;&lt;input type='text'&gt;&lt;/form&gt;`)"><td>&lt;form&gt;</td><td>Formulario</td></tr>
-          <tr onclick="mostrarEjemplo(`&lt;section&gt;&lt;p&gt;Contenido&lt;/p&gt;&lt;/section&gt;`)"><td>&lt;section&gt;</td><td>Sección de contenido</td></tr>
-          <tr onclick="mostrarEjemplo(`&lt;footer&gt;&copy; 2025&lt;/footer&gt;`)"><td>&lt;footer&gt;</td><td>Pie de página</td></tr>
+          <tr onclick="mostrarEjemplo('&lt;p&gt;Hola mundo&lt;/p&gt;')"><td>&lt;p&gt;</td><td>Un párrafo simpático</td></tr>
+          <tr onclick="mostrarEjemplo('&lt;h1&gt;Título Principal&lt;/h1&gt;')"><td>&lt;h1&gt;</td><td>Encabezado más ruidoso que tus vecinos</td></tr>
+          <tr onclick="mostrarEjemplo('&lt;a href=\'https://senati.edu.pe\'&gt;Ir a SENATI&lt;/a&gt;')"><td>&lt;a&gt;</td><td>Para escapar a otra página</td></tr>
+          <tr onclick="mostrarEjemplo('&lt;img src=\'gatito.jpg\' alt=\'Un gatito programador\'&gt;')"><td>&lt;img&gt;</td><td>Imágenes: porque mil palabras es mucho texto</td></tr>
         </tbody>
       </table>
-      <div id="ejemplo" class="ejemplo-box"></div>
-      <a class="info-btn" href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank">Aprender más sobre HTML</a>
+      <div class="gracioso">¡Sin HTML, no tendrías ni dónde llorar tu bug!</div>
     </article>
+
+    <article>
+      <h2><i class="bi bi-braces icono"></i>CSS con estilo</h2>
+      <table>
+        <thead><tr><th>Propiedad</th><th>Función</th></tr></thead>
+        <tbody>
+          <tr onclick="mostrarEjemplo('color: red;')"><td>color</td><td>Color del texto (¡porque negro es muy mainstream!)</td></tr>
+          <tr onclick="mostrarEjemplo('background-color: yellow;')"><td>background-color</td><td>Fondo chillón para no dormir</td></tr>
+          <tr onclick="mostrarEjemplo('border: 2px dashed purple;')"><td>border</td><td>Bordes fabulosos</td></tr>
+          <tr onclick="mostrarEjemplo('font-family: Comic Sans;')"><td>font-family</td><td>Para que nadie te tome en serio (úsala con responsabilidad)</td></tr>
+        </tbody>
+      </table>
+      <div class="gracioso">El CSS no es magia... ¡pero se le parece cuando por fin funciona!</div>
+    </article>
+
+    <article>
+      <h2><i class="bi bi-code-slash icono"></i>JavaScript sin miedo</h2>
+      <table>
+        <thead><tr><th>Sintaxis</th><th>¿Qué hace?</th></tr></thead>
+        <tbody>
+          <tr onclick="mostrarEjemplo('alert(\"¡Hola mundo!\");')"><td>alert()</td><td>Saluda al mundo (y asusta al usuario)</td></tr>
+          <tr onclick="mostrarEjemplo('console.log(\"Debug Time!\");')"><td>console.log()</td><td>Tu psicólogo en la consola</td></tr>
+          <tr onclick="mostrarEjemplo('let nombre = \"Tú\";')"><td>let</td><td>Declara una variable moderna</td></tr>
+          <tr onclick="mostrarEjemplo('if (felicidad > 9000) { fiesta(); }')"><td>if</td><td>Toma decisiones importantes (como si hay pizza)</td></tr>
+        </tbody>
+      </table>
+      <div class="gracioso">JavaScript: ese amigo que lo intenta todo aunque a veces falle</div>
+    </article>
+
+    <div id="ejemplo" class="ejemplo-box"></div>
+    <a class="info-btn" href="https://developer.mozilla.org/es/docs/Web" target="_blank">¡Explora más en MDN!</a>
   </section>
 
   <footer>
-    <p>© 2025 Leydi Mariluz | SENATI</p>
+    <p>© 2025 Leydi Mariluz | SENATI | Hecho con amor, café y muchos intentos fallidos 😅</p>
   </footer>
 
   <script>
