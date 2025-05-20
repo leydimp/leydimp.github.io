@@ -2,14 +2,16 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Resumen sobre HTML, CSS y JavaScript">
+  <meta name="description" content="Resumen divertido sobre HTML, CSS y JavaScript">
   <title>Tercera Página</title>
   <link rel="icon" href="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f3f3;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
       margin: 0;
+      color: #333;
     }
     header {
       background-color: #004080;
@@ -18,10 +20,10 @@
       padding: 20px;
     }
     header img {
-      width: 150px;
+      width: 130px;
     }
     nav {
-      background-color: #86b3e0;
+      background-color: #0074d9;
       padding: 10px;
       text-align: center;
     }
@@ -34,60 +36,79 @@
       flex-wrap: wrap;
     }
     nav ul li {
-      margin: 0 15px;
+      margin: 5px 15px;
     }
     nav ul li a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      transition: 0.3s;
     }
     nav ul li a:hover {
+      color: yellow;
       text-decoration: underline;
     }
     section {
-      display: flex;
-      flex-direction: column;
       padding: 20px;
     }
     article {
-      background-color: #f5d6d6;
-      margin-bottom: 20px;
+      background-color: #fffdf0;
       padding: 20px;
+      margin-bottom: 20px;
       border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     article img {
       width: 100%;
       max-width: 400px;
       border-radius: 8px;
       display: block;
-      margin: 10px auto;
+      margin: 15px auto;
+    }
+    h2 {
+      color: #004080;
     }
     .boton {
       display: inline-block;
       padding: 10px 20px;
-      background-color: #81adda;
+      background-color: #ffa500;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
       margin: 10px 5px;
       text-decoration: none;
       font-weight: bold;
+      transition: background-color 0.3s;
     }
     .boton:hover {
-      background-color: #002a5c;
+      background-color: #ff6600;
     }
-    .mensaje {
-      font-size: 22px;
-      margin-top: 10px;
-      color: #333;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
     }
-    .estilo {
-      margin: 30px 0;
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
       text-align: center;
     }
+    th {
+      background-color: #0074d9;
+      color: white;
+    }
+    .broma {
+      font-style: italic;
+      color: #555;
+      text-align: center;
+      margin-top: 20px;
+    }
     footer {
-      background-color: #004080;
+      background-color: #003366;
       color: white;
       text-align: center;
       padding: 15px;
@@ -97,20 +118,20 @@
 <body>
   <header>
     <img src="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp" alt="Logo SENATI">
-    <h1>Bienvenidos a mi Tercera Página</h1>
-    <p>Conoce las bases del desarrollo web</p>
+    <h1>Tercera Página: HTML, CSS y JavaScript con Sabor a Humor</h1>
+    <p>¡Aprender también puede ser divertido!</p>
   </header>
 
   <nav>
-    <ul id="menu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
       <li><a href="segunda.html">Segunda Página</a></li>
       <li><a href="tercera.html">Tercera Página</a></li>
       <li><a href="cuarta.html">Cuarta Página</a></li>
       <li><a href="quinta.html">Quinta Página</a></li>
-      <li><a href="sexta.html">Sexta Página web</a></li>
-      <li><a href="presentacion.html">Presentación Personal</a></li>
+      <li><a href="sexta.html">Sexta Página</a></li>
+      <li><a href="presentacion.html">Presentación</a></li>
       <li><a href="ejemplo.html">Ejemplo</a></li>
-      <li><a href="index.html">Inicio</a></li>
       <li><a href="entregable.html">Entregable</a></li>
     </ul>
   </nav>
@@ -118,41 +139,60 @@
   <section>
     <article>
       <h2>¿Qué es HTML?</h2>
-      <p>HTML (HyperText Markup Language) es el lenguaje estándar para crear páginas web. Estructura el contenido con etiquetas como encabezados, párrafos, listas, tablas, imágenes, entre otros.</p>
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="Logo HTML">
-      <a class="boton" href="https://www.w3schools.com/html/html_examples.asp" target="_blank">Ver Ejemplos</a>
-      <a class="boton" href="https://htmlgames.com/" target="_blank">Juegos HTML</a>
+      <p>Es como el esqueleto de una página web. Sin él, solo seríamos una gelatina digital sin forma 😵.</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/1051/1051277.png" alt="Logo HTML divertido">
+      <table>
+        <thead><tr><th>Etiqueta</th><th>Función</th></tr></thead>
+        <tbody>
+          <tr><td>&lt;h1&gt;</td><td>Títulos grandes como mi amor por el café ☕</td></tr>
+          <tr><td>&lt;p&gt;</td><td>Párrafos para contar historias... o llorar en código</td></tr>
+          <tr><td>&lt;a&gt;</td><td>Enlaces para perderse como en YouTube a las 2am</td></tr>
+        </tbody>
+      </table>
+      <a class="boton" href="https://www.w3schools.com/html/" target="_blank">Aprende HTML</a>
     </article>
 
     <article>
       <h2>¿Qué es CSS?</h2>
-      <p>CSS (Cascading Style Sheets) permite aplicar estilos visuales a los elementos HTML, como colores, tamaños, márgenes, fuentes y diseños responsivos.</p>
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="Logo CSS">
-      <a class="boton" href="https://www.w3schools.com/css/css_examples.asp" target="_blank">Ver Ejemplos</a>
-      <a class="boton" href="https://flukeout.github.io/" target="_blank">Juego CSS</a>
+      <p>CSS es el maquillaje de las páginas web. Porque hasta el código merece verse bonito 💄✨.</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="Logo CSS estiloso">
+      <table>
+        <thead><tr><th>Propiedad</th><th>¿Para qué sirve?</th></tr></thead>
+        <tbody>
+          <tr><td>color</td><td>¡Colorea como si fueras Picasso!</td></tr>
+          <tr><td>font-family</td><td>Elige tu tipo de letra, pero sin drama, por favor 🧘‍♀️</td></tr>
+          <tr><td>margin</td><td>¡Dame espacio! - dijo cada elemento</td></tr>
+        </tbody>
+      </table>
+      <a class="boton" href="https://www.w3schools.com/css/" target="_blank">Aprende CSS</a>
     </article>
 
     <article>
       <h2>¿Qué es JavaScript?</h2>
-      <p>JavaScript es un lenguaje de programación que da vida a las páginas web: permite validar formularios, crear botones interactivos, mostrar mensajes, animaciones y mucho más.</p>
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="Logo JavaScript">
-      <p id="demo">Haz clic en el botón para ver cómo funciona JavaScript:</p>
-      <button class="boton" onclick="document.getElementById('demo').textContent = '¡Gracias por usar JavaScript!'">Haz clic aquí</button>
-      <br>
-      <a class="boton" href="https://www.w3schools.com/js/js_examples.asp" target="_blank">Ver Ejemplos</a>
-      <a class="boton" href="https://javascript30.com/" target="_blank">Proyectos JS</a>
+      <p>Es el alma de la fiesta web. Hace que los botones bailen, las alertas hablen y los errores... exploten 🎉💥.</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="Logo JavaScript bromista">
+      <p id="demo">¿Quieres ver un truco?</p>
+      <button class="boton" onclick="document.getElementById('demo').textContent = '¡Hocus pocus... JavaScriptus!'">Haz Magia JS</button>
+      <a class="boton" href="https://www.w3schools.com/js/" target="_blank">Aprende JavaScript</a>
     </article>
 
-    <div class="estilo">
-      <h2>Personaliza esta página</h2>
-      <button class="boton" onclick="document.body.style.backgroundColor='#e0f7fa'">Cambiar fondo</button>
-      <button class="boton" onclick="document.body.style.fontFamily='Courier New'">Cambiar fuente</button>
-      <button class="boton" onclick="document.body.style.fontSize='18px'">Aumentar texto</button>
-      <button class="boton" onclick="document.body.style.color='darkgreen'">Color de texto</button>
-    </div>
+    <article>
+      <h2>Comparativa rápida</h2>
+      <table>
+        <thead><tr><th>Lenguaje</th><th>Función</th><th>Analogía graciosa</th></tr></thead>
+        <tbody>
+          <tr><td>HTML</td><td>Estructura</td><td>Esqueleto del robot 🤖</td></tr>
+          <tr><td>CSS</td><td>Estilo</td><td>Ropa de diseñador 👗</td></tr>
+          <tr><td>JavaScript</td><td>Interactividad</td><td>¡La chispa de la vida! ⚡</td></tr>
+        </tbody>
+      </table>
+    </article>
+
+    <p class="broma">Nota divertida: Si algo no funciona, ¡échale la culpa al "caché"! 😅</p>
   </section>
+
   <footer>
-    <p>© 2025 Todos los Derechos Reservados. Creado por SENATI.</p>
+    <p>© 2025 Todos los Derechos Reservados | Diseñado con risas por Leydi Mariluz - SENATI</p>
   </footer>
 </body>
 </html>
