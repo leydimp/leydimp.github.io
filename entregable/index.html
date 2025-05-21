@@ -13,32 +13,67 @@
       background: linear-gradient(to bottom right, #f9f9f9, #e0ffe0);
       color: #333;
     }
+
     header {
       background-color: #4CAF50;
       color: white;
       padding: 20px;
       text-align: center;
     }
+
     header img {
-      width: 60px;
+      width: 50px;
       vertical-align: middle;
     }
+
     h1 {
       display: inline-block;
       margin: 0 10px;
-      font-size: 2.2em;
+      font-size: 2em;
     }
+
+    nav {
+      background-color: #388E3C;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #d4ffd4;
+    }
+
     main {
       padding: 30px;
       max-width: 1200px;
       margin: auto;
     }
+
     .productos {
       display: flex;
       flex-wrap: wrap;
       gap: 25px;
       justify-content: center;
     }
+
     .producto {
       width: 220px;
       background-color: #fff;
@@ -48,24 +83,29 @@
       padding: 15px;
       transition: transform 0.3s;
     }
+
     .producto:hover {
       transform: scale(1.03);
     }
+
     .producto img {
       width: 100%;
       height: 150px;
       object-fit: cover;
       border-radius: 10px;
     }
+
     .producto h3 {
       margin: 10px 0 5px;
       font-size: 1.2em;
     }
+
     .producto p {
       color: #4CAF50;
       font-weight: bold;
       margin: 5px 0;
     }
+
     .producto button {
       padding: 8px 14px;
       background-color: #4CAF50;
@@ -75,14 +115,17 @@
       cursor: pointer;
       font-weight: bold;
     }
+
     .producto button:hover {
       background-color: #388E3C;
     }
+
     .carrito {
       text-align: center;
       margin-top: 40px;
       font-size: 1.2em;
     }
+
     footer {
       background-color: #4CAF50;
       color: white;
@@ -98,53 +141,55 @@
     <img src="https://cdn-icons-png.flaticon.com/512/590/590685.png" alt="Fruta logo">
     <h1>La Casa de las Frutas</h1>
   </header>
+
   <nav>
-    <ul id="menu">
+    <ul>
       <li><a href="segunda.html">Segunda Página</a></li>
       <li><a href="tercera.html">Tercera Página</a></li>
       <li><a href="cuarta.html">Cuarta Página</a></li>
       <li><a href="quinta.html">Quinta Página</a></li>
-      <li><a href="sexta.html">Sexta pagina web</a></li>
-      <li><a href="presentacion.html">Presentación Personal</a></li>
+      <li><a href="sexta.html">Sexta Página</a></li>
+      <li><a href="presentacion.html">Presentación</a></li>
       <li><a href="ejemplo.html">Ejemplo</a></li>
       <li><a href="index.html">Inicio</a></li>
       <li><a href="entregable.html">Entregable</a></li>
     </ul>
   </nav>
+
   <main>
     <section class="productos">
       <div class="producto">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Manzana">
+        <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce" alt="Manzana">
         <h3>Manzana</h3>
         <p>$1.20</p>
         <button onclick="agregarAlCarrito('Manzana')">Comprar</button>
       </div>
       <div class="producto">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Banana-yellow-white-background.jpg" alt="Banana">
+        <img src="https://images.unsplash.com/photo-1574226516831-e1dff420e8f8" alt="Banana">
         <h3>Banana</h3>
         <p>$0.80</p>
         <button onclick="agregarAlCarrito('Banana')">Comprar</button>
       </div>
       <div class="producto">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Orange-Whole-%26-Split.jpg" alt="Naranja">
+        <img src="https://images.unsplash.com/photo-1589927986089-35812388d1ef" alt="Naranja">
         <h3>Naranja</h3>
         <p>$1.00</p>
         <button onclick="agregarAlCarrito('Naranja')">Comprar</button>
       </div>
       <div class="producto">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Strawberry_on_white_background.jpg" alt="Fresa">
+        <img src="https://images.unsplash.com/photo-1615485927564-8a2c5f89a3b3" alt="Fresa">
         <h3>Fresa</h3>
         <p>$2.50</p>
         <button onclick="agregarAlCarrito('Fresa')">Comprar</button>
       </div>
       <div class="producto">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Kyoho-grape.jpg" alt="Uvas">
+        <img src="https://images.unsplash.com/photo-1592928302562-104bc3a625aa" alt="Uvas">
         <h3>Uvas</h3>
         <p>$3.00</p>
         <button onclick="agregarAlCarrito('Uvas')">Comprar</button>
       </div>
       <div class="producto">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Mangoes_pic.jpg" alt="Mango">
+        <img src="https://images.unsplash.com/photo-1614594974701-e75bb1c35c65" alt="Mango">
         <h3>Mango</h3>
         <p>$1.80</p>
         <button onclick="agregarAlCarrito('Mango')">Comprar</button>
@@ -171,6 +216,4 @@
 
 </body>
 </html>
-
-</section>
 
