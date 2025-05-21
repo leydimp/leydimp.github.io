@@ -2,32 +2,175 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Frutería Natural</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Tienda de frutas online - La Casa de las Frutas">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Casa de las Frutas</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/590/590685.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #f9f9f9, #e0ffe0);
+      color: #333;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      width: 60px;
+      vertical-align: middle;
+    }
+    h1 {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 2.2em;
+    }
+    main {
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+    .producto {
+      width: 220px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+    .producto:hover {
+      transform: scale(1.03);
+    }
+    .producto img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .producto h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2em;
+    }
+    .producto p {
+      color: #4CAF50;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    .producto button {
+      padding: 8px 14px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .producto button:hover {
+      background-color: #388E3C;
+    }
+    .carrito {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1.2em;
+    }
+    footer {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
 
   <header>
-    <h1>🍓 Frutería Natural</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="reclamos.html">Libro de Reclamaciones</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
+    <img src="https://cdn-icons-png.flaticon.com/512/590/590685.png" alt="Fruta logo">
+    <h1>La Casa de las Frutas</h1>
   </header>
+  <nav>
+    <ul id="menu">
+      <li><a href="segunda.html">Segunda Página</a></li>
+      <li><a href="tercera.html">Tercera Página</a></li>
+      <li><a href="cuarta.html">Cuarta Página</a></li>
+      <li><a href="quinta.html">Quinta Página</a></li>
+      <li><a href="sexta.html">Sexta pagina web</a></li>
+      <li><a href="presentacion.html">Presentación Personal</a></li>
+      <li><a href="ejemplo.html">Ejemplo</a></li>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="entregable.html">Entregable</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="productos">
+      <div class="producto">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Manzana">
+        <h3>Manzana</h3>
+        <p>$1.20</p>
+        <button onclick="agregarAlCarrito('Manzana')">Comprar</button>
+      </div>
+      <div class="producto">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Banana-yellow-white-background.jpg" alt="Banana">
+        <h3>Banana</h3>
+        <p>$0.80</p>
+        <button onclick="agregarAlCarrito('Banana')">Comprar</button>
+      </div>
+      <div class="producto">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Orange-Whole-%26-Split.jpg" alt="Naranja">
+        <h3>Naranja</h3>
+        <p>$1.00</p>
+        <button onclick="agregarAlCarrito('Naranja')">Comprar</button>
+      </div>
+      <div class="producto">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Strawberry_on_white_background.jpg" alt="Fresa">
+        <h3>Fresa</h3>
+        <p>$2.50</p>
+        <button onclick="agregarAlCarrito('Fresa')">Comprar</button>
+      </div>
+      <div class="producto">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Kyoho-grape.jpg" alt="Uvas">
+        <h3>Uvas</h3>
+        <p>$3.00</p>
+        <button onclick="agregarAlCarrito('Uvas')">Comprar</button>
+      </div>
+      <div class="producto">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Mangoes_pic.jpg" alt="Mango">
+        <h3>Mango</h3>
+        <p>$1.80</p>
+        <button onclick="agregarAlCarrito('Mango')">Comprar</button>
+      </div>
+    </section>
 
-  <section class="bienvenida">
-    <h2>¡Bienvenido a tu tienda saludable!</h2>
-    <p>Encuentra frutas frescas, naturales y al mejor precio.</p>
-    <img src="img/frutas-banner.jpg" alt="Frutas frescas" class="banner">
-  </section>
+    <section class="carrito">
+      🛒 Has comprado <span id="contador">0</span> producto(s)
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Frutería Natural Para todos. Todos los derechos reservados.</p>
+    © 2025 La Casa de las Frutas 🍍 | Hecho con HTML, CSS y frutas tropicales 💚
   </footer>
+
+  <script>
+    let contador = 0;
+    function agregarAlCarrito(producto) {
+      contador++;
+      document.getElementById("contador").textContent = contador;
+      console.log(`Agregado: ${producto}`);
+    }
+  </script>
 
 </body>
 </html>
+
+</section>
+
