@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>La Casa de las Frutas</title>
   <style>
     :root {
@@ -25,6 +25,9 @@
       background-color: var(--fondo);
       color: var(--texto);
       transition: background-color 0.3s, color 0.3s;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -32,32 +35,42 @@
       color: white;
       padding: 1rem;
       text-align: center;
+      flex-shrink: 0;
     }
 
     /* Imagen menú principal debajo del header */
     .menu-principal {
       width: 100%;
-      max-height: 180px;
+      max-width: 600px;
+      margin: 1rem auto;
+      border-radius: 10px;
       overflow: hidden;
-      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      flex-shrink: 0;
     }
     .menu-principal img {
       width: 100%;
       height: auto;
-      object-fit: cover;
       display: block;
+      object-fit: cover;
       border-bottom: 3px solid var(--acento);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .menu-principal img:hover {
+      transform: scale(1.05);
     }
 
     .barra {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 1rem;
       background: var(--caja);
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      flex-wrap: wrap;
       gap: 1rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
     }
 
     .barra input {
@@ -65,6 +78,8 @@
       width: 60%;
       max-width: 300px;
       font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
 
     .barra button {
@@ -75,13 +90,27 @@
       border-radius: 5px;
       cursor: pointer;
       font-size: 1rem;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    .barra button:hover {
+      background: #b072d8;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 0 1rem 1rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .productos {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 1.5rem;
-      padding: 2rem;
+      margin-bottom: 2rem;
     }
 
     .producto {
@@ -91,10 +120,16 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: center;
       transition: transform 0.2s;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .producto:hover {
       transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
     }
 
     .producto img {
@@ -102,11 +137,20 @@
       height: 180px;
       object-fit: cover;
       border-radius: 10px;
-      margin-bottom: 0.5rem;
+      margin: 0 auto 0.5rem auto;
+      user-select: none;
     }
 
     .producto h3 {
       margin: 0.5rem 0;
+      user-select: none;
+    }
+
+    .producto p {
+      flex-grow: 1;
+      font-size: 0.9rem;
+      color: #555;
+      user-select: none;
     }
 
     .producto button {
@@ -117,6 +161,12 @@
       border-radius: 5px;
       cursor: pointer;
       font-size: 1rem;
+      user-select: none;
+      margin-top: 0.8rem;
+      transition: background 0.3s ease;
+    }
+    .producto button:hover {
+      background-color: #b072d8;
     }
 
     .carrito {
@@ -125,6 +175,14 @@
       border-top: 2px solid var(--acento);
       margin: 0 2rem 2rem 2rem;
       border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .carrito h2 {
+      margin-top: 0;
     }
 
     .carrito ul {
@@ -140,20 +198,60 @@
       font-size: 1rem;
     }
 
+    .carrito button {
+      background-color: var(--acento);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    .carrito button:hover {
+      background-color: #b072d8;
+    }
+
+    /* Sección extra: fila para abajo */
+    .extras-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem auto;
+      max-width: 1100px;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
     .extra {
-      padding: 2rem;
       background-color: var(--caja);
-      margin: 2rem;
       border-radius: 10px;
+      padding: 1.5rem;
+      flex: 1 1 280px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      min-width: 280px;
+      max-width: 350px;
+      user-select: none;
     }
 
     .extra h2 {
       margin-top: 0;
+      color: var(--acento);
+    }
+
+    .extra p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.3;
     }
 
     .medios-pago {
       list-style: none;
       padding-left: 0;
+      margin-top: 1rem;
     }
 
     .medios-pago li {
@@ -162,6 +260,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      color: #333;
     }
 
     .medios-pago li img {
@@ -170,6 +269,7 @@
       object-fit: contain;
       border-radius: 5px;
       border: 1px solid #ddd;
+      user-select: none;
     }
 
     footer {
@@ -177,13 +277,46 @@
       background: var(--acento);
       color: white;
       padding: 2rem 1rem;
-      margin-top: 2rem;
+      margin-top: auto;
+      user-select: none;
     }
 
     footer a {
       color: white;
       text-decoration: underline;
       cursor: pointer;
+      user-select: none;
+    }
+    footer a:hover {
+      color: #f0d9ff;
+    }
+
+    @media (max-width: 480px) {
+      .barra input {
+        width: 100%;
+        max-width: none;
+      }
+      .barra {
+        flex-direction: column;
+      }
+      .menu-principal {
+        max-width: 100%;
+      }
+      .producto img {
+        width: 100%;
+        height: auto;
+      }
+      .productos {
+        grid-template-columns: 1fr;
+      }
+      .extras-container {
+        flex-direction: column;
+        max-width: 100%;
+        margin: 1rem auto 2rem auto;
+      }
+      .extra {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -193,50 +326,54 @@
     <p>Frutas frescas directo a tu hogar 🍓🍍🍇</p>
   </header>
 
-  <div class="menu-principal">
+  <div class="menu-principal" title="Menú Principal - La Casa de las Frutas">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0kCXtKp-Yx-fVu-9CfjubYkU0XFWA1NQIRg&s" alt="Menú principal frutas" />
   </div>
 
   <div class="barra">
-    <input type="text" id="buscar" placeholder="Buscar fruta...">
-    <button onclick="toggleModo()">🌙/☀️</button>
+    <input type="text" id="buscar" placeholder="Buscar fruta..." aria-label="Buscar fruta" />
+    <button onclick="toggleModo()" aria-label="Cambiar modo claro/oscuro">🌙/☀️</button>
   </div>
 
-  <section class="productos" id="lista-productos"></section>
+  <main>
+    <section class="productos" id="lista-productos"></section>
 
-  <section class="carrito">
-    <h2>Carrito de compras 🛒</h2>
-    <ul id="carrito-lista"></ul>
-    <p><strong>Total:</strong> $<span id="total">0</span></p>
-    <button onclick="pagar()">Pagar</button>
-  </section>
+    <section class="carrito" aria-label="Carrito de compras">
+      <h2>Carrito de compras 🛒</h2>
+      <ul id="carrito-lista"></ul>
+      <p><strong>Total:</strong> $<span id="total">0</span></p>
+      <button onclick="pagar()">Pagar</button>
+    </section>
+  </main>
 
-  <section class="extra">
-    <h2>Recomendados para ti 🥝🍒</h2>
-    <p>Basado en tus gustos, te recomendamos probar el kiwi y las fresas, ricos en antioxidantes y vitamina C.</p>
-  </section>
+  <div class="extras-container" aria-label="Sección adicional">
+    <section class="extra" aria-label="Recomendados para ti">
+      <h2>Recomendados para ti 🥝🍒</h2>
+      <p>Basado en tus gustos, te recomendamos probar el kiwi y las fresas, ricos en antioxidantes y vitamina C.</p>
+    </section>
 
-  <section class="extra">
-    <h2>Contáctanos 📞</h2>
-    <p>📧 Email: contacto@casadelasfrutas.com</p>
-    <p>📱 WhatsApp: +51 957 024 712</p>
-    <p>📍 Dirección: Av. Frutal 123, Puno, Perú</p>
-  </section>
+    <section class="extra" aria-label="Contáctanos">
+      <h2>Contáctanos 📞</h2>
+      <p>📧 Email: contacto@casadelasfrutas.com</p>
+      <p>📱 WhatsApp: +51 957 024 712</p>
+      <p>📍 Dirección: Av. Frutal 123, Puno, Perú</p>
+    </section>
 
-  <section class="extra">
-    <h2>Medios de pago 💳</h2>
-    <ul class="medios-pago">
-      <li><img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Tarjeta"> Tarjetas de crédito y débito</li>
-      <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Yape.png" alt="Yape"> Yape</li>
-      <li><img src="https://play-lh.googleusercontent.com/n6CGmC3cSFnIUgFlLMsXsLBAuE-0yWrEKoQ0D8fES1dL6lTRU3n6AF9X4LnmcGqU0w" alt="Plin"> Plin</li>
-      <li><img src="https://cdn-icons-png.flaticon.com/512/1885/1885396.png" alt="Transferencia"> Transferencias bancarias</li>
-      <li><img src="https://cdn-icons-png.flaticon.com/512/1486/1486435.png" alt="Entrega"> Pago contra entrega</li>
-    </ul>
-  </section>
+    <section class="extra" aria-label="Medios de pago">
+      <h2>Medios de pago 💳</h2>
+      <ul class="medios-pago">
+        <li><img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Tarjeta"> Tarjetas de crédito y débito</li>
+        <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Yape.png" alt="Yape"> Yape</li>
+        <li><img src="https://play-lh.googleusercontent.com/n6CGmC3cSFnIUgFlLMsXsLBAuE-0yWrEKoQ0D8fES1dL6lTRU3n6AF9X4LnmcGqU0w" alt="Plin"> Plin</li>
+        <li><img src="https://cdn-icons-png.flaticon.com/512/1885/1885396.png" alt="Transferencia"> Transferencias bancarias</li>
+        <li><img src="https://cdn-icons-png.flaticon.com/512/1486/1486435.png" alt="Entrega"> Pago contra entrega</li>
+      </ul>
+    </section>
+  </div>
 
   <footer>
     <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
-    <a href="#" onclick="alert('Libro de Reclamaciones en proceso digital 📖');">📖 Libro de Reclamaciones</a>
+    <a href="#" onclick="alert('Libro de Reclamaciones en proceso digital 📖'); return false;">📖 Libro de Reclamaciones</a>
   </footer>
 
   <script>
@@ -249,84 +386,138 @@
       { id: 6, nombre: "Kiwi", precio: 1.8, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg", descripcion: "Exótico y lleno de sabor, con mucha vitamina C." },
       { id: 7, nombre: "Fresa", precio: 2.0, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487", descripcion: "Pequeñas delicias rojas, ricas en antioxidantes." },
       { id: 8, nombre: "Piña", precio: 2.2, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg", descripcion: "Tropical, jugosa y refrescante." },
-      { id: 9, nombre: "Mango", precio: 2.3, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg", descripcion: "Dulce, suave y muy popular en verano." }
+      { id: 9, nombre: "Mango", precio: 2.3, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg", descripcion: "Dulce y aromático, muy popular." },
+      { id: 10, nombre: "Cereza", precio: 3.0, imagen: "https://cdn.britannica.com/34/189934-050-59BFFD8B/cherries.jpg", descripcion: "Pequeñas y dulces, para un gusto especial." },
+      { id: 11, nombre: "Melón", precio: 1.9, imagen: "https://www.gastrolabweb.com/u/fotografias/m/2023/2/14/f768x1-62684_62695_5050.jpeg", descripcion: "Dulce y refrescante, ideal para verano." },
+      { id: 12, nombre: "Uva", precio: 2.4, imagen: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Table_grapes_on_white.jpg", descripcion: "Pequeñas y jugosas, para comer o hacer jugo." },
+      { id: 13, nombre: "Papaya", precio: 1.7, imagen: "https://cdn.kiwilimon.com/recetaimagen/26130.jpg", descripcion: "Ideal para la digestión y desayuno." },
+      { id: 14, nombre: "Coco", precio: 2.1, imagen: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Cocos_nucifera_Fruits.JPG", descripcion: "Tropical, con agua y carne nutritiva." }
     ];
 
-    const listaProductos = document.getElementById('lista-productos');
-    const carritoLista = document.getElementById('carrito-lista');
-    const total = document.getElementById('total');
-    const buscar = document.getElementById('buscar');
     let carrito = [];
 
-    function mostrarProductos(filtro = "") {
-      listaProductos.innerHTML = "";
-      const productosFiltrados = productos.filter(p =>
-        p.nombre.toLowerCase().includes(filtro.toLowerCase())
-      );
-
-      productosFiltrados.forEach(prod => {
+    // Render productos
+    const listaProductos = document.getElementById('lista-productos');
+    function renderProductos(productosParaMostrar) {
+      listaProductos.innerHTML = '';
+      productosParaMostrar.forEach(producto => {
         const div = document.createElement('div');
         div.classList.add('producto');
+        div.title = `Haz clic para ver para qué sirve la ${producto.nombre}`;
+        div.setAttribute('role', 'button');
+        div.setAttribute('tabindex', '0');
         div.innerHTML = `
-          <img src="${prod.imagen}" alt="${prod.nombre}" title="${prod.descripcion}" onclick="verDetalle(${prod.id})" />
-          <h3>${prod.nombre}</h3>
-          <p>$${prod.precio.toFixed(2)}</p>
-          <button onclick="agregarAlCarrito(${prod.id})">Agregar al carrito</button>
+          <img src="${producto.imagen}" alt="Imagen de ${producto.nombre}" loading="lazy" />
+          <h3>${producto.nombre}</h3>
+          <p>${producto.descripcion}</p>
+          <p><strong>Precio: $${producto.precio.toFixed(2)}</strong></p>
+          <button aria-label="Agregar ${producto.nombre} al carrito">Agregar al carrito</button>
         `;
+        // Agregar evento click al div para redirigir a página fruta
+        div.addEventListener('click', e => {
+          if(e.target.tagName.toLowerCase() === 'button') return; // No activar cuando se presiona botón
+          mostrarInfoFruta(producto);
+        });
+        // Agregar tecla Enter para accesibilidad
+        div.addEventListener('keydown', e => {
+          if(e.key === 'Enter') {
+            mostrarInfoFruta(producto);
+          }
+        });
+
+        // Evento click botón agregar al carrito
+        div.querySelector('button').addEventListener('click', e => {
+          e.stopPropagation();
+          agregarAlCarrito(producto.id);
+        });
+
         listaProductos.appendChild(div);
       });
     }
 
+    // Mostrar info fruta (redireccionar)
+    function mostrarInfoFruta(producto) {
+      alert(`Para qué es buena la fruta ${producto.nombre}:\n\n${infoFrutas[producto.nombre] || 'Información no disponible.'}`);
+    }
+
+    // Información de cada fruta para la alerta
+    const infoFrutas = {
+      "Manzana": "La manzana es buena para la digestión, ayuda a controlar el azúcar en sangre y es rica en antioxidantes.",
+      "Banana": "La banana aporta energía rápida, potasio para el corazón y es buena para la digestión.",
+      "Naranja": "La naranja fortalece el sistema inmune, es rica en vitamina C y ayuda a prevenir resfriados.",
+      "Pera": "La pera es hidratante, ayuda a la digestión y es buena para la piel.",
+      "Sandía": "La sandía hidrata, aporta antioxidantes y ayuda a la salud del corazón.",
+      "Kiwi": "El kiwi es rico en vitamina C, ayuda a la digestión y fortalece el sistema inmunológico.",
+      "Fresa": "La fresa es antioxidante, ayuda a la salud del corazón y mejora la piel.",
+      "Piña": "La piña ayuda a la digestión, reduce la inflamación y es rica en vitamina C.",
+      "Mango": "El mango es rico en vitaminas A y C, ayuda a la digestión y fortalece la vista.",
+      "Cereza": "La cereza reduce inflamaciones, mejora el sueño y es antioxidante.",
+      "Melón": "El melón hidrata, aporta vitaminas A y C, y es bueno para la piel.",
+      "Uva": "La uva mejora la circulación, es antioxidante y ayuda a la salud del corazón.",
+      "Papaya": "La papaya ayuda a la digestión, fortalece el sistema inmunológico y es antioxidante.",
+      "Coco": "El coco hidrata, aporta energía y mejora la digestión."
+    };
+
+    // Función agregar al carrito
     function agregarAlCarrito(id) {
-      const producto = productos.find(p => p.id === id);
-      const itemCarrito = carrito.find(item => item.id === id);
-
-      if (itemCarrito) {
-        itemCarrito.cantidad++;
-      } else {
-        carrito.push({ ...producto, cantidad: 1 });
-      }
-      actualizarCarrito();
+      carrito.push(id);
+      mostrarCarrito();
     }
 
-    function actualizarCarrito() {
-      carritoLista.innerHTML = "";
-      let sumaTotal = 0;
-      carrito.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.nombre} x ${item.cantidad} - $${(item.precio * item.cantidad).toFixed(2)}`;
-        carritoLista.appendChild(li);
-        sumaTotal += item.precio * item.cantidad;
+    // Mostrar carrito
+    function mostrarCarrito() {
+      const ul = document.getElementById('carrito-lista');
+      ul.innerHTML = '';
+      const contProductos = {};
+
+      carrito.forEach(id => {
+        contProductos[id] = (contProductos[id] || 0) + 1;
       });
-      total.textContent = sumaTotal.toFixed(2);
+
+      let total = 0;
+
+      for (const id in contProductos) {
+        const producto = productos.find(p => p.id == id);
+        const cantidad = contProductos[id];
+        const precioTotal = producto.precio * cantidad;
+        total += precioTotal;
+
+        const li = document.createElement('li');
+        li.textContent = `${producto.nombre} x${cantidad} - $${precioTotal.toFixed(2)}`;
+        ul.appendChild(li);
+      }
+
+      document.getElementById('total').textContent = total.toFixed(2);
     }
 
+    // Pagar (vaciar carrito)
     function pagar() {
-      if(carrito.length === 0){
-        alert("El carrito está vacío. Agrega productos para pagar.");
+      if(carrito.length === 0) {
+        alert("Tu carrito está vacío. Agrega productos antes de pagar.");
         return;
       }
-      alert(`Gracias por su compra. Total a pagar: $${total.textContent}`);
+      alert("¡Gracias por tu compra! Total: $" + document.getElementById('total').textContent);
       carrito = [];
-      actualizarCarrito();
+      mostrarCarrito();
     }
 
-    function verDetalle(id) {
-      const producto = productos.find(p => p.id === id);
-      alert(`${producto.nombre}\n\n${producto.descripcion}\n\nPrecio: $${producto.precio.toFixed(2)}`);
-    }
-
-    buscar.addEventListener('input', () => {
-      mostrarProductos(buscar.value);
+    // Función búsqueda
+    document.getElementById('buscar').addEventListener('input', e => {
+      const texto = e.target.value.toLowerCase();
+      const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(texto));
+      renderProductos(filtrados);
     });
 
+    // Modo claro/oscuro
     function toggleModo() {
       document.body.classList.toggle('dark');
     }
 
-    // Inicializar listado
-    mostrarProductos();
+    // Inicial
+    renderProductos(productos);
+    mostrarCarrito();
   </script>
 </body>
 </html>
+
 
