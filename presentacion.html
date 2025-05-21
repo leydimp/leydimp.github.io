@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,11 +8,22 @@
   <link rel="stylesheet" href="css/presentacion.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    .animate {
+      transition: all 0.3s ease-in-out;
+    }
+    .animate:hover {
+      transform: scale(1.05);
+    }
+    .text-purple {
+      color: #6f42c1;
+    }
+  </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html"><i class="bi bi-house-door-fill"></i> Inicio</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -36,21 +46,21 @@
 
 <!-- HEADER -->
 <header class="bg-primary text-white text-center py-5">
-  <h1>👩‍💻 ¡Hola! Soy Leydi Mariluz</h1>
-  <p class="lead">Estudiante de Ingeniería de Software 💡</p>
+  <h1 class="fw-bold">👩‍💻 ¡Hola! Soy Leydi Mariluz</h1>
+  <p class="lead">Estudiante de Ingeniería de Software apasionada por la tecnología 💡</p>
   <img src="https://i.pinimg.com/originals/9a/20/8d/9a208df1c9b5f191e731f1986ae3499b.gif" alt="GIF divertido" width="180">
 </header>
 
 <!-- SOBRE MÍ -->
 <section class="container my-5">
-  <div class="row">
-    <div class="col-md-4 text-center">
-      <img src="https://i.imgur.com/4IX4IQ2.jpg" class="img-fluid rounded" alt="Foto de perfil" style="max-width: 250px;" />
+  <div class="row align-items-center">
+    <div class="col-md-4 text-center mb-4">
+      <img src="https://i.imgur.com/4IX4IQ2.jpg" class="img-fluid rounded shadow animate" alt="Foto de perfil" style="max-width: 250px;" />
     </div>
     <div class="col-md-8">
       <h2>🎯 Sobre mí</h2>
-      <p>Soy estudiante de Ingeniería de Software con gran interés en el desarrollo web y la tecnología. Actualmente estoy aprendiendo a crear páginas usando HTML, CSS y JavaScript, además de usar herramientas como Git y GitHub.</p>
-      <p>Me considero una persona creativa, responsable y comprometida con lo que hago. Me gusta trabajar en equipo, resolver problemas y aprender nuevas herramientas para mejorar cada día. 💪</p>
+      <p>¡Hola nuevamente! Soy una estudiante apasionada por el desarrollo web y el mundo de la programación. Me encanta crear sitios que sean tanto funcionales como visualmente atractivos.</p>
+      <p>✨ Curiosa, creativa y con ganas de aprender algo nuevo todos los días. Sueño con aportar soluciones innovadoras en el mundo digital 🚀.</p>
     </div>
   </div>
 </section>
@@ -60,45 +70,45 @@
   <div class="container">
     <h2 class="text-center mb-4">💼 Habilidades</h2>
     <div class="row text-center">
-      <div class="col-md-3 mb-4">
+      <div class="col-md-3 mb-4 animate">
         <i class="bi bi-code-slash fs-1 text-primary"></i>
         <h5>HTML & CSS</h5>
-        <p>Sitios web modernos y adaptables 📱</p>
+        <p>Diseños atractivos y responsivos 📱</p>
       </div>
-      <div class="col-md-3 mb-4">
+      <div class="col-md-3 mb-4 animate">
         <i class="bi bi-laptop fs-1 text-success"></i>
         <h5>JavaScript</h5>
-        <p>Interacción y magia en la web ✨</p>
+        <p>Interacción mágica en la web ✨</p>
       </div>
-      <div class="col-md-3 mb-4">
+      <div class="col-md-3 mb-4 animate">
         <i class="bi bi-git fs-1 text-danger"></i>
         <h5>Git & GitHub</h5>
-        <p>Control de versiones como una pro 🚀</p>
+        <p>Organización y control total 🚀</p>
       </div>
-      <div class="col-md-3 mb-4">
+      <div class="col-md-3 mb-4 animate">
         <i class="bi bi-braces fs-1 text-info"></i>
         <h5>Java</h5>
-        <p>Lógica y objetos... ¡como Matrix! 😄</p>
+        <p>Lógica poderosa con objetos 🧠</p>
       </div>
-      <div class="col-md-3 mb-4">
+      <div class="col-md-3 mb-4 animate">
         <i class="bi bi-diagram-3 fs-1 text-warning"></i>
-        <h5>Diseño de Interfaces</h5>
-        <p>Figma y prototipos 👩‍🎨</p>
+        <h5>Interfaces</h5>
+        <p>Prototipos bonitos con Figma 🎨</p>
       </div>
-      <div class="col-md-3 mb-4">
+      <div class="col-md-3 mb-4 animate">
         <i class="bi bi-database fs-1 text-secondary"></i>
         <h5>MySQL</h5>
-        <p>Datos organizados = mente feliz 📊</p>
+        <p>Consultas limpias, datos claros 📊</p>
       </div>
-      <div class="col-md-3 mb-4">
+      <div class="col-md-3 mb-4 animate">
         <i class="bi bi-bootstrap fs-1 text-purple"></i>
         <h5>Bootstrap</h5>
-        <p>Páginas rápidas y responsivas 🧠</p>
+        <p>Diseño rápido y elegante ⚡</p>
       </div>
-      <div class="col-md-3 mb-4">
+      <div class="col-md-3 mb-4 animate">
         <i class="bi bi-translate fs-1 text-dark"></i>
         <h5>Inglés Técnico</h5>
-        <p>Leer documentación sin miedo 📚</p>
+        <p>Documentación sin barreras 🌎</p>
       </div>
     </div>
   </div>
@@ -108,19 +118,21 @@
 <section class="container my-5">
   <h2 class="text-center mb-4">🚀 Proyectos Destacados</h2>
   <div class="row">
-    <div class="col-md-6">
-      <div class="card mb-3">
+    <div class="col-md-6 animate">
+      <div class="card shadow">
         <div class="card-body">
           <h5 class="card-title">🌐 Página Web Personal</h5>
-          <p class="card-text">Diseño y desarrollo de mi propia página usando HTML, CSS y Bootstrap.</p>
+          <p class="card-text">Un sitio hecho desde cero para mostrar mi estilo, habilidades y creatividad web.</p>
+          <a href="#" class="btn btn-outline-primary btn-sm">Ver proyecto</a>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="card mb-3">
+    <div class="col-md-6 animate">
+      <div class="card shadow">
         <div class="card-body">
           <h5 class="card-title">📋 Sistema de Registro</h5>
-          <p class="card-text">Proyecto en Java para registrar alumnos, mostrar datos y gestionar un sistema con interfaz gráfica.</p>
+          <p class="card-text">Aplicación en Java con interfaz gráfica para registrar y gestionar estudiantes.</p>
+          <a href="#" class="btn btn-outline-success btn-sm">Ver proyecto</a>
         </div>
       </div>
     </div>
@@ -130,16 +142,17 @@
 <!-- CONTACTO -->
 <section class="bg-primary text-white py-5">
   <div class="container text-center">
-    <h2 class="mb-4">📞 Contáctame</h2>
+    <h2 class="mb-4">📞 ¡Conectemos!</h2>
     <p><i class="bi bi-envelope-fill"></i> leydi.mariluz@email.com</p>
     <p><i class="bi bi-phone-fill"></i> +51 957 024 712</p>
-    <p><i class="bi bi-linkedin"></i> <a href="https://www.linkedin.com" class="text-white text-decoration-underline" target="_blank">Mi perfil de LinkedIn</a></p>
+    <p><i class="bi bi-linkedin"></i> <a href="https://www.linkedin.com" class="text-white text-decoration-underline" target="_blank">Perfil en LinkedIn</a></p>
+    <a href="mailto:leydi.mariluz@email.com" class="btn btn-light mt-3 animate"><i class="bi bi-send-fill"></i> Escríbeme</a>
   </div>
 </section>
 
 <!-- PIE DE PÁGINA -->
 <footer class="bg-dark text-white text-center py-3">
-  <p>💻 &copy; 2025 Leydi Mariluz. Todos los derechos reservados. Hecho con amor y muchos tags HTML 🧡</p>
+  <p>💻 &copy; 2025 Leydi Mariluz. Hecho con amor, pasión y muchos tags HTML 🧡</p>
 </footer>
 
 <!-- Bootstrap JS -->
@@ -147,3 +160,4 @@
 
 </body>
 </html>
+
