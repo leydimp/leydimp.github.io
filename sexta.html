@@ -116,7 +116,6 @@
     <img src="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp" alt="Logo SENATI">
     <h1>¡Bienvenidos a mi Página!</h1>
     <p>Una aventura divertida con HTML, CSS y JavaScript</p>
-    <img src="https://i.pinimg.com/originals/90/41/cc/9041ccf3a8b2cfe3a81e5bb383b9b3c9.gif" alt="GIF divertido" height="150">
   </header>
 
   <nav>
@@ -135,7 +134,7 @@
 
   <section>
     <article>
-      <h2>Calculadora Interactiva con JavaScript</h2>
+      <h2>Calculadora de Operaciones Básicas</h2>
       <label for="numero1">Número 1:</label>
       <input type="number" id="numero1"><br>
       <label for="numero2">Número 2:</label>
@@ -149,7 +148,18 @@
       </select><br>
       <button onclick="calcular()">Calcular</button>
       <p id="resultado"></p>
-      <img class="divertida" src="https://i.gifer.com/ZKZg.gif" alt="GIF cálculo divertido">
+      <img class="divertida" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnZva2s2ODFzZW9oaHl6d3BrZXd3ZG41eWdvNzVxeTQ4eHZzdjYzZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o7bu3XilJ5BOiSGic/giphy.gif" alt="GIF divertido">
+    </article>
+
+    <article>
+      <h2>Calculadora de Descuento Divertida</h2>
+      <label for="precio">Precio original (S/):</label>
+      <input type="number" id="precio"><br>
+      <label for="descuento">Descuento (%):</label>
+      <input type="number" id="descuento"><br>
+      <button onclick="calcularDescuento()">Aplicar Descuento</button>
+      <p id="resultado-descuento"></p>
+      <img class="divertida" src="https://media.giphy.com/media/10JhviFuU2gWD6/giphy.gif" alt="Descuento divertido">
     </article>
 
     <aside>
@@ -214,6 +224,23 @@
       }
 
       document.getElementById('resultado').textContent = 'Resultado: ' + resultado;
+    }
+
+    function calcularDescuento() {
+      const precio = parseFloat(document.getElementById('precio').value);
+      const descuento = parseFloat(document.getElementById('descuento').value);
+      let resultado = '';
+
+      if (isNaN(precio) || isNaN(descuento)) {
+        resultado = 'Por favor ingresa números válidos.';
+      } else if (descuento < 0 || descuento > 100) {
+        resultado = 'El descuento debe estar entre 0 y 100.';
+      } else {
+        const precioFinal = precio - (precio * descuento / 100);
+        resultado = 'Precio final con descuento: S/ ' + precioFinal.toFixed(2);
+      }
+
+      document.getElementById('resultado-descuento').textContent = resultado;
     }
   </script>
 </body>
