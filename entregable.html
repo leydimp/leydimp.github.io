@@ -60,7 +60,7 @@
 
     .productos {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       padding: 2rem;
     }
@@ -81,7 +81,7 @@
     .producto img {
       width: 100%;
       max-height: 150px;
-      object-fit: contain;
+      object-fit: cover;
       border-radius: 10px;
     }
 
@@ -113,12 +113,27 @@
       margin: 0.5rem 0;
     }
 
+    .extra {
+      padding: 2rem;
+      background-color: var(--caja);
+      margin: 2rem;
+      border-radius: 10px;
+    }
+
+    .extra h2 {
+      margin-top: 0;
+    }
+
     footer {
       text-align: center;
       background: var(--acento);
       color: white;
-      padding: 1rem;
-      margin-top: 2rem;
+      padding: 2rem 1rem;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -142,8 +157,27 @@
     <button onclick="pagar()">Pagar</button>
   </section>
 
-  <section>
-    <h2>Bienvenido a la Frutería Natural</h2>
+  <section class="extra">
+    <h2>Recomendados para ti 🥝🍒</h2>
+    <p>Basado en tus gustos, te recomendamos probar el kiwi y las fresas, ricos en antioxidantes y vitamina C.</p>
+  </section>
+
+  <section class="extra">
+    <h2>Contáctanos 📞</h2>
+    <p>📧 Email: contacto@casadelasfrutas.com</p>
+    <p>📱 WhatsApp: +51 987 654 321</p>
+    <p>📍 Dirección: Av. Frutal 123, Lima, Perú</p>
+  </section>
+
+  <section class="extra">
+    <h2>Medios de pago 💳</h2>
+    <p>Aceptamos:</p>
+    <ul>
+      <li>✅ Tarjetas de crédito y débito</li>
+      <li>✅ Yape y Plin</li>
+      <li>✅ Transferencias bancarias</li>
+      <li>✅ Pago contra entrega (Lima Metropolitana)</li>
+    </ul>
   </section>
 
   <footer>
@@ -153,13 +187,15 @@
 
   <script>
     const productos = [
-      { id: 1, nombre: "Manzana", precio: 1.5, imagen: "https://img.freepik.com/vector-premium/ilustracion-dibujos-animados-kawaii-manzana_125446-643.jpg", descripcion: "Una fruta dulce y crujiente, perfecta para meriendas." },
-      { id: 2, nombre: "Banana", precio: 1.0, imagen: "https://img.freepik.com/fotos-premium/grupo-platanos-caras-dibujadas-ellos-platano-gracioso-es-hermoso-colorido-fondo_1319736-1499.jpg", descripcion: "Rica en potasio, ideal para deportistas." },
-      { id: 3, nombre: "Naranja", precio: 1.2, imagen: "https://static.vecteezy.com/system/resources/previews/006/300/392/non_2x/set-of-collection-smiling-orange-cartoon-mascot-character-illustration-isolated-on-white-background-vector.jpg", descripcion: "Fuente de vitamina C, ideal para jugos." },
-      { id: 4, nombre: "Pera", precio: 1.3, imagen: "https://i.pinimg.com/474x/0c/08/f6/0c08f6827167157727bf923858b511e9.jpg", descripcion: "Suave, jugosa y refrescante." },
-      { id: 5, nombre: "Sandía", precio: 2.5, imagen: "https://img.freepik.com/vector-premium/vector-lindo-estilo-dibujos-animados-sandia_846317-1896.jpg", descripcion: "Perfecta para días calurosos." },
-      { id: 6, nombre: "Kiwi", precio: 1.8, imagen: "https://www.shutterstock.com/image-vector/cute-funny-running-kiwi-fruit-260nw-2427723835.jpg", descripcion: "Exótico y lleno de sabor, con mucha vitamina C." },
+      { id: 1, nombre: "Manzana", precio: 1.5, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", descripcion: "Una fruta dulce y crujiente, perfecta para meriendas." },
+      { id: 2, nombre: "Banana", precio: 1.0, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", descripcion: "Rica en potasio, ideal para deportistas." },
+      { id: 3, nombre: "Naranja", precio: 1.2, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp", descripcion: "Fuente de vitamina C, ideal para jugos." },
+      { id: 4, nombre: "Pera", precio: 1.3, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg", descripcion: "Suave, jugosa y refrescante." },
+      { id: 5, nombre: "Sandía", precio: 2.5, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg", descripcion: "Perfecta para días calurosos." },
+      { id: 6, nombre: "Kiwi", precio: 1.8, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg", descripcion: "Exótico y lleno de sabor, con mucha vitamina C." },
       { id: 7, nombre: "Fresa", precio: 2.0, imagen: "https://i.pinimg.com/736x/33/73/a2/3373a290bac60b9bc444238c6de50ad6.jpg", descripcion: "Pequeñas delicias rojas, ricas en antioxidantes." },
+      { id: 8, nombre: "Piña", precio: 2.2, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg", descripcion: "Tropical, jugosa y refrescante." },
+      { id: 9, nombre: "Mango", precio: 2.3, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg", descripcion: "Dulce, suave y muy popular en verano." }
     ];
 
     const listaProductos = document.getElementById('lista-productos');
