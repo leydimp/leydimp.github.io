@@ -1,49 +1,215 @@
-<section>
-  <h2>Nuestros Productos Frescos</h2>
-  <p>Encuentra las frutas más frescas y deliciosas a los mejores precios.</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>La Casa de las Frutas</title>
+  <style>
+    :root {
+      --fondo: #f8fff2;
+      --texto: #000;
+      --caja: #fff;
+      --acento: #4CAF50;
+    }
 
-  <div style="display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; margin-top: 20px;">
-    
-    <div style="background: white; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); width: 200px; padding: 15px; text-align: center;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Manzana" style="width: 150px; height: 150px; object-fit: contain; border-radius: 50%; border: 3px solid #9698f0; background: #f0f0f0;">
-      <h3 style="color: #1e0b33; margin: 10px 0 5px;">Manzana</h3>
-      <p style="font-weight: bold; color: #4a68b6;">$1.00 / unidad</p>
-      <button style="background-color: #4a68b6; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: background-color 0.3s;">
-        Comprar
-      </button>
-    </div>
-    
-    <div style="background: white; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); width: 200px; padding: 15px; text-align: center;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Banana-yellow-white-background.jpg" alt="Banana" style="width: 150px; height: 150px; object-fit: contain; border-radius: 50%; border: 3px solid #9698f0; background: #f0f0f0;">
-      <h3 style="color: #1e0b33; margin: 10px 0 5px;">Banana</h3>
-      <p style="font-weight: bold; color: #4a68b6;">$1.00 / unidad</p>
-      <button style="background-color: #4a68b6; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: background-color 0.3s;">
-        Comprar
-      </button>
-    </div>
-    
-    <div style="background: white; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); width: 200px; padding: 15px; text-align: center;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Orange-Whole-%26-Split.jpg" alt="Naranja" style="width: 150px; height: 150px; object-fit: contain; border-radius: 50%; border: 3px solid #9698f0; background: #f0f0f0;">
-      <h3 style="color: #1e0b33; margin: 10px 0 5px;">Naranja</h3>
-      <p style="font-weight: bold; color: #4a68b6;">$1.00 / unidad</p>
-      <button style="background-color: #4a68b6; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: background-color 0.3s;">
-        Comprar
-      </button>
-    </div>
+    body.dark {
+      --fondo: #222;
+      --texto: #fff;
+      --caja: #333;
+      --acento: #81C784;
+    }
 
-    <div style="background: white; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); width: 200px; padding: 15px; text-align: center;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Strawberry_on_white_background.jpg" alt="Fresa" style="width: 150px; height: 150px; object-fit: contain; border-radius: 50%; border: 3px solid #9698f0; background: #f0f0f0;">
-      <h3 style="color: #1e0b33; margin: 10px 0 5px;">Fresa</h3>
-      <p style="font-weight: bold; color: #4a68b6;">$2.50 / taza</p>
-      <button style="background-color: #4a68b6; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: background-color 0.3s;">
-        Comprar
-      </button>
-    </div>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--fondo);
+      color: var(--texto);
+      transition: background-color 0.3s, color 0.3s;
+    }
 
+    header {
+      background-color: var(--acento);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .barra {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background: var(--caja);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .barra input {
+      padding: 0.5rem;
+      width: 60%;
+      max-width: 300px;
+    }
+
+    .barra button {
+      padding: 0.5rem 1rem;
+      background: var(--acento);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .producto {
+      background-color: var(--caja);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .producto img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .producto h3 {
+      margin: 0.5rem 0;
+    }
+
+    .producto button {
+      background-color: var(--acento);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .carrito {
+      background-color: var(--caja);
+      padding: 1rem;
+      border-top: 2px solid var(--acento);
+    }
+
+    .carrito h2 {
+      margin-top: 0;
+    }
+
+    .carrito ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .carrito li {
+      margin: 0.5rem 0;
+    }
+
+    .carrito button {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>La Casa de las Frutas</h1>
+    <p>Frutas frescas directo a tu hogar 🍎🍌🍊</p>
+  </header>
+
+  <div class="barra">
+    <input type="text" id="buscar" placeholder="Buscar fruta...">
+    <button onclick="toggleModo()">🌙/☀️</button>
   </div>
-</section>
 
+  <section class="productos" id="lista-productos"></section>
 
+  <section class="carrito">
+    <h2>Carrito de compras 🛒</h2>
+    <ul id="carrito-lista"></ul>
+    <p><strong>Total:</strong> $<span id="total">0</span></p>
+    <button onclick="pagar()">Pagar</button>
+  </section>
+
+  <script>
+    const productos = [
+      { id: 1, nombre: "Manzana", precio: 1.5, imagen: "https://cdn.pixabay.com/photo/2017/01/20/15/06/apples-1995056_960_720.jpg" },
+      { id: 2, nombre: "Banana", precio: 1.0, imagen: "https://cdn.pixabay.com/photo/2018/01/13/19/39/bananas-3088438_960_720.jpg" },
+      { id: 3, nombre: "Naranja", precio: 1.2, imagen: "https://cdn.pixabay.com/photo/2017/01/20/15/06/oranges-1995056_960_720.jpg" },
+      { id: 4, nombre: "Pera", precio: 1.3, imagen: "https://cdn.pixabay.com/photo/2014/12/21/23/28/pear-576417_960_720.png" },
+      { id: 5, nombre: "Sandía", precio: 2.5, imagen: "https://cdn.pixabay.com/photo/2015/06/10/01/14/watermelon-803541_960_720.jpg" },
+    ];
+
+    const listaProductos = document.getElementById('lista-productos');
+    const carritoLista = document.getElementById('carrito-lista');
+    const total = document.getElementById('total');
+    const buscar = document.getElementById('buscar');
+
+    let carrito = [];
+
+    function mostrarProductos(filtro = "") {
+      listaProductos.innerHTML = "";
+      const productosFiltrados = productos.filter(p =>
+        p.nombre.toLowerCase().includes(filtro.toLowerCase())
+      );
+
+      productosFiltrados.forEach(prod => {
+        const div = document.createElement('div');
+        div.classList.add('producto');
+        div.innerHTML = `
+          <img src="${prod.imagen}" alt="${prod.nombre}">
+          <h3>${prod.nombre}</h3>
+          <p>Precio: $${prod.precio.toFixed(2)}</p>
+          <button onclick="agregarAlCarrito(${prod.id})">Agregar al carrito</button>
+        `;
+        listaProductos.appendChild(div);
+      });
+    }
+
+    function agregarAlCarrito(id) {
+      const producto = productos.find(p => p.id === id);
+      carrito.push(producto);
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      carritoLista.innerHTML = '';
+      let totalPrecio = 0;
+      carrito.forEach((item, index) => {
+        totalPrecio += item.precio;
+        const li = document.createElement('li');
+        li.textContent = `${item.nombre} - $${item.precio.toFixed(2)}`;
+        carritoLista.appendChild(li);
+      });
+      total.textContent = totalPrecio.toFixed(2);
+    }
+
+    function pagar() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+      } else {
+        alert("Gracias por tu compra 🍉 ¡Tu pedido está en camino!");
+        carrito = [];
+        actualizarCarrito();
+      }
+    }
+
+    function toggleModo() {
+      document.body.classList.toggle("dark");
+    }
+
+    buscar.addEventListener("input", (e) => {
+      mostrarProductos(e.target.value);
+    });
+
+    mostrarProductos();
+  </script>
   <nav>
     <ul id="menu">
       <li><a href="primera.html">Primera Página</a></li>
