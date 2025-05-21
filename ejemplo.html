@@ -97,6 +97,12 @@
       animation: aparecer 1s ease forwards;
     }
 
+    .emoji {
+      font-size: 48px;
+      margin-top: 10px;
+      transition: transform 0.3s ease;
+    }
+
     @keyframes aparecer {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -162,15 +168,16 @@
   <div class="container">
     <!-- BOTONES DE MENSAJE -->
     <div class="botones">
-      <button onclick="mostrarMensaje('¡Hola, qué gusto verte! 😊')">Saludo</button>
-      <button onclick="mostrarMensaje('Nos vemos pronto 👋')">Despedida</button>
-      <button onclick="mostrarMensaje('¿Todo bien? 🤔')">Pregunta</button>
-      <button onclick="mostrarMensaje('¡Tú puedes lograrlo! 💪')">Motivar</button>
-      <button onclick="mostrarMensaje('¡Oh no! Algo salió mal 🚫')">Error</button>
-      <button onclick="mostrarMensaje('¡Lo lograste! 🎉')">Éxito</button>
+      <button onclick="mostrarMensaje('¡Hola, qué gusto verte!', '😊')">Saludo</button>
+      <button onclick="mostrarMensaje('Nos vemos pronto', '👋')">Despedida</button>
+      <button onclick="mostrarMensaje('¿Todo bien?', '🤔')">Pregunta</button>
+      <button onclick="mostrarMensaje('¡Tú puedes lograrlo!', '💪')">Motivar</button>
+      <button onclick="mostrarMensaje('¡Oh no! Algo salió mal', '🚫')">Error</button>
+      <button onclick="mostrarMensaje('¡Lo lograste!', '🎉')">Éxito</button>
     </div>
 
     <div class="mensaje" id="mensaje"></div>
+    <div class="emoji" id="emoji">😄</div>
 
     <!-- BOTONES DE ESTILO -->
     <div class="estilo">
@@ -204,19 +211,18 @@
   </footer>
 
   <script>
-    function mostrarMensaje(texto) {
+    function mostrarMensaje(texto, emoji) {
       const mensaje = document.getElementById('mensaje');
+      const emojiDiv = document.getElementById('emoji');
       mensaje.textContent = texto;
+      emojiDiv.textContent = emoji;
       mensaje.style.animation = 'none';
       void mensaje.offsetWidth;
       mensaje.style.animation = 'aparecer 1s ease forwards';
+      emojiDiv.style.transform = 'scale(1.5)';
+      setTimeout(() => emojiDiv.style.transform = 'scale(1)', 300);
     }
   </script>
-<div class="sobre-mi">
-  <img src="https://i.pravatar.cc/150?img=8" alt="Mi selfie super seria">
-  <h3>Sobre mí (sin spoilers)</h3>
-  <p>Hola, soy <strong>Leydi Mariluz</strong>. Me gusta hacer reír a las computadoras y programar cosas que no explotan (la mayoría de veces). ¡La creatividad es mi superpoder secreto! 🧠⚡</p>
-  <p><strong>Celular:</strong> +51 987 654 321 📱</p>
-</div>
+
 </body>
 </html>
