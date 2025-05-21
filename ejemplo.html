@@ -2,210 +2,163 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Ejemplo Creativo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Presentación Personal</title>
   <link rel="icon" href="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp" />
+  <link rel="stylesheet" href="css/presentacion.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f8ff;
-      margin: 0;
-      padding: 0;
-      transition: all 0.5s ease;
+    .animate {
+      transition: all 0.3s ease-in-out;
     }
-
-    header {
-      background: linear-gradient(to right, #a18cd1, #fbc2eb);
-      color: white;
-      text-align: center;
-      padding: 30px 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    header img {
-      width: 80px;
-      animation: girar 4s linear infinite;
-    }
-
-    @keyframes girar {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    nav {
-      background-color: #7e57c2;
-      padding: 10px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
-    }
-    nav li {
-      margin: 0 15px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #ffeb3b;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-    .botones, .estilo, .subtitulos {
-      margin: 30px 0;
-      text-align: center;
-    }
-    button {
-      padding: 12px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 8px;
-      background-color: #7e57c2;
-      color: white;
-      cursor: pointer;
-      font-size: 1em;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-    button:hover {
+    .animate:hover {
       transform: scale(1.05);
-      background-color: #5e35b1;
     }
-
-    .mensaje {
-      font-size: 26px;
-      color: #333;
-      font-weight: bold;
-      margin-top: 20px;
-      animation: aparecer 1s ease forwards;
-    }
-    .emoji {
-      font-size: 48px;
-      margin-top: 10px;
-      transition: transform 0.3s ease;
-    }
-    @keyframes aparecer {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .subtitulo {
-      font-size: 22px;
-      margin: 10px;
-      color: #444;
-      transition: color 0.3s ease;
-    }
-    .galeria {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 40px;
-    }
-    .galeria img {
-      width: 220px;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-    .galeria img:hover {
-      transform: scale(1.1);
-    }
-    footer {
-      background-color: #ab47bc;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
+    .text-purple {
+      color: #6f42c1;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp" alt="Logo SENATI">
-    <h1 id="titulo">Mi Página de Ejemplo Interactiva</h1>
-    <p>Explora botones, estilos, animaciones y más.</p>
-  </header>
-
-  <nav>
-    <ul id="menu">
-      <li><a href="cuarta.html">Cuarta Página</a></li>
-      <li><a href="ejemplo.html">Ejemplo</a></li>
-      <li><a href="entregable.html">Entregable</a></li>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="quinta.html">Quinta Página</a></li>
-      <li><a href="presentacion.html">Presentación Personal</a></li>
-      <li><a href="segunda.html">Segunda Página</a></li>
-      <li><a href="sexta.html">Sexta Página web</a></li>
-      <li><a href="tercera.html">Tercera Página</a></li>
-    </ul>
-  </nav>
-
-  <div class="container">
-    <!-- BOTONES DE MENSAJE -->
-    <div class="botones">
-      <button onclick="mostrarMensaje('¡Hola, qué gusto verte!', '😊')">Saludo</button>
-      <button onclick="mostrarMensaje('Nos vemos pronto', '👋')">Despedida</button>
-      <button onclick="mostrarMensaje('¿Todo bien?', '🤔')">Pregunta</button>
-      <button onclick="mostrarMensaje('¡Tú puedes lograrlo!', '💪')">Motivar</button>
-      <button onclick="mostrarMensaje('¡Oh no! Algo salió mal', '🚫')">Error</button>
-      <button onclick="mostrarMensaje('¡Lo lograste!', '🎉')">Éxito</button>
-    </div>
-
-    <div class="mensaje" id="mensaje"></div>
-    <div class="emoji" id="emoji">😄</div>
-
-    <!-- BOTONES DE ESTILO -->
-    <div class="estilo">
-      <button onclick="document.body.style.backgroundColor='#fce4ec'">Fondo Rosado</button>
-      <button onclick="document.body.style.backgroundColor='#e8f5e9'">Fondo Verde Claro</button>
-      <button onclick="document.body.style.fontFamily='Comic Sans MS'">Fuente Divertida</button>
-      <button onclick="document.body.style.fontSize='20px'">Texto Grande</button>
-      <button onclick="document.body.style.color='#3e2723'">Texto Marrón</button>
-      <button onclick="document.getElementById('titulo').style.color='#e91e63'">Color del Título</button>
-    </div>
-
-    <!-- SUBTÍTULOS -->
-    <div class="subtitulos">
-      <h2 class="subtitulo" id="sub1">Subtítulo 1</h2>
-      <button onclick="document.getElementById('sub1').textContent='Subtítulo actualizado 💡'">Actualizar Subtítulo 1</button>
-
-      <h2 class="subtitulo" id="sub2">Subtítulo 2</h2>
-      <button onclick="document.getElementById('sub2').textContent='Otro título nuevo 🌟'">Actualizar Subtítulo 2</button>
-    </div>
-
-    <!-- GALERÍA -->
-    <div class="galeria">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Creatividad">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html"><i class="bi bi-house-door-fill"></i> Inicio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="presentacion.html"><i class="bi bi-person-badge"></i> Presentación</a></li>
+        <li class="nav-item"><a class="nav-link" href="segunda.html"><i class="bi bi-file-earmark"></i> Segunda Página</a></li>
+        <li class="nav-item"><a class="nav-link" href="tercera.html"><i class="bi bi-file-earmark"></i> Tercera Página</a></li>
+        <li class="nav-item"><a class="nav-link" href="cuarta.html"><i class="bi bi-file-earmark"></i> Cuarta Página</a></li>
+        <li class="nav-item"><a class="nav-link" href="quinta.html"><i class="bi bi-file-earmark"></i> Quinta Página</a></li>
+        <li class="nav-item"><a class="nav-link" href="sexta.html"><i class="bi bi-globe"></i> Sexta Página</a></li>
+        <li class="nav-item"><a class="nav-link" href="ejemplo.html"><i class="bi bi-lightbulb"></i> Ejemplo</a></li>
+        <li class="nav-item"><a class="nav-link" href="entregable.html"><i class="bi bi-archive-fill"></i> Entregable</a></li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <footer>
-    <p>© 2025 SENATI Todos los Derechos Reservados | Leydi Mariluz</p>
-  </footer>
+<!-- HEADER -->
+<header class="bg-primary text-white text-center py-5">
+  <h1 class="fw-bold">👩‍💻 ¡Hola! Soy Leydi Mariluz</h1>
+  <p class="lead">Estudiante de Ingeniería de Software apasionada por la tecnología 💡</p>
+  <img src="https://i.pinimg.com/originals/9a/20/8d/9a208df1c9b5f191e731f1986ae3499b.gif" alt="GIF divertido" width="100">
+</header>
 
-  <script>
-    function mostrarMensaje(texto, emoji) {
-      const mensaje = document.getElementById('mensaje');
-      const emojiDiv = document.getElementById('emoji');
-      mensaje.textContent = texto;
-      emojiDiv.textContent = emoji;
-      mensaje.style.animation = 'none';
-      void mensaje.offsetWidth;
-      mensaje.style.animation = 'aparecer 1s ease forwards';
-      emojiDiv.style.transform = 'scale(1.5)';
-      setTimeout(() => emojiDiv.style.transform = 'scale(1)', 200);
-    }
-  </script>
+<!-- SOBRE MÍ -->
+<section class="container my-5">
+  <div class="row align-items-center">
+    <div class="col-md-4 text-center mb-4">
+      <img src="https://i.imgur.com/4IX4IQ2.jpg" class="img-fluid rounded shadow animate" alt="Foto de perfil" style="max-width: 200px;" />
+    </div>
+    <div class="col-md-8">
+      <h2>🎯 Sobre mí</h2>
+      <p>¡Hola nuevamente! Soy una estudiante apasionada por el desarrollo web y el mundo de la programación. Me encanta crear sitios que sean tanto funcionales como visualmente atractivos.</p>
+      <p>✨ Curiosa, creativa y con ganas de aprender algo nuevo todos los días. Sueño con aportar soluciones innovadoras en el mundo digital 🚀.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">💼 Habilidades</h2>
+    <div class="row text-center">
+      <div class="col-md-3 mb-4 animate">
+        <i class="bi bi-code-slash fs-1 text-primary"></i>
+        <h5>HTML & CSS</h5>
+        <p>Diseños atractivos y responsivos 📱</p>
+      </div>
+      <div class="col-md-3 mb-4 animate">
+        <i class="bi bi-laptop fs-1 text-success"></i>
+        <h5>JavaScript</h5>
+        <p>Interacción mágica en la web ✨</p>
+      </div>
+      <div class="col-md-3 mb-4 animate">
+        <i class="bi bi-git fs-1 text-danger"></i>
+        <h5>Git & GitHub</h5>
+        <p>Organización y control total 🚀</p>
+      </div>
+      <div class="col-md-3 mb-4 animate">
+        <i class="bi bi-braces fs-1 text-info"></i>
+        <h5>Java</h5>
+        <p>Lógica poderosa con objetos 🧠</p>
+      </div>
+      <div class="col-md-3 mb-4 animate">
+        <i class="bi bi-diagram-3 fs-1 text-warning"></i>
+        <h5>Interfaces</h5>
+        <p>Prototipos bonitos con Figma 🎨</p>
+      </div>
+      <div class="col-md-3 mb-4 animate">
+        <i class="bi bi-database fs-1 text-secondary"></i>
+        <h5>MySQL</h5>
+        <p>Consultas limpias, datos claros 📊</p>
+      </div>
+      <div class="col-md-3 mb-4 animate">
+        <i class="bi bi-bootstrap fs-1 text-purple"></i>
+        <h5>Bootstrap</h5>
+        <p>Diseño rápido y elegante ⚡</p>
+      </div>
+      <div class="col-md-3 mb-4 animate">
+        <i class="bi bi-translate fs-1 text-dark"></i>
+        <h5>Inglés Técnico</h5>
+        <p>Documentación sin barreras 🌎</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section class="container my-5">
+  <h2 class="text-center mb-4">🚀 Proyectos Destacados</h2>
+  <div class="row">
+    <div class="col-md-6 animate">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title">🌐 Página Web Personal</h5>
+          <p class="card-text">Un sitio hecho desde cero para mostrar mi estilo, habilidades y creatividad web.</p>
+          <a href="#" class="btn btn-outline-primary btn-sm">Ver proyecto</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 animate">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title">📋 Sistema de Registro</h5>
+          <p class="card-text">Aplicación en Java con interfaz gráfica para registrar y gestionar estudiantes.</p>
+          <a href="#" class="btn btn-outline-success btn-sm">Ver proyecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="bg-primary text-white py-5">
+  <div class="container text-center">
+    <h2 class="mb-4">📞 ¡Conectemos!</h2>
+    <p><i class="bi bi-envelope-fill"></i> leydi.mariluz@email.com</p>
+    <p><i class="bi bi-phone-fill"></i> +51 957 024 712</p>
+    <p><i class="bi bi-linkedin"></i> <a href="https://www.linkedin.com" class="text-white text-decoration-underline" target="_blank">Perfil en LinkedIn</a></p>
+    <a href="mailto:leydi.mariluz@email.com" class="btn btn-light mt-3 animate"><i class="bi bi-send-fill"></i> Escríbeme</a>
+  </div>
+</section>
+
+<!-- PIE DE PÁGINA -->
+<footer class="bg-dark text-white text-center py-3">
+  <p>💻 &copy; 2025 Leydi Mariluz. Hecho con amor, pasión y muchos tags HTML 🧡</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
+
 
