@@ -34,6 +34,21 @@
       text-align: center;
     }
 
+    /* Imagen menú principal debajo del header */
+    .menu-principal {
+      width: 100%;
+      max-height: 180px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .menu-principal img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      border-bottom: 3px solid var(--acento);
+    }
+
     .barra {
       display: flex;
       justify-content: space-between;
@@ -41,12 +56,15 @@
       padding: 1rem;
       background: var(--caja);
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     .barra input {
       padding: 0.5rem;
       width: 60%;
       max-width: 300px;
+      font-size: 1rem;
     }
 
     .barra button {
@@ -56,11 +74,12 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 1rem;
     }
 
     .productos {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 1.5rem;
       padding: 2rem;
     }
@@ -79,10 +98,11 @@
     }
 
     .producto img {
-      width: 100%;
-      max-height: 150px;
+      width: 180px;
+      height: 180px;
       object-fit: cover;
       border-radius: 10px;
+      margin-bottom: 0.5rem;
     }
 
     .producto h3 {
@@ -96,21 +116,28 @@
       padding: 0.5rem 1rem;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 1rem;
     }
 
     .carrito {
       background-color: var(--caja);
       padding: 1rem;
       border-top: 2px solid var(--acento);
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 10px;
     }
 
     .carrito ul {
       list-style: none;
       padding: 0;
+      max-height: 180px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
     }
 
     .carrito li {
       margin: 0.5rem 0;
+      font-size: 1rem;
     }
 
     .extra {
@@ -124,16 +151,39 @@
       margin-top: 0;
     }
 
+    .medios-pago {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .medios-pago li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .medios-pago li img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
     footer {
       text-align: center;
       background: var(--acento);
       color: white;
       padding: 2rem 1rem;
+      margin-top: 2rem;
     }
 
     footer a {
       color: white;
       text-decoration: underline;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -142,6 +192,10 @@
     <h1>La Casa de las Frutas</h1>
     <p>Frutas frescas directo a tu hogar 🍓🍍🍇</p>
   </header>
+
+  <div class="menu-principal">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0kCXtKp-Yx-fVu-9CfjubYkU0XFWA1NQIRg&s" alt="Menú principal frutas" />
+  </div>
 
   <div class="barra">
     <input type="text" id="buscar" placeholder="Buscar fruta...">
@@ -165,18 +219,18 @@
   <section class="extra">
     <h2>Contáctanos 📞</h2>
     <p>📧 Email: contacto@casadelasfrutas.com</p>
-    <p>📱 WhatsApp: +51 987 654 321</p>
-    <p>📍 Dirección: Av. Frutal 123, Lima, Perú</p>
+    <p>📱 WhatsApp: +51 957 024 712</p>
+    <p>📍 Dirección: Av. Frutal 123, Puno, Perú</p>
   </section>
 
   <section class="extra">
     <h2>Medios de pago 💳</h2>
-    <p>Aceptamos:</p>
-    <ul>
-      <li>✅ Tarjetas de crédito y débito</li>
-      <li>✅ Yape y Plin</li>
-      <li>✅ Transferencias bancarias</li>
-      <li>✅ Pago contra entrega (Lima Metropolitana)</li>
+    <ul class="medios-pago">
+      <li><img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Tarjeta"> Tarjetas de crédito y débito</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Yape.png" alt="Yape"> Yape</li>
+      <li><img src="https://play-lh.googleusercontent.com/n6CGmC3cSFnIUgFlLMsXsLBAuE-0yWrEKoQ0D8fES1dL6lTRU3n6AF9X4LnmcGqU0w" alt="Plin"> Plin</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/1885/1885396.png" alt="Transferencia"> Transferencias bancarias</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/1486/1486435.png" alt="Entrega"> Pago contra entrega</li>
     </ul>
   </section>
 
@@ -214,9 +268,9 @@
         const div = document.createElement('div');
         div.classList.add('producto');
         div.innerHTML = `
-          <img src="${prod.imagen}" alt="${prod.nombre}" onclick="verDetalle(${prod.id})">
+          <img src="${prod.imagen}" alt="${prod.nombre}" title="${prod.descripcion}" onclick="verDetalle(${prod.id})" />
           <h3>${prod.nombre}</h3>
-          <p>Precio: $${prod.precio.toFixed(2)}</p>
+          <p>$${prod.precio.toFixed(2)}</p>
           <button onclick="agregarAlCarrito(${prod.id})">Agregar al carrito</button>
         `;
         listaProductos.appendChild(div);
@@ -225,46 +279,54 @@
 
     function agregarAlCarrito(id) {
       const producto = productos.find(p => p.id === id);
-      carrito.push(producto);
+      const itemCarrito = carrito.find(item => item.id === id);
+
+      if (itemCarrito) {
+        itemCarrito.cantidad++;
+      } else {
+        carrito.push({ ...producto, cantidad: 1 });
+      }
       actualizarCarrito();
     }
 
     function actualizarCarrito() {
-      carritoLista.innerHTML = '';
-      let totalPrecio = 0;
+      carritoLista.innerHTML = "";
+      let sumaTotal = 0;
       carrito.forEach(item => {
-        totalPrecio += item.precio;
         const li = document.createElement('li');
-        li.textContent = `${item.nombre} - $${item.precio.toFixed(2)}`;
+        li.textContent = `${item.nombre} x ${item.cantidad} - $${(item.precio * item.cantidad).toFixed(2)}`;
         carritoLista.appendChild(li);
+        sumaTotal += item.precio * item.cantidad;
       });
-      total.textContent = totalPrecio.toFixed(2);
+      total.textContent = sumaTotal.toFixed(2);
     }
 
     function pagar() {
-      if (carrito.length === 0) {
-        alert("Tu carrito está vacío.");
-      } else {
-        alert("Gracias por tu compra 🍉 ¡Tu pedido está en camino!");
-        carrito = [];
-        actualizarCarrito();
+      if(carrito.length === 0){
+        alert("El carrito está vacío. Agrega productos para pagar.");
+        return;
       }
-    }
-
-    function toggleModo() {
-      document.body.classList.toggle("dark");
+      alert(`Gracias por su compra. Total a pagar: $${total.textContent}`);
+      carrito = [];
+      actualizarCarrito();
     }
 
     function verDetalle(id) {
-      const prod = productos.find(p => p.id === id);
-      alert(`${prod.nombre}\n\n${prod.descripcion}\n\nPrecio: $${prod.precio.toFixed(2)}`);
+      const producto = productos.find(p => p.id === id);
+      alert(`${producto.nombre}\n\n${producto.descripcion}\n\nPrecio: $${producto.precio.toFixed(2)}`);
     }
 
-    buscar.addEventListener("input", (e) => {
-      mostrarProductos(e.target.value);
+    buscar.addEventListener('input', () => {
+      mostrarProductos(buscar.value);
     });
 
+    function toggleModo() {
+      document.body.classList.toggle('dark');
+    }
+
+    // Inicializar listado
     mostrarProductos();
   </script>
 </body>
 </html>
+
