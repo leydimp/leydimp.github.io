@@ -1,54 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Frutería Natural</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="description" content="Página de la tienda de frutas">
+  <title>Frutería Natural - Página</title>
+  <link rel="icon" href="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #1e0b33;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #9698f0;
+      padding: 10px;
+    }
+    nav ul {
+      list-style-type: none;
+      padding-left: 0;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      margin: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #4a68b6;
+    }
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+    footer {
+      background-color: #497db1;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-
   <header>
+    <img src="https://logowik.com/content/uploads/images/senati-peru5849.logowik.com.webp" alt="Logo SENATI" width="100">
     <h1>🍓 Frutería Natural</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="reclamos.html">Libro de Reclamaciones</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <section class="bienvenida">
-    <h2>¡Bienvenido a tu tienda saludable!</h2>
-    <p>Encuentra frutas frescas, naturales y al mejor precio. Cultivadas con cuidado y listas para llegar a tu mesa.</p>
-    <img src="img/frutas-banner.jpg" alt="Frutas frescas" class="banner">
-  </section>
-
-  <section class="ofertas">
-    <h3>Frutas Destacadas</h3>
-    <ul class="productos">
-      <li>
-        <img src="img/manzana.jpg" alt="Manzana">
-        <h4>Manzana</h4>
-        <p>Precio: S/ 2.50 por kg</p>
-      </li>
-      <li>
-        <img src="img/platano.jpg" alt="Plátano">
-        <h4>Plátano</h4>
-        <p>Precio: S/ 1.80 por kg</p>
-      </li>
-      <li>
-        <img src="img/naranja.jpg" alt="Naranja">
-        <h4>Naranja</h4>
-        <p>Precio: S/ 2.00 por kg</p>
-      </li>
+  <nav>
+    <ul id="menu">
+      <li><a href="primera.html">Primera Página</a></li>
+      <li><a href="segunda.html">Segunda Página</a></li>
+      <li><a href="tercera.html">Tercera Página</a></li>
+      <li><a href="cuarta.html">Cuarta Página</a></li>
+      <li><a href="quinta.html">Quinta Página</a></li>
+      <li><a href="sexta.html">Sexta Página web</a></li>
+      <li><a href="presentacion.html">Presentación Personal</a></li>
+      <li><a href="ejemplo.html">Ejemplo</a></li>
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="entregable.html">Entregable</a></li>
     </ul>
+  </nav>
+
+  <section>
+    <h2>Bienvenido a la Frutería Natural</h2>
+    <p>Aquí puedes agregar el contenido de cada página.</p>
   </section>
 
   <footer>
     <p>&copy; 2025 Frutería Natural. Todos los derechos reservados.</p>
   </footer>
-
 </body>
 </html>
