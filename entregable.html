@@ -354,7 +354,34 @@
       <button onclick="pagar()">Pagar</button>
     </section>
   </main>
-     <div class="extras-container" aria-label="Sección adicional">
+  <footer>
+    <section id="seccion-reclamos" class="formulario oculto">
+  <h2>📖 Libro de Reclamos</h2>
+  <form id="reclamoForm" onsubmit="enviarReclamo(event)">
+    <label>
+      Nombre completo:
+      <input type="text" name="nombre" required>
+    </label><br>
+    <label>
+      Correo electrónico:
+      <input type="email" name="correo" required>
+    </label><br>
+    <label>
+      DNI:
+      <input type="text" name="dni" maxlength="8" required>
+    </label><br>
+    <label>
+      Lugar de nacimiento:
+      <input type="text" name="lugar" required>
+    </label><br>
+    <label>
+      Tu reclamo:
+      <textarea name="reclamo" rows="4" required></textarea>
+    </label><br>
+    <button type="submit">Enviar reclamo</button>
+    <button type="button" onclick="cerrarFormularioReclamos()">❌ Cerrar formulario</button>
+    <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
+         <div class="extras-container" aria-label="Sección adicional">
     <section class="extra" aria-label="Recomendados para ti">
       <h2>Recomendados para ti 🥝🍒</h2>
       <p>Basado en tus gustos, te recomendamos probar el kiwi y las fresas, ricos en antioxidantes y vitamina C.</p>
@@ -400,33 +427,6 @@
     </section>
   </div>
   </footer>
-  <footer>
-    <section id="seccion-reclamos" class="formulario oculto">
-  <h2>📖 Libro de Reclamos</h2>
-  <form id="reclamoForm" onsubmit="enviarReclamo(event)">
-    <label>
-      Nombre completo:
-      <input type="text" name="nombre" required>
-    </label><br>
-    <label>
-      Correo electrónico:
-      <input type="email" name="correo" required>
-    </label><br>
-    <label>
-      DNI:
-      <input type="text" name="dni" maxlength="8" required>
-    </label><br>
-    <label>
-      Lugar de nacimiento:
-      <input type="text" name="lugar" required>
-    </label><br>
-    <label>
-      Tu reclamo:
-      <textarea name="reclamo" rows="4" required></textarea>
-    </label><br>
-    <button type="submit">Enviar reclamo</button>
-    <button type="button" onclick="cerrarFormularioReclamos()">❌ Cerrar formulario</button>
-    <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
   </form>
 </section>
 
