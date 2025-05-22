@@ -382,95 +382,53 @@
     </section>
   </main>
 <footer>
-  <section id="seccion-reclamos" class="formulario oculto">
-    <h2>📖 Libro de Reclamos</h2>
-    <form id="reclamoForm" onsubmit="enviarReclamo(event)">
-      <label>Nombre completo:
-        <input type="text" name="nombre" required>
-      </label><br>
-      <label>Correo electrónico:
-        <input type="email" name="correo" required>
-      </label><br>
-      <label>DNI:
-        <input type="text" name="dni" maxlength="8" required>
-      </label><br>
-      <label>Lugar de nacimiento:
-        <input type="text" name="lugar" required>
-      </label><br>
-      <label>Tu reclamo:
-        <textarea name="reclamo" rows="4" required></textarea>
-      </label><br>
-      <button type="submit">Enviar reclamo</button>
-      <button type="button" onclick="cerrarFormularioReclamos()">❌ Cerrar formulario</button>
-    </form>
-  </section>
+ <section class="info-empresa">
+  <h2>Acerca de ToorFood</h2>
+  <p>
+    ToorFood fue creado en el año 2018, dedicado a vender frutas y verduras a miles de personas. 
+    Te ofrecemos productos frescos y saludables para tu familia y hogar.
+  </p>
+</section>
 
-  <div class="extras-container" aria-label="Sección adicional">
-    <section class="extra" aria-label="Recomendados para ti">
-      <h2>Recomendados para ti 🥝🍒</h2>
-      <p>Basado en tus gustos, te recomendamos probar el kiwi y las fresas, ricos en antioxidantes y vitamina C.</p>
-    </section>
+<section class="ofertas-novedades">
+  <h2>Ofertas y Novedades</h2>
+  <ul>
+    <li>🍎 Manzanas frescas con 20% de descuento esta semana.</li>
+    <li>🍌 Bananas orgánicas recién llegadas a stock.</li>
+    <li>🥦 Nueva variedad de verduras para preparar tus platillos favoritos.</li>
+    <li>🍓 Promoción especial: Compra 2 kilos de fresas y lleva 1 kilo gratis.</li>
+  </ul>
+</section>
 
-    <section class="extra" aria-label="Contáctanos">
-      <h2>Contáctanos 📞</h2>
-      <p>📧 Email: contacto@casadelasfrutas.com</p>
-      <p>📱 WhatsApp: +51 957 024 712</p>
-      <p>📍 Dirección: Av. Frutal 123, Puno, Perú</p>
-    </section>
-
-    <section class="extra" aria-label="Medios de pago" id="medios">
-      <h2>Medios de pago 💳</h2>
-      <ul class="medios-pago">
-        <li><img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Tarjeta"> Tarjetas de crédito y débito</li>
-        <li><img src="https://marketing-peru.beglobal.biz/wp-content/uploads/2025/01/logo-yape-bolivia.jpeg" alt="Yape"> Yape</li>
-        <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN94zsmpdqN7p2ugqBBrPygthpvfIsDB4QJA&s" alt="Plin"> Plin</li>
-      </ul>
-
-<nav>
-  <a href="#formulario-pago">💳 Medios de Pago</a>
-</nav>
-<section id="formulario-pago" class="formulario-pago">
-  <h3>Realizar pago</h3>
-  <form onsubmit="procesarPago(event)">
-    <label>Nombre en tarjeta:
-      <input type="text" required>
-    </label>
-    <label>Número de tarjeta:
-      <input type="text" maxlength="16" required>
-    </label>
-    <label>Fecha de vencimiento:
-      <input type="month" required>
-    </label>
-    <label>Código CVV:
-      <input type="text" maxlength="3" required>
-    </label>
-    <button type="submit">Pagar ahora</button>
-  </form>
-
-      </section>
-    </section>
-  </div>
 
   <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
 </footer>
 
   <script>
     const productos = [
-      { id: 1, nombre: "Manzana", precio: 1.0, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", descripcion: "Una fruta dulce y crujiente, perfecta para meriendas." },
-      { id: 2, nombre: "Banana", precio: 1.0, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", descripcion: "Rica en potasio, ideal para deportistas." },
-      { id: 3, nombre: "Naranja", precio: 1.1, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp", descripcion: "Fuente de vitamina C, ideal para jugos." },
-      { id: 4, nombre: "Pera", precio: 1.3, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg", descripcion: "Suave, jugosa y refrescante." },
-      { id: 5, nombre: "Sandía", precio: 2.5, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg", descripcion: "Perfecta para días calurosos." },
-      { id: 6, nombre: "Kiwi", precio: 1.8, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg", descripcion: "Exótico y lleno de sabor, con mucha vitamina C." },
-      { id: 7, nombre: "Fresa", precio: 2.0, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487", descripcion: "Pequeñas delicias rojas, ricas en antioxidantes." },
-      { id: 8, nombre: "Piña", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg", descripcion: "Tropical, jugosa y refrescante." },
-      { id: 9, nombre: "Mango", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg", descripcion: "Dulce y aromático, muy popular." },
-      { id: 10, nombre: "Cereza", precio: 3.0, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN", descripcion: "Pequeñas y dulces, para un gusto especial." },
-      { id: 11, nombre: "Melón", precio: 1.5, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s", descripcion: "Dulce y refrescante, ideal para verano." },
-      { id: 12, nombre: "Uva", precio: 3.4, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png", descripcion: "Pequeñas y jugosas, para comer o hacer jugo." },
-      { id: 13, nombre: "Papaya", precio: 1.7, imagen: "https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg", descripcion: "Ideal para la digestión y desayuno." },
-      { id: 14, nombre: "Coco", precio: 2.1, imagen: "https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg", descripcion: "Tropical, con agua y carne nutritiva." }
-    ];
+  { id: 1, nombre: "Manzana", precio: 1.0, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", descripcion: "Una fruta dulce y crujiente, perfecta para meriendas." },
+  { id: 2, nombre: "Banana", precio: 1.0, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", descripcion: "Rica en potasio, ideal para deportistas." },
+  { id: 3, nombre: "Naranja", precio: 1.1, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp", descripcion: "Fuente de vitamina C, ideal para jugos." },
+  { id: 4, nombre: "Pera", precio: 1.3, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg", descripcion: "Suave, jugosa y refrescante." },
+  { id: 5, nombre: "Sandía", precio: 2.5, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg", descripcion: "Perfecta para días calurosos." },
+  { id: 6, nombre: "Kiwi", precio: 1.8, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg", descripcion: "Exótico y lleno de sabor, con mucha vitamina C." },
+  { id: 7, nombre: "Fresa", precio: 2.0, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487", descripcion: "Pequeñas delicias rojas, ricas en antioxidantes." },
+  { id: 8, nombre: "Piña", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg", descripcion: "Tropical, jugosa y refrescante." },
+  { id: 9, nombre: "Mango", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg", descripcion: "Dulce y aromático, muy popular." },
+  { id: 10, nombre: "Cereza", precio: 3.0, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN", descripcion: "Pequeñas y dulces, para un gusto especial." },
+  { id: 11, nombre: "Melón", precio: 1.5, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s", descripcion: "Dulce y refrescante, ideal para verano." },
+  { id: 12, nombre: "Uva", precio: 3.4, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png", descripcion: "Pequeñas y jugosas, para comer o hacer jugo." },
+  { id: 13, nombre: "Papaya", precio: 1.7, imagen: "https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg", descripcion: "Ideal para la digestión y desayuno." },
+  { id: 14, nombre: "Coco", precio: 2.1, imagen: "https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg", descripcion: "Tropical, con agua y carne nutritiva." },
+
+  // Verduras nuevas agregadas:
+  { id: 15, nombre: "Zanahoria", precio: 1.2, imagen: "https://upload.wikimedia.org/wikipedia/commons/4/43/Carrots_of_many_colors.jpg", descripcion: "Crujiente y dulce, rica en vitamina A." },
+  { id: 16, nombre: "Tomate", precio: 1.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg", descripcion: "Ideal para ensaladas y salsas." },
+  { id: 17, nombre: "Lechuga", precio: 0.8, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/92/Lechuga_roja.jpg", descripcion: "Fresca y crujiente, base perfecta para ensaladas." },
+  { id: 18, nombre: "Brócoli", precio: 2.5, imagen: "https://upload.wikimedia.org/wikipedia/commons/0/03/Broccoli_and_cross_section_edit.jpg", descripcion: "Alto en fibra y vitaminas, excelente para cocinar." },
+  { id: 19, nombre: "Pepino", precio: 1.1, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/99/Cucumber_and_cross_section.jpg", descripcion: "Refrescante y bajo en calorías." }
+];
+
     let carrito = [];
 
     // Render productos
@@ -516,22 +474,29 @@
     }
 
     // Información de cada fruta para la alerta
-    const infoFrutas = {
-      "Manzana": "La manzana es buena para la digestión, ayuda a controlar el azúcar en sangre y es rica en antioxidantes.",
-      "Banana": "La banana aporta energía rápida, potasio para el corazón y es buena para la digestión.",
-      "Naranja": "La naranja fortalece el sistema inmune, es rica en vitamina C y ayuda a prevenir resfriados.",
-      "Pera": "La pera es hidratante, ayuda a la digestión y es buena para la piel.",
-      "Sandía": "La sandía hidrata, aporta antioxidantes y ayuda a la salud del corazón.",
-      "Kiwi": "El kiwi es rico en vitamina C, ayuda a la digestión y fortalece el sistema inmunológico.",
-      "Fresa": "La fresa es antioxidante, ayuda a la salud del corazón y mejora la piel.",
-      "Piña": "La piña ayuda a la digestión, reduce la inflamación y es rica en vitamina C.",
-      "Mango": "El mango es rico en vitaminas A y C, ayuda a la digestión y fortalece la vista.",
-      "Cereza": "La cereza reduce inflamaciones, mejora el sueño y es antioxidante.",
-      "Melón": "El melón hidrata, aporta vitaminas A y C, y es bueno para la piel.",
-      "Uva": "La uva mejora la circulación, es antioxidante y ayuda a la salud del corazón.",
-      "Papaya": "La papaya ayuda a la digestión, fortalece el sistema inmunológico y es antioxidante.",
-      "Coco": "El coco hidrata, aporta energía y mejora la digestión."
-    };
+    const infoProductos = {
+  "Manzana": "La manzana es buena para la digestión, ayuda a controlar el azúcar en sangre y es rica en antioxidantes.",
+  "Banana": "La banana aporta energía rápida, potasio para el corazón y es buena para la digestión.",
+  "Naranja": "La naranja fortalece el sistema inmune, es rica en vitamina C y ayuda a prevenir resfriados.",
+  "Pera": "La pera es hidratante, ayuda a la digestión y es buena para la piel.",
+  "Sandía": "La sandía hidrata, aporta antioxidantes y ayuda a la salud del corazón.",
+  "Kiwi": "El kiwi es rico en vitamina C, ayuda a la digestión y fortalece el sistema inmunológico.",
+  "Fresa": "La fresa es antioxidante, ayuda a la salud del corazón y mejora la piel.",
+  "Piña": "La piña ayuda a la digestión, reduce la inflamación y es rica en vitamina C.",
+  "Mango": "El mango es rico en vitaminas A y C, ayuda a la digestión y fortalece la vista.",
+  "Cereza": "La cereza reduce inflamaciones, mejora el sueño y es antioxidante.",
+  "Melón": "El melón hidrata, aporta vitaminas A y C, y es bueno para la piel.",
+  "Uva": "La uva mejora la circulación, es antioxidante y ayuda a la salud del corazón.",
+  "Papaya": "La papaya ayuda a la digestión, fortalece el sistema inmunológico y es antioxidante.",
+  "Coco": "El coco hidrata, aporta energía y mejora la digestión.",
+
+  // Verduras añadidas:
+  "Zanahoria": "La zanahoria es rica en betacaroteno, buena para la vista y la piel, y fortalece el sistema inmune.",
+  "Tomate": "El tomate es antioxidante, protege el corazón y mejora la salud de la piel.",
+  "Lechuga": "La lechuga es baja en calorías, buena para la digestión y tiene efectos relajantes.",
+  "Brócoli": "El brócoli fortalece el sistema inmune, es rico en fibra y previene enfermedades.",
+  "Pepino": "El pepino hidrata, ayuda a eliminar toxinas y es bueno para la piel."
+};
 
     // Función agregar al carrito
     function agregarAlCarrito(id) {
