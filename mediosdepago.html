@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Medios de Pago</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    .formulario-pago {
+      max-width: 400px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .mensaje {
+      margin-top: 15px;
+      font-weight: bold;
+      color: green;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <section class="formulario-pago">
+    <h3>Realizar pago</h3>
+    <form id="formPago">
+      <label>Nombre en tarjeta:
+        <input type="text" name="nombre" required />
+      </label>
+      <label>Número de tarjeta:
+        <input type="text" name="numero" maxlength="16" required pattern="\d{16}" title="Ingrese 16 dígitos" />
+      </label>
+      <label>Fecha de vencimiento:
+        <input type="month" name="vencimiento" required />
+      </label>
+      <label>Código CVV:
+        <input type="text" name="cvv" maxlength="3" required pattern="\d{3}" title="Ingrese 3 dígitos" />
+      </label>
+      <button type="submit">Pagar ahora</button>
+    </form>
+    <div class="mensaje" id="mensajePago"></div>
+  </section>
+
+  <script>
+    const formPago = document.getElementById('formPago');
+    const mensajePago = document.getElementById('mensajePago');
+
+    formPago.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita recargar la página
+
+      // Aquí podrías agregar validaciones extras o enviar datos a un servidor
+      mensajePago.textContent = 'Pago procesado correctamente. ¡Gracias por su compra!';
+
+      // Limpiar formulario después de enviar
+      formPago.reset();
+    });
+  </script>
+</body>
+</html>
