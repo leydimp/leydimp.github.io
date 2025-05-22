@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>La Casa de las Frutas</title>
   <style>
     :root {
@@ -31,8 +31,12 @@
     }
 
     @keyframes magia {
-      0% { background-position: 0%; }
-      100% { background-position: 100%; }
+      0% {
+        background-position: 0%;
+      }
+      100% {
+        background-position: 100%;
+      }
     }
 
     header h1 {
@@ -58,6 +62,8 @@
 
     main {
       padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .frutas {
@@ -67,20 +73,24 @@
       margin-top: 2rem;
     }
 
-    .fruta {
+    .fruta,
+    .producto {
       background-color: var(--caja);
       padding: 1rem;
       border-radius: 15px;
       text-align: center;
       transition: transform 0.2s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
     }
 
-    .fruta:hover {
+    .fruta:hover,
+    .producto:hover {
       transform: scale(1.05);
     }
 
-    .fruta img {
+    .fruta img,
+    .producto img {
       max-width: 100%;
       border-radius: 10px;
     }
@@ -96,7 +106,7 @@
       border-radius: 12px;
       padding: 1.5rem;
       margin: 2rem 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .medios-pago li {
@@ -104,22 +114,25 @@
       margin-bottom: 0.5rem;
     }
 
-    .formulario, .formulario-pago {
+    .formulario,
+    .formulario-pago {
       background: var(--caja);
       border-radius: 10px;
       padding: 1rem;
       margin: 2rem auto;
       max-width: 500px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .formulario label, .formulario-pago label {
+    .formulario label,
+    .formulario-pago label {
       display: block;
       margin-bottom: 0.8rem;
       font-size: 0.95rem;
     }
 
-    .formulario input, .formulario textarea,
+    .formulario input,
+    .formulario textarea,
     .formulario-pago input {
       width: 100%;
       padding: 0.5rem;
@@ -161,12 +174,28 @@
     .juego button:hover {
       background: #ff8800;
     }
+
+    /* Carrito */
+    #carrito {
+      background: var(--caja);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+    }
+
+    #carrito ul {
+      list-style: none;
+      padding: 0;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>🍓 La Casa de las Frutas 🍇</h1>
     <p>Bienvenidos a una tienda mágica de sabores saludables</p>
+ <link rel="icon" href="https://www.casadelafruta.com/wp-content/smush-webp/2023/06/Logo-Casa-de-la-fruta-green.png.webp">
   </header>
 
   <nav>
@@ -179,33 +208,18 @@
   <main>
     <section class="extra">
       <h2>Nuestras Frutas</h2>
-      <div class="frutas">
-        <div class="fruta">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Culinary_fruits_front_view.jpg" alt="Frutas variadas">
-          <h3>Pack Frutal</h3>
-          <p>Incluye manzana, banana, uvas y más. Precio: S/ 15.00</p>
-        </div>
-        <div class="fruta">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Manzana roja">
-          <h3>Manzana</h3>
-          <p>Jugosa y dulce. Precio: S/ 2.00</p>
-        </div>
-        <div class="fruta">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Banana">
-          <h3>Banana</h3>
-          <p>Ideal para energía rápida. Precio: S/ 1.50</p>
-        </div>
-      </div>
+      <!-- Contenedor para renderizar frutas dinámicamente -->
+      <div id="lista-productos" class="frutas"></div>
     </section>
 
-    <section id="seccion-reclamos" class="formulario oculto">
+    <section id="seccion-reclamos" class="formulario oculto" aria-label="Libro de reclamaciones">
       <h2>Libro de Reclamaciones</h2>
       <form onsubmit="enviarReclamo(event)">
         <label>Nombre:
-          <input type="text" required>
+          <input type="text" required />
         </label>
         <label>Correo electrónico:
-          <input type="email" required>
+          <input type="email" required />
         </label>
         <label>Reclamo:
           <textarea required></textarea>
@@ -215,7 +229,7 @@
       </form>
     </section>
 
-    <section id="medios" class="extra">
+    <section id="medios" class="extra" aria-label="Medios de pago">
       <h2>Medios de Pago</h2>
       <ul class="medios-pago">
         <li>💳 Tarjeta de crédito / débito</li>
@@ -224,77 +238,223 @@
       </ul>
     </section>
 
-    <section class="formulario-pago">
+    <section class="formulario-pago" aria-label="Formulario de pago">
       <h3>Realizar pago</h3>
       <form onsubmit="procesarPago(event)">
         <label>Nombre en tarjeta:
-          <input type="text" required>
+          <input type="text" required />
         </label>
         <label>Número de tarjeta:
-          <input type="text" maxlength="16" required>
+          <input type="text" maxlength="16" required />
         </label>
         <label>Fecha de vencimiento:
-          <input type="month" required>
+          <input type="month" required />
         </label>
         <label>Código CVV:
-          <input type="text" maxlength="3" required>
+          <input type="text" maxlength="3" required />
         </label>
         <button type="submit">Pagar ahora</button>
       </form>
     </section>
 
-    <section id="juego" class="juego">
+    <!-- NUEVA SECCIÓN CONTÁCTANOS -->
+    <section class="extra" aria-label="Contáctanos">
+      <h2>Contáctanos 📞</h2>
+      <p>📧 Email: contacto@casadelasfrutas.com</p>
+      <p>📱 WhatsApp: +51 957 024 712</p>
+      <p>📍 Dirección: Av. Frutal 123, Puno, Perú</p>
+    </section>
+
+    <!-- Carrito -->
+    <section id="carrito" aria-label="Carrito de compras">
+      <h2>Tu Carrito</h2>
+      <ul id="carrito-lista"></ul>
+      <p><strong>Total: $<span id="total">0.00</span></strong></p>
+      <button onclick="pagar()">Pagar</button>
+    </section>
+
+    <section id="juego" class="juego" aria-label="Minijuego de adivinar la fruta">
       <h2>🎮 Adivina la Fruta</h2>
-      <img id="imagen-fruta" src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Sombra fruta">
+      <img
+        id="imagen-fruta"
+        src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg"
+        alt="Imagen de fruta misteriosa"
+      />
       <div>
-        <button onclick="verificarRespuesta('Manzana')">🍎 Manzana</button>
-        <button onclick="verificarRespuesta('Banana')">🍌 Banana</button>
-        <button onclick="verificarRespuesta('Pera')">🍐 Pera</button>
+        <button onclick="adivinar('Manzana')">Manzana</button>
+        <button onclick="adivinar('Banana')">Banana</button>
+        <button onclick="adivinar('Naranja')">Naranja</button>
+        <button onclick="adivinar('Pera')">Pera</button>
       </div>
-      <p id="mensaje-juego"></p>
+      <p id="resultado-juego"></p>
     </section>
   </main>
 
   <script>
+    // Modo oscuro
     function toggleModoOscuro() {
       document.body.classList.toggle('modo-oscuro');
     }
 
+    // Mostrar formulario reclamos
     function mostrarFormularioReclamos() {
-      const formulario = document.getElementById('seccion-reclamos');
-      formulario.classList.remove('oculto');
+      document.getElementById('seccion-reclamos').classList.remove('oculto');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
     function cerrarFormularioReclamos() {
-      const formulario = document.getElementById('seccion-reclamos');
-      formulario.classList.add('oculto');
+      document.getElementById('seccion-reclamos').classList.add('oculto');
     }
-
     function enviarReclamo(event) {
       event.preventDefault();
-      alert("✅ Reclamo enviado correctamente. ¡Gracias por contactarnos!");
+      alert('¡Reclamo enviado! Gracias por contactarnos.');
       cerrarFormularioReclamos();
-      event.target.reset();
     }
 
+    // Procesar pago (simulado)
     function procesarPago(event) {
       event.preventDefault();
-      alert("✅ Pago procesado con éxito. ¡Gracias por tu compra!");
+      alert('Pago realizado con éxito. ¡Gracias por tu compra!');
       event.target.reset();
     }
 
-    // Minijuego
-    const frutaCorrecta = 'Manzana';
-    function verificarRespuesta(fruta) {
-      const mensaje = document.getElementById('mensaje-juego');
+    // Datos productos
+    const productos = [
+      { id: 1, nombre: "Manzana", precio: 1.0, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", descripcion: "Una fruta dulce y crujiente, perfecta para meriendas." },
+      { id: 2, nombre: "Banana", precio: 1.0, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", descripcion: "Rica en potasio, ideal para deportistas." },
+      { id: 3, nombre: "Naranja", precio: 1.1, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp", descripcion: "Fuente de vitamina C, ideal para jugos." },
+      { id: 4, nombre: "Pera", precio: 1.3, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg", descripcion: "Suave, jugosa y refrescante." },
+      { id: 5, nombre: "Sandía", precio: 2.5, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg", descripcion: "Perfecta para días calurosos." },
+      { id: 6, nombre: "Kiwi", precio: 1.8, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg", descripcion: "Exótico y lleno de sabor, con mucha vitamina C." },
+      { id: 7, nombre: "Fresa", precio: 2.0, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487", descripcion: "Pequeñas delicias rojas, ricas en antioxidantes." },
+      { id: 8, nombre: "Piña", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg", descripcion: "Tropical, jugosa y refrescante." },
+      { id: 9, nombre: "Mango", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg", descripcion: "Dulce y aromático, muy popular." },
+      { id: 10, nombre: "Cereza", precio: 3.0, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN", descripcion: "Pequeñas y dulces, para un gusto especial." },
+      { id: 11, nombre: "Melón", precio: 1.5, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s", descripcion: "Dulce y refrescante, ideal para verano." },
+      { id: 12, nombre: "Uva", precio: 3.4, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png", descripcion: "Pequeñas y jugosas, para comer o hacer jugo." },
+      { id: 13, nombre: "Papaya", precio: 1.7, imagen: "https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg", descripcion: "Ideal para la digestión y desayuno." },
+      { id: 14, nombre: "Coco", precio: 2.1, imagen: "https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg", descripcion: "Tropical, con agua y carne nutritiva." }
+    ];
+
+    let carrito = [];
+
+    // Render productos en div#lista-productos
+    const listaProductos = document.getElementById('lista-productos');
+    function renderProductos(productosParaMostrar) {
+      listaProductos.innerHTML = '';
+      productosParaMostrar.forEach(producto => {
+        const div = document.createElement('div');
+        div.classList.add('producto');
+        div.title = `Haz clic para ver para qué sirve la ${producto.nombre}`;
+        div.setAttribute('role', 'button');
+        div.setAttribute('tabindex', '0');
+        div.innerHTML = `
+          <img src="${producto.imagen}" alt="Imagen de ${producto.nombre}" loading="lazy" />
+          <h3>${producto.nombre}</h3>
+          <p>${producto.descripcion}</p>
+          <p><strong>Precio: $${producto.precio.toFixed(2)}</strong></p>
+          <button aria-label="Agregar ${producto.nombre} al carrito">Agregar al carrito</button>
+        `;
+        // Evento click en div para mostrar info fruta (menos el botón)
+        div.addEventListener('click', e => {
+          if (e.target.tagName.toLowerCase() === 'button') return;
+          mostrarInfoFruta(producto);
+        });
+        // Accesibilidad con tecla Enter
+        div.addEventListener('keydown', e => {
+          if (e.key === 'Enter') {
+            mostrarInfoFruta(producto);
+          }
+        });
+        // Agregar al carrito botón
+        div.querySelector('button').addEventListener('click', e => {
+          e.stopPropagation();
+          agregarAlCarrito(producto.id);
+        });
+
+        listaProductos.appendChild(div);
+      });
+    }
+
+    // Información para cada fruta
+    const infoFrutas = {
+      "Manzana": "La manzana es buena para la digestión, ayuda a controlar el azúcar en sangre y es rica en antioxidantes.",
+      "Banana": "La banana aporta energía rápida, potasio para el corazón y es buena para la digestión.",
+      "Naranja": "La naranja fortalece el sistema inmune, es rica en vitamina C y ayuda a prevenir resfriados.",
+      "Pera": "La pera es hidratante, ayuda a la digestión y es buena para la piel.",
+      "Sandía": "La sandía hidrata, aporta antioxidantes y ayuda a la salud del corazón.",
+      "Kiwi": "El kiwi es rico en vitamina C, ayuda a la digestión y fortalece el sistema inmunológico.",
+      "Fresa": "La fresa es antioxidante, ayuda a la salud del corazón y mejora la piel.",
+      "Piña": "La piña ayuda a la digestión, reduce la inflamación y es rica en vitamina C.",
+      "Mango": "El mango es rico en vitaminas A y C, ayuda a la digestión y fortalece la vista.",
+      "Cereza": "La cereza reduce inflamaciones, mejora el sueño y es antioxidante.",
+      "Melón": "El melón hidrata, aporta vitaminas A y C, y es bueno para la piel.",
+      "Uva": "La uva mejora la circulación, es antioxidante y ayuda a la salud del corazón.",
+      "Papaya": "La papaya ayuda a la digestión, fortalece el sistema inmunológico y es antioxidante.",
+      "Coco": "El coco hidrata, aporta energía y mejora la digestión."
+    };
+
+    // Mostrar info fruta en alerta
+    function mostrarInfoFruta(producto) {
+      alert(`Para qué es buena la fruta ${producto.nombre}:\n\n${infoFrutas[producto.nombre] || 'Información no disponible.'}`);
+    }
+
+    // Agregar producto al carrito
+    function agregarAlCarrito(id) {
+      carrito.push(id);
+      mostrarCarrito();
+    }
+
+    // Mostrar carrito actualizado
+    function mostrarCarrito() {
+      const ul = document.getElementById('carrito-lista');
+      ul.innerHTML = '';
+      const contProductos = {};
+
+      carrito.forEach(id => {
+        contProductos[id] = (contProductos[id] || 0) + 1;
+      });
+
+      let total = 0;
+
+      for (const id in contProductos) {
+        const producto = productos.find(p => p.id == id);
+        const cantidad = contProductos[id];
+        const precioTotal = producto.precio * cantidad;
+        total += precioTotal;
+
+        const li = document.createElement('li');
+        li.textContent = `${producto.nombre} x${cantidad} - $${precioTotal.toFixed(2)}`;
+        ul.appendChild(li);
+      }
+
+      document.getElementById('total').textContent = total.toFixed(2);
+    }
+
+    // Pagar (vaciar carrito)
+    function pagar() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío. Agrega productos antes de pagar.");
+        return;
+      }
+      alert("¡Gracias por tu compra! Total: $" + document.getElementById('total').textContent);
+      carrito = [];
+      mostrarCarrito();
+    }
+
+    // Juego adivina fruta
+    function adivinar(fruta) {
+      const frutaCorrecta = "Manzana";
+      const resultado = document.getElementById('resultado-juego');
       if (fruta === frutaCorrecta) {
-        mensaje.textContent = "🎉 ¡Correcto! Era una manzana.";
-        mensaje.style.color = "green";
+        resultado.textContent = "¡Correcto! La fruta es Manzana 🍎";
       } else {
-        mensaje.textContent = "❌ Incorrecto. Intenta de nuevo.";
-        mensaje.style.color = "red";
+        resultado.textContent = "Intenta otra vez.";
       }
     }
+
+    // Inicialización
+    renderProductos(productos);
+    mostrarCarrito();
   </script>
 </body>
 </html>
