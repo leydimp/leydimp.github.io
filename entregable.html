@@ -6,262 +6,385 @@
   <title>La Casa de las Frutas</title>
   <style>
     :root {
-      --fondo: #f0f0f0;
-      --texto: #222;
-      --caja: #fff;
-      --fondo-oscuro: #222;
-      --texto-claro: #f0f0f0;
-      --caja-oscura: #333;
+      --fondo: #f9f0ff;
+      --texto: #2a003f;
+      --caja: #ffffff;
+      --acento: #d39ef1;
+    }
+
+    body.dark {
+      --fondo: #2e1f3d;
+      --texto: #fff;
+      --caja: #3a2a4f;
+      --acento: #d39ef1;
     }
 
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
       background-color: var(--fondo);
       color: var(--texto);
-      transition: all 0.3s ease-in-out;
+      transition: background-color 0.3s, color 0.3s;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
+    
 
     header {
-      background: linear-gradient(90deg, #ffe259, #ffa751);
-      padding: 2rem;
-      text-align: center;
-      animation: magia 5s infinite alternate;
-    }
-
-    @keyframes magia {
-      0% {
-        background-position: 0%;
-      }
-      100% {
-        background-position: 100%;
-      }
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      background: #fff3cd;
+      background-color: var(--acento);
+      color: white;
       padding: 1rem;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-weight: bold;
-      color: #333;
-      cursor: pointer;
-    }
-
-    main {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .frutas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .fruta,
-    .producto {
-      background-color: var(--caja);
-      padding: 1rem;
-      border-radius: 15px;
       text-align: center;
-      transition: transform 0.2s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
+      flex-shrink: 0;
     }
 
-    .fruta:hover,
-    .producto:hover {
+    /* Imagen menú principal debajo del header */
+    .menu-principal {
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+    .menu-principal img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-bottom: 3px solid var(--acento);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .menu-principal img:hover {
       transform: scale(1.05);
     }
 
-    .fruta img,
-    .producto img {
-      max-width: 100%;
-      border-radius: 10px;
+    .barra {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      background: var(--caja);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      gap: 1rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
     }
 
-    .modo-oscuro {
-      --fondo: #111;
-      --texto: #fff;
-      --caja: #222;
+    .barra input {
+      padding: 0.5rem;
+      width: 60%;
+      max-width: 300px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .barra button {
+      padding: 0.5rem 1rem;
+      background: var(--acento);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    .barra button:hover {
+      background: #b072d8;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 0 1rem 1rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .producto {
+      background-color: var(--caja);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .producto:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+
+    .producto img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 0 auto 0.5rem auto;
+      user-select: none;
+    }
+
+    .producto h3 {
+      margin: 0.5rem 0;
+      user-select: none;
+    }
+
+    .producto p {
+      flex-grow: 1;
+      font-size: 0.9rem;
+      color: #555;
+      user-select: none;
+    }
+
+    .producto button {
+      background-color: var(--acento);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      user-select: none;
+      margin-top: 0.8rem;
+      transition: background 0.3s ease;
+    }
+    .producto button:hover {
+      background-color: #b072d8;
+    }
+
+    .carrito {
+      background-color: var(--caja);
+      padding: 1rem;
+      border-top: 2px solid var(--acento);
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .carrito h2 {
+      margin-top: 0;
+    }
+
+    .carrito ul {
+      list-style: none;
+      padding: 0;
+      max-height: 180px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+
+    .carrito li {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    .carrito button {
+      background-color: var(--acento);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    .carrito button:hover {
+      background-color: #b072d8;
+    }
+
+    /* Sección extra: fila para abajo */
+    .extras-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem auto;
+      max-width: 1100px;
+      padding: 0 1rem;
+      box-sizing: border-box;
     }
 
     .extra {
       background-color: var(--caja);
-      border-radius: 12px;
+      border-radius: 10px;
       padding: 1.5rem;
-      margin: 2rem 0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      flex: 1 1 280px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      min-width: 280px;
+      max-width: 350px;
+      user-select: none;
+    }
+
+    .extra h2 {
+      margin-top: 0;
+      color: var(--acento);
+    }
+
+    .extra p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.3;
+    }
+
+    .medios-pago {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1rem;
     }
 
     .medios-pago li {
-      list-style: none;
-      margin-bottom: 0.5rem;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
     }
 
-    .formulario,
-    .formulario-pago {
-      background: var(--caja);
-      border-radius: 10px;
-      padding: 1rem;
-      margin: 2rem auto;
-      max-width: 500px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    .medios-pago li img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      user-select: none;
     }
 
-    .formulario label,
-    .formulario-pago label {
-      display: block;
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
-    }
-
-    .formulario input,
-    .formulario textarea,
-    .formulario-pago input {
-      width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.3rem;
-      box-sizing: border-box;
-    }
-
-    .oculto {
-      display: none;
-    }
-
-    /* Estilo para el minijuego */
-    .juego {
-      background: var(--caja);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-top: 3rem;
+    footer {
       text-align: center;
+      background: var(--acento);
+      color: white;
+      padding: 2rem 1rem;
+      margin-top: auto;
+      user-select: none;
     }
 
-    .juego img {
-      width: 150px;
-      margin-bottom: 1rem;
-      filter: brightness(0.3);
-    }
-
-    .juego button {
-      padding: 0.5rem 1rem;
-      margin: 0.5rem;
+    footer a {
+      color: white;
+      text-decoration: underline;
       cursor: pointer;
-      background: #ffa751;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      color: #fff;
-      transition: background 0.3s;
+      user-select: none;
+    }
+    footer a:hover {
+      color: #f0d9ff;
     }
 
-    .juego button:hover {
-      background: #ff8800;
-    }
-
-    /* Carrito */
-    #carrito {
-      background: var(--caja);
-      border-radius: 12px;
-      padding: 1rem;
-      margin-top: 2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-    }
-
-    #carrito ul {
-      list-style: none;
-      padding: 0;
+    @media (max-width: 480px) {
+      .barra input {
+        width: 100%;
+        max-width: none;
+      }
+      .barra {
+        flex-direction: column;
+      }
+      .menu-principal {
+        max-width: 100%;
+      }
+      .producto img {
+        width: 100%;
+        height: auto;
+      }
+      .productos {
+        grid-template-columns: 1fr;
+      }
+      .extras-container {
+        flex-direction: column;
+        max-width: 100%;
+        margin: 1rem auto 2rem auto;
+      }
+      .extra {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
+  
   <header>
-    <h1>🍓 La Casa de las Frutas 🍇</h1>
-    <p>Bienvenidos a una tienda mágica de sabores saludables</p>
-  <link rel="icon" href="https://www.casadelafruta.com/wp-content/smush-webp/2023/06/Logo-Casa-de-la-fruta-green.png.webp">
+    <h1>La Casa de las Frutas</h1>
+    <p>Frutas frescas directo a tu hogar 🍓🍍🍇</p>
   </header>
 
-  <nav>
-    <a href="#" onclick="toggleModoOscuro()">🌓 Modo Oscuro</a>
-    <a href="#medios">💳 Medios de pago</a>
-    <a href="#juego">🎮 Minijuego</a>
-    <a href="contactos"> Contactanos</a>
-  </nav>
+  <div class="menu-principal" title="Menú Principal - La Casa de las Frutas">
+    <img src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-bc24-61f7-843f-3a9e1706fb7f/raw?se=2025-05-22T12%3A46%3A30Z&sp=r&sv=2024-08-04&sr=b&scid=1e476302-9463-5bbb-8f32-cb621369de6e&skoid=c953efd6-2ae8-41b4-a6d6-34b1475ac07c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-21T20%3A18%3A37Z&ske=2025-05-22T20%3A18%3A37Z&sks=b&skv=2024-08-04&sig=fwOl3n352qmcjqxffn70TkALDqj756s44G97kczTHNk%3D" alt="Menú principal frutas" />
+  </div>
+
+  <div class="barra">
+    <input type="text" id="buscar" placeholder="Buscar fruta..." aria-label="Buscar fruta" />
+    <button onclick="toggleModo()" aria-label="Cambiar modo claro/oscuro">🌙/☀️</button>
+  </div>
 
   <main>
-    <section class="extra">
-      <h2>Nuestras Frutas</h2>
-      <!-- Contenedor para renderizar frutas dinámicamente -->
-      <div id="lista-productos" class="frutas"></div>
+    <section class="productos" id="lista-productos"></section>
+
+    <section class="carrito" aria-label="Carrito de compras">
+      <h2>Carrito de compras 🛒</h2>
+      <ul id="carrito-lista"></ul>
+      <p><strong>Total:</strong> $<span id="total">0</span></p>
+      <button onclick="pagar()">Pagar</button>
     </section>
-      <div>
-        <button onclick="adivinar('Manzana')">Manzana</button>
-        <button onclick="adivinar('Banana')">Banana</button>
-        <button onclick="adivinar('Naranja')">Naranja</button>
-        <button onclick="adivinar('Pera')">Pera</button>
-         <section id="seccion-reclamos" class="formulario oculto" aria-label="Libro de reclamaciones">
-      <h2>Libro de Reclamaciones</h2>
-      <form onsubmit="enviarReclamo(event)">
-        <label>Nombre:
-          <input type="text" required />
-        </label>
-        <label>Correo electrónico:
-          <input type="email" required />
-        </label>
-        <label>Reclamo:
-          <textarea required></textarea>
-        </label>
-        <button type="submit">Enviar</button>
-        <button type="button" onclick="cerrarFormularioReclamos()">Cancelar</button>
-      </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
+    <a href="#" onclick="alert('Libro de Reclamaciones en proceso digital 📖'); return false;">📖 Libro de Reclamaciones</a>
+    <section id="seccion-reclamos" class="formulario oculto">
+  <h2>📖 Libro de Reclamos</h2>
+  <form id="reclamoForm" onsubmit="enviarReclamo(event)">
+    <label>
+      Nombre completo:
+      <input type="text" name="nombre" required>
+    </label><br>
+    <label>
+      Correo electrónico:
+      <input type="email" name="correo" required>
+    </label><br>
+    <label>
+      DNI:
+      <input type="text" name="dni" maxlength="8" required>
+    </label><br>
+    <label>
+      Lugar de nacimiento:
+      <input type="text" name="lugar" required>
+    </label><br>
+    <label>
+      Tu reclamo:
+      <textarea name="reclamo" rows="4" required></textarea>
+    </label><br>
+    <button type="submit">Enviar reclamo</button>
+    <button type="button" onclick="cerrarFormularioReclamos()">❌ Cerrar formulario</button>
+  </form>
+</section>
+
+     <div class="extras-container" aria-label="Sección adicional">
+    <section class="extra" aria-label="Recomendados para ti">
+      <h2>Recomendados para ti 🥝🍒</h2>
+      <p>Basado en tus gustos, te recomendamos probar el kiwi y las fresas, ricos en antioxidantes y vitamina C.</p>
     </section>
 
-    <section id="medios" class="extra" aria-label="Medios de pago">
-      <h2>Medios de Pago</h2>
-      <ul class="medios-pago">
-        <li>💳 Tarjeta de crédito / débito</li>
-        <li>📱 Yape / Plin</li>
-        <li>🏦 Transferencia bancaria</li>
-      </ul>
-    </section>
-
-    <section class="formulario-pago" aria-label="Formulario de pago">
-      <h3>Realizar pago</h3>
-      <form onsubmit="procesarPago(event)">
-        <label>Nombre en tarjeta:
-          <input type="text" required />
-        </label>
-        <label>Número de tarjeta:
-          <input type="text" maxlength="16" required />
-        </label>
-        <label>Fecha de vencimiento:
-          <input type="month" required />
-        </label>
-        <label>Código CVV:
-          <input type="text" maxlength="3" required />
-        </label>
-        <button type="submit">Pagar ahora</button>
-      </form>
-    </section>
-
-    <!-- NUEVA SECCIÓN CONTÁCTANOS -->
     <section class="extra" aria-label="Contáctanos">
       <h2>Contáctanos 📞</h2>
       <p>📧 Email: contacto@casadelasfrutas.com</p>
@@ -269,52 +392,41 @@
       <p>📍 Dirección: Av. Frutal 123, Puno, Perú</p>
     </section>
 
-    <!-- Carrito -->
-    <section id="carrito" aria-label="Carrito de compras">
-      <h2>Tu Carrito</h2>
-      <ul id="carrito-lista"></ul>
-      <p><strong>Total: $<span id="total">0.00</span></strong></p>
-      <button onclick="pagar()">Pagar</button>
+    <section class="extra" aria-label="Medios de pago">
+      <h2>Medios de pago 💳</h2>
+      <ul class="medios-pago">
+        <li><img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Tarjeta"> Tarjetas de crédito y débito</li>
+        <li><img src="https://marketing-peru.beglobal.biz/wp-content/uploads/2025/01/logo-yape-bolivia.jpeg" alt="Yape"> Yape</li>
+        <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN94zsmpdqN7p2ugqBBrPygthpvfIsDB4QJA&s" alt="Plin"> Plin</li>
+        
+        <section class="formulario-pago">
+  <h3>Realizar pago</h3>
+  <form onsubmit="procesarPago(event)">
+    <label>
+      Nombre en tarjeta:
+      <input type="text" required>
+    </label>
+    <label>
+      Número de tarjeta:
+      <input type="text" maxlength="16" required>
+    </label>
+    <label>
+      Fecha de vencimiento:
+      <input type="month" required>
+    </label>
+    <label>
+      Código CVV:
+      <input type="text" maxlength="3" required>
+    </label>
+    <button type="submit">Pagar ahora</button>
+  </form>
+</section>
+      </ul>
     </section>
-
-    <section id="juego" class="juego" aria-label="Minijuego de adivinar la fruta">
-      <h2>🎮 Adivina la Fruta</h2>
-      <img
-        id="imagen-fruta"
-        src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg"
-        alt="Imagen de fruta misteriosa"
-        id="resultado-juego"></p>
-    </section>
-  </main>
+  </div>
+  </footer>
 
   <script>
-    // Modo oscuro
-    function toggleModoOscuro() {
-      document.body.classList.toggle('modo-oscuro');
-    }
-
-    // Mostrar formulario reclamos
-    function mostrarFormularioReclamos() {
-      document.getElementById('seccion-reclamos').classList.remove('oculto');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    function cerrarFormularioReclamos() {
-      document.getElementById('seccion-reclamos').classList.add('oculto');
-    }
-    function enviarReclamo(event) {
-      event.preventDefault();
-      alert('¡Reclamo enviado! Gracias por contactarnos.');
-      cerrarFormularioReclamos();
-    }
-
-    // Procesar pago (simulado)
-    function procesarPago(event) {
-      event.preventDefault();
-      alert('Pago realizado con éxito. ¡Gracias por tu compra!');
-      event.target.reset();
-    }
-
-    // Datos productos
     const productos = [
       { id: 1, nombre: "Manzana", precio: 1.0, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", descripcion: "Una fruta dulce y crujiente, perfecta para meriendas." },
       { id: 2, nombre: "Banana", precio: 1.0, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", descripcion: "Rica en potasio, ideal para deportistas." },
@@ -331,10 +443,9 @@
       { id: 13, nombre: "Papaya", precio: 1.7, imagen: "https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg", descripcion: "Ideal para la digestión y desayuno." },
       { id: 14, nombre: "Coco", precio: 2.1, imagen: "https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg", descripcion: "Tropical, con agua y carne nutritiva." }
     ];
-
     let carrito = [];
 
-    // Render productos en div#lista-productos
+    // Render productos
     const listaProductos = document.getElementById('lista-productos');
     function renderProductos(productosParaMostrar) {
       listaProductos.innerHTML = '';
@@ -351,18 +462,18 @@
           <p><strong>Precio: $${producto.precio.toFixed(2)}</strong></p>
           <button aria-label="Agregar ${producto.nombre} al carrito">Agregar al carrito</button>
         `;
-        // Evento click en div para mostrar info fruta (menos el botón)
+        // Agregar evento click al div para redirigir a página fruta
         div.addEventListener('click', e => {
-          if (e.target.tagName.toLowerCase() === 'button') return;
+          if(e.target.tagName.toLowerCase() === 'button') return; // No activar cuando se presiona botón
           mostrarInfoFruta(producto);
         });
-        // Accesibilidad con tecla Enter
+        // Agregar tecla Enter para accesibilidad
         div.addEventListener('keydown', e => {
-          if (e.key === 'Enter') {
+          if(e.key === 'Enter') {
             mostrarInfoFruta(producto);
           }
         });
-        // Agregar al carrito botón
+        // Evento click botón agregar al carrito
         div.querySelector('button').addEventListener('click', e => {
           e.stopPropagation();
           agregarAlCarrito(producto.id);
@@ -371,8 +482,12 @@
         listaProductos.appendChild(div);
       });
     }
+    // Mostrar info fruta (redireccionar)
+    function mostrarInfoFruta(producto) {
+      alert(`Para qué es buena la fruta ${producto.nombre}:\n\n${infoFrutas[producto.nombre] || 'Información no disponible.'}`);
+    }
 
-    // Información para cada fruta
+    // Información de cada fruta para la alerta
     const infoFrutas = {
       "Manzana": "La manzana es buena para la digestión, ayuda a controlar el azúcar en sangre y es rica en antioxidantes.",
       "Banana": "La banana aporta energía rápida, potasio para el corazón y es buena para la digestión.",
@@ -390,18 +505,12 @@
       "Coco": "El coco hidrata, aporta energía y mejora la digestión."
     };
 
-    // Mostrar info fruta en alerta
-    function mostrarInfoFruta(producto) {
-      alert(`Para qué es buena la fruta ${producto.nombre}:\n\n${infoFrutas[producto.nombre] || 'Información no disponible.'}`);
-    }
-
-    // Agregar producto al carrito
+    // Función agregar al carrito
     function agregarAlCarrito(id) {
       carrito.push(id);
       mostrarCarrito();
     }
-
-    // Mostrar carrito actualizado
+    // Mostrar carrito
     function mostrarCarrito() {
       const ul = document.getElementById('carrito-lista');
       ul.innerHTML = '';
@@ -429,7 +538,7 @@
 
     // Pagar (vaciar carrito)
     function pagar() {
-      if (carrito.length === 0) {
+      if(carrito.length === 0) {
         alert("Tu carrito está vacío. Agrega productos antes de pagar.");
         return;
       }
@@ -438,20 +547,22 @@
       mostrarCarrito();
     }
 
-    // Juego adivina fruta
-    function adivinar(fruta) {
-      const frutaCorrecta = "Manzana";
-      const resultado = document.getElementById('resultado-juego');
-      if (fruta === frutaCorrecta) {
-        resultado.textContent = "¡Correcto! La fruta es Manzana 🍎";
-      } else {
-        resultado.textContent = "Intenta otra vez.";
-      }
+    // Función búsqueda
+    document.getElementById('buscar').addEventListener('input', e => {
+      const texto = e.target.value.toLowerCase();
+      const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(texto));
+      renderProductos(filtrados);
+    });
+
+    // Modo claro/oscuro
+    function toggleModo() {
+      document.body.classList.toggle('dark');
     }
 
-    // Inicialización
+    // Inicial
     renderProductos(productos);
     mostrarCarrito();
   </script>
 </body>
 </html>
+
