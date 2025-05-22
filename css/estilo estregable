@@ -1,58 +1,41 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fdfdfd;
+.oculto {
+  display: none;
 }
 
-header {
-  background-color: #4CAF50;
-  color: white;
+.formulario {
+  background: #fffbe6;
+  border: 1px solid #ffecb3;
   padding: 20px;
-  text-align: center;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 500px;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  background-color: #388E3C;
-}
-
-nav ul li {
-  margin: 0 15px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px;
-  display: block;
-}
-
-nav ul li a:hover {
-  background-color: #2E7D32;
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.bienvenida {
-  text-align: center;
-  padding: 40px;
+.formulario button {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.banner {
-  max-width: 90%;
-  height: auto;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-
-footer {
-  background-color: #4CAF50;
+.formulario button[type="submit"] {
+  background-color: #4caf50;
   color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 30px;
 }
+
+.formulario button[type="button"] {
+  background-color: #f44336;
+  color: white;
+}
+

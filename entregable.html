@@ -322,16 +322,11 @@
   </style>
 </head>
 <body>
-  <div class="portada-magica">
-  <h1>🌟 Bienvenidos a la Casa de las Frutas 🌟</h1>
-  <p>Explora frutas mágicas llenas de sabor y poder 🧙‍♂️🍎✨</p>
-  <button onclick="scrollToTienda()">Entrar a la tienda 🍍</button>
-</div>
-
-<div class="botones-arriba">
-  <button onclick="mostrarFormularioReclamo()">📖 Libro de Reclamaciones</button>
-  <button onclick="mostrarFormularioPago()">💳 Medios de Pago</button>
-</div>
+  
+  <header>
+    <h1>La Casa de las Frutas</h1>
+    <p>Frutas frescas directo a tu hogar 🍓🍍🍇</p>
+  </header>
 
   <div class="menu-principal" title="Menú Principal - La Casa de las Frutas">
     <img src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-bc24-61f7-843f-3a9e1706fb7f/raw?se=2025-05-22T12%3A46%3A30Z&sp=r&sv=2024-08-04&sr=b&scid=1e476302-9463-5bbb-8f32-cb621369de6e&skoid=c953efd6-2ae8-41b4-a6d6-34b1475ac07c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-21T20%3A18%3A37Z&ske=2025-05-22T20%3A18%3A37Z&sks=b&skv=2024-08-04&sig=fwOl3n352qmcjqxffn70TkALDqj756s44G97kczTHNk%3D" alt="Menú principal frutas" />
@@ -356,6 +351,34 @@
   <footer>
     <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
     <a href="#" onclick="alert('Libro de Reclamaciones en proceso digital 📖'); return false;">📖 Libro de Reclamaciones</a>
+    <section id="seccion-reclamos" class="formulario oculto">
+  <h2>📖 Libro de Reclamos</h2>
+  <form id="reclamoForm" onsubmit="enviarReclamo(event)">
+    <label>
+      Nombre completo:
+      <input type="text" name="nombre" required>
+    </label><br>
+    <label>
+      Correo electrónico:
+      <input type="email" name="correo" required>
+    </label><br>
+    <label>
+      DNI:
+      <input type="text" name="dni" maxlength="8" required>
+    </label><br>
+    <label>
+      Lugar de nacimiento:
+      <input type="text" name="lugar" required>
+    </label><br>
+    <label>
+      Tu reclamo:
+      <textarea name="reclamo" rows="4" required></textarea>
+    </label><br>
+    <button type="submit">Enviar reclamo</button>
+    <button type="button" onclick="cerrarFormularioReclamos()">❌ Cerrar formulario</button>
+  </form>
+</section>
+
      <div class="extras-container" aria-label="Sección adicional">
     <section class="extra" aria-label="Recomendados para ti">
       <h2>Recomendados para ti 🥝🍒</h2>
@@ -375,8 +398,29 @@
         <li><img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Tarjeta"> Tarjetas de crédito y débito</li>
         <li><img src="https://marketing-peru.beglobal.biz/wp-content/uploads/2025/01/logo-yape-bolivia.jpeg" alt="Yape"> Yape</li>
         <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN94zsmpdqN7p2ugqBBrPygthpvfIsDB4QJA&s" alt="Plin"> Plin</li>
-        <li><img src="https://cdn-icons-png.flaticon.com/512/1885/1885396.png" alt="Transferencia"> Transferencias bancarias</li>
-        <li><img src="https://cdn-icons-png.flaticon.com/512/1486/1486435.png" alt="Entrega"> Pago contra entrega</li>
+        
+        <section class="formulario-pago">
+  <h3>Realizar pago</h3>
+  <form onsubmit="procesarPago(event)">
+    <label>
+      Nombre en tarjeta:
+      <input type="text" required>
+    </label>
+    <label>
+      Número de tarjeta:
+      <input type="text" maxlength="16" required>
+    </label>
+    <label>
+      Fecha de vencimiento:
+      <input type="month" required>
+    </label>
+    <label>
+      Código CVV:
+      <input type="text" maxlength="3" required>
+    </label>
+    <button type="submit">Pagar ahora</button>
+  </form>
+</section>
       </ul>
     </section>
   </div>
