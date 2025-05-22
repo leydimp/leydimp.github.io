@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Medios de Pago - La Casa de las Frutas</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <h1>💳 Medios de Pago</h1>
+  <ul>
+    <li>💳 Tarjetas de crédito y débito</li>
+    <li>📱 Yape</li>
+    <li>📲 Plin</li>
+  </ul>
+
+  <h2>Realizar pago</h2>
+  <form onsubmit="alert('Pago procesado'); return false;">
+    <label>Nombre en tarjeta:
+      <input type="text" required>
+    </label><br>
+    <label>Número de tarjeta:
+      <input type="text" maxlength="16" required>
+    </label><br>
+    <label>Fecha de vencimiento:
+      <input type="month" required>
+    </label><br>
+    <label>Código CVV:
+      <input type="text" maxlength="3" required>
+    </label><br>
+    <button type="submit">Pagar ahora</button>
+  </form>
+
+  <a href="index.html">← Volver a la tienda</a>
+</body>
+</html>
