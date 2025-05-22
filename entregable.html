@@ -360,6 +360,9 @@
     <button onclick="location.href='reclamos.html'">📖 Libro de Reclamos</button>
     <a href="contacto"> Contactos</a>
     <a href="mediosdepago">💳 Medios de pago</a>
+    <a href="mediosdepago.html">💳 Medios de Pago</a>
+</nav>
+
   </nav>
   </div>
 
@@ -423,23 +426,30 @@
         <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN94zsmpdqN7p2ugqBBrPygthpvfIsDB4QJA&s" alt="Plin"> Plin</li>
       </ul>
 
-<section id="#formulario-pago" class="formulario-pago">
+<nav>
+  <a href="#formulario-pago">💳 Medios de Pago</a>
+</nav>
+
+<!-- Más contenido -->
+
+<section id="formulario-pago" class="formulario-pago">
   <h3>Realizar pago</h3>
-        <form onsubmit="procesarPago(event)">
-          <label>Nombre en tarjeta:
-            <input type="text" required>
-          </label>
-          <label>Número de tarjeta:
-            <input type="text" maxlength="16" required>
-          </label>
-          <label>Fecha de vencimiento:
-            <input type="month" required>
-          </label>
-          <label>Código CVV:
-            <input type="text" maxlength="3" required>
-          </label>
-          <button type="submit">Pagar ahora</button>
-        </form>
+  <form onsubmit="procesarPago(event)">
+    <label>Nombre en tarjeta:
+      <input type="text" required>
+    </label>
+    <label>Número de tarjeta:
+      <input type="text" maxlength="16" required>
+    </label>
+    <label>Fecha de vencimiento:
+      <input type="month" required>
+    </label>
+    <label>Código CVV:
+      <input type="text" maxlength="3" required>
+    </label>
+    <button type="submit">Pagar ahora</button>
+  </form>
+
       </section>
     </section>
   </div>
