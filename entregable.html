@@ -349,45 +349,21 @@
 </head>
 <body>
   
-  <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>La Casa de las Frutas</title>
-  <style>
-    body.dark {
-      background-color: #121212;
-      color: #f5f5f5;
-    }
-    .producto {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin: 10px;
-      max-width: 200px;
-    }
-    .barra, header, nav, footer, main {
-      margin: 20px;
-    }
-    nav a, nav button {
-      margin-right: 10px;
-    }
-  </style>
-</head>
-<body>
-
   <header>
     <h1>La Casa de las Frutas</h1>
     <p>Frutas y verduras frescas directo a tu hogar 🍓🍍🍇</p>
   </header>
 
   <div class="menu-principal" title="Menú Principal - La Casa de las Frutas y Verduras">
-    <img src="https://marketplace.canva.com/EAE8MZpA0z0/1/0/1600w/canva-logo-comida-saludable-negro-verde-X6pisrtuSO8.jpg" alt="Logo La Casa de las Frutas" />
-    <nav>
-      <button onclick="location.href='reclamos.html'">📖 Libro de Reclamos</button>
-      <a href="contacto.html">Contactos</a>
-      <a href="mediosdepago.html">💳 Medios de Pago</a>
-    </nav>
+    <img src="https://marketplace.canva.com/EAE8MZpA0z0/1/0/1600w/canva-logo-comida-saludable-negro-verde-X6pisrtuSO8.jpg" />
+  <nav>
+    <button onclick="location.href='reclamos.html'">📖 Libro de Reclamos</button>
+    <a href="contacto"> Contactos</a>
+    <a href="mediosdepago.html">💳 Medios de Pago</a>
+
+</nav>
+
+  </nav>
   </div>
 
   <div class="barra">
@@ -405,86 +381,66 @@
       <button onclick="pagar()">Pagar</button>
     </section>
   </main>
+<footer>
+ <section class="info-empresa">
+  <h2>Acerca de nuestra tienda</h2>
+  <p>
+    La casa de las frutas y verduras fue creado en el año 2025, dedicado a vender frutas y verduras a miles de personas. 
+    Te ofrecemos productos frescos y saludables para tu familia y hogar.
+  </p>
+</section>
 
-  <footer>
-    <section class="info-empresa">
-      <h2>Acerca de nuestra tienda</h2>
-      <p>
-        La casa de las frutas y verduras fue creada en el año 2025, dedicada a vender frutas y verduras a miles de personas. 
-        Te ofrecemos productos frescos y saludables para tu familia y hogar.
-      </p>
-    </section>
+<section class="ofertas-novedades">
+  <h2>Ofertas y Novedades</h2>
+  <ul>
+    <li>🍎 Manzanas frescas con 20% de descuento esta semana.</li>
+    <li>🍌 Bananas orgánicas recién llegadas a stock.</li>
+    <li>🥦 Nueva variedad de verduras para preparar tus platillos favoritos.</li>
+    <li>🍓 Promoción especial: Compra 2 kilos de fresas y lleva 1 kilo gratis.</li>
+  </ul>
+</section>
 
-    <section class="ofertas-novedades">
-      <h2>Ofertas y Novedades</h2>
-      <ul>
-        <li>🍎 Manzanas frescas con 20% de descuento esta semana.</li>
-        <li>🍌 Bananas orgánicas recién llegadas a stock.</li>
-        <li>🥦 Nueva variedad de verduras para preparar tus platillos favoritos.</li>
-        <li>🍓 Promoción especial: Compra 2 kilos de fresas y lleva 1 kilo gratis.</li>
-      </ul>
-    </section>
 
-    <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
-  </footer>
+  <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
+</footer>
 
   <script>
     const productos = [
-      { id: 1, nombre: "Manzana", precio: 1.0, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", descripcion: "Una fruta dulce y crujiente, perfecta para meriendas." },
-      { id: 2, nombre: "Banana", precio: 1.0, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", descripcion: "Rica en potasio, ideal para deportistas." },
-      { id: 3, nombre: "Naranja", precio: 1.1, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp", descripcion: "Fuente de vitamina C, ideal para jugos." },
-      { id: 4, nombre: "Pera", precio: 1.3, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg", descripcion: "Suave, jugosa y refrescante." },
-      { id: 5, nombre: "Sandía", precio: 2.5, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg", descripcion: "Perfecta para días calurosos." },
-      { id: 6, nombre: "Kiwi", precio: 1.8, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg", descripcion: "Exótico y lleno de sabor, con mucha vitamina C." },
-      { id: 7, nombre: "Fresa", precio: 2.0, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487", descripcion: "Pequeñas delicias rojas, ricas en antioxidantes." },
-      { id: 8, nombre: "Piña", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg", descripcion: "Tropical, jugosa y refrescante." },
-      { id: 9, nombre: "Mango", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg", descripcion: "Dulce y aromático, muy popular." },
-      { id: 10, nombre: "Cereza", precio: 3.0, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN", descripcion: "Pequeñas y dulces, para un gusto especial." },
-      { id: 11, nombre: "Melón", precio: 1.5, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s", descripcion: "Dulce y refrescante, ideal para verano." },
-      { id: 12, nombre: "Uva", precio: 3.4, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png", descripcion: "Pequeñas y jugosas, para comer o hacer jugo." },
-      { id: 13, nombre: "Papaya", precio: 1.7, imagen: "https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg", descripcion: "Ideal para la digestión y desayuno." },
-      { id: 14, nombre: "Coco", precio: 2.1, imagen: "https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg", descripcion: "Tropical, con agua y carne nutritiva." },
-      { id: 15, nombre: "Zanahoria", precio: 1.2, imagen: "https://www.cocinatis.com/archivos/202402/propiedades-de-la-zanahoria-749x388x80xX.jpg", descripcion: "Crujiente y dulce, rica en vitamina A." },
-      { id: 16, nombre: "Tomate", precio: 1.0, imagen: "https://images.ctfassets.net/hxvgiqj2m8qf/4pHqxxBZ4s9LxrPdXC1Dcf/9b04e86a6e72966932614ab6a9c41110/MITOS_TOMATE.jpg", descripcion: "Ideal para ensaladas y salsas." },
-      { id: 17, nombre: "Lechuga", precio: 0.8, imagen: "https://www.calfruitos.com/fotos/pr_160_20170919152613.png", descripcion: "Fresca y crujiente, base perfecta para ensaladas." },
-      { id: 18, nombre: "Brócoli", precio: 2.5, imagen: "https://static.abc.es/media/salud/2019/05/17/brocoli-kOoH--1200x630@abc.jpg", descripcion: "Alto en fibra y vitaminas, excelente para cocinar." },
-      { id: 19, nombre: "Pepino", precio: 1.1, imagen: "https://s3.abcstatics.com/media/bienestar/2020/06/10/penino-ficha-kTUF--1248x698@abc.jpg", descripcion: "Refrescante y bajo en calorías." }
-    ];
+  { id: 1, nombre: "Manzana", precio: 1.0, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", descripcion: "Una fruta dulce y crujiente, perfecta para meriendas." },
+  { id: 2, nombre: "Banana", precio: 1.0, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", descripcion: "Rica en potasio, ideal para deportistas." },
+  { id: 3, nombre: "Naranja", precio: 1.1, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp", descripcion: "Fuente de vitamina C, ideal para jugos." },
+  { id: 4, nombre: "Pera", precio: 1.3, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg", descripcion: "Suave, jugosa y refrescante." },
+  { id: 5, nombre: "Sandía", precio: 2.5, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg", descripcion: "Perfecta para días calurosos." },
+  { id: 6, nombre: "Kiwi", precio: 1.8, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg", descripcion: "Exótico y lleno de sabor, con mucha vitamina C." },
+  { id: 7, nombre: "Fresa", precio: 2.0, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487", descripcion: "Pequeñas delicias rojas, ricas en antioxidantes." },
+  { id: 8, nombre: "Piña", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg", descripcion: "Tropical, jugosa y refrescante." },
+  { id: 9, nombre: "Mango", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg", descripcion: "Dulce y aromático, muy popular." },
+  { id: 10, nombre: "Cereza", precio: 3.0, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN", descripcion: "Pequeñas y dulces, para un gusto especial." },
+  { id: 11, nombre: "Melón", precio: 1.5, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s", descripcion: "Dulce y refrescante, ideal para verano." },
+  { id: 12, nombre: "Uva", precio: 3.4, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png", descripcion: "Pequeñas y jugosas, para comer o hacer jugo." },
+  { id: 13, nombre: "Papaya", precio: 1.7, imagen: "https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg", descripcion: "Ideal para la digestión y desayuno." },
+  { id: 14, nombre: "Coco", precio: 2.1, imagen: "https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg", descripcion: "Tropical, con agua y carne nutritiva." },
 
-    const infoProductos = {
-      "Manzana": "Buena para la digestión, antioxidante.",
-      "Banana": "Fuente de energía y potasio.",
-      "Naranja": "Rica en vitamina C.",
-      "Pera": "Hidratante y buena para la piel.",
-      "Sandía": "Refrescante y antioxidante.",
-      "Kiwi": "Vitamina C y digestivo.",
-      "Fresa": "Antioxidante y buena para el corazón.",
-      "Piña": "Ayuda digestiva y antiinflamatoria.",
-      "Mango": "Vitaminas A y C.",
-      "Cereza": "Antioxidante y mejora el sueño.",
-      "Melón": "Hidratante, ideal para el verano.",
-      "Uva": "Buena para el corazón y circulación.",
-      "Papaya": "Digestiva y antioxidante.",
-      "Coco": "Energético e hidratante.",
-      "Zanahoria": "Mejora la visión y piel.",
-      "Tomate": "Antioxidante y para la piel.",
-      "Lechuga": "Relajante y digestiva.",
-      "Brócoli": "Fortalece el sistema inmune.",
-      "Pepino": "Hidratante y desintoxicante."
-    };
+  // Verduras nuevas agregadas:
+  { id: 15, nombre: "Zanahoria", precio: 1.2, imagen: "https://www.cocinatis.com/archivos/202402/propiedades-de-la-zanahoria-749x388x80xX.jpg", descripcion: "Crujiente y dulce, rica en vitamina A." },
+  { id: 16, nombre: "Tomate", precio: 1.0, imagen: "https://images.ctfassets.net/hxvgiqj2m8qf/4pHqxxBZ4s9LxrPdXC1Dcf/9b04e86a6e72966932614ab6a9c41110/MITOS_TOMATE.jpg", descripcion: "Ideal para ensaladas y salsas." },
+  { id: 17, nombre: "Lechuga", precio: 0.8, imagen: "https://www.calfruitos.com/fotos/pr_160_20170919152613.png", descripcion: "Fresca y crujiente, base perfecta para ensaladas." },
+  { id: 18, nombre: "Brócoli", precio: 2.5, imagen: "https://static.abc.es/media/salud/2019/05/17/brocoli-kOoH--1200x630@abc.jpg", descripcion: "Alto en fibra y vitaminas, excelente para cocinar." },
+  { id: 19, nombre: "Pepino", precio: 1.1, imagen: "https://s3.abcstatics.com/media/bienestar/2020/06/10/penino-ficha-kTUF--1248x698@abc.jpg", descripcion: "Refrescante y bajo en calorías." }
+];
 
     let carrito = [];
 
-    function renderProductos(lista) {
-      const contenedor = document.getElementById('lista-productos');
-      contenedor.innerHTML = '';
-      lista.forEach(producto => {
+    // Render productos
+    const listaProductos = document.getElementById('lista-productos');
+    function renderProductos(productosParaMostrar) {
+      listaProductos.innerHTML = '';
+      productosParaMostrar.forEach(producto => {
         const div = document.createElement('div');
         div.classList.add('producto');
-        div.title = `Haz clic para ver para qué sirve ${producto.nombre}`;
-        div.setAttribute('tabindex', '0');
+        div.title = `Haz clic para ver para qué sirve la ${producto.nombre}`;
         div.setAttribute('role', 'button');
-
+        div.setAttribute('tabindex', '0');
         div.innerHTML = `
           <img src="${producto.imagen}" alt="Imagen de ${producto.nombre}" loading="lazy" />
           <h3>${producto.nombre}</h3>
@@ -492,60 +448,91 @@
           <p><strong>Precio: $${producto.precio.toFixed(2)}</strong></p>
           <button aria-label="Agregar ${producto.nombre} al carrito">Agregar al carrito</button>
         `;
-
+        // Agregar evento click al div para redirigir a página fruta
+        div.addEventListener('click', e => {
+          if(e.target.tagName.toLowerCase() === 'button') return; // No activar cuando se presiona botón
+          mostrarInfoFruta(producto);
+        });
+        // Agregar tecla Enter para accesibilidad
+        div.addEventListener('keydown', e => {
+          if(e.key === 'Enter') {
+            mostrarInfoFruta(producto);
+          }
+        });
+        // Evento click botón agregar al carrito
         div.querySelector('button').addEventListener('click', e => {
           e.stopPropagation();
           agregarAlCarrito(producto.id);
         });
 
-        div.addEventListener('click', e => {
-          if (e.target.tagName !== 'BUTTON') mostrarInfoFruta(producto.nombre);
-        });
-
-        div.addEventListener('keydown', e => {
-          if (e.key === 'Enter') mostrarInfoFruta(producto.nombre);
-        });
-
-        contenedor.appendChild(div);
+        listaProductos.appendChild(div);
       });
     }
-
-    function mostrarInfoFruta(nombre) {
-      alert(`Para qué es bueno ${nombre}:\n\n${infoProductos[nombre] || 'Información no disponible.'}`);
+    // Mostrar info fruta (redireccionar)
+    function mostrarInfoFruta(producto) {
+      alert(`Para qué es buena la fruta ${producto.nombre}:\n\n${infoFrutas[producto.nombre] || 'Información no disponible.'}`);
     }
 
+    // Información de cada fruta para la alerta
+    const infoProductos = {
+  "Manzana": "La manzana es buena para la digestión, ayuda a controlar el azúcar en sangre y es rica en antioxidantes.",
+  "Banana": "La banana aporta energía rápida, potasio para el corazón y es buena para la digestión.",
+  "Naranja": "La naranja fortalece el sistema inmune, es rica en vitamina C y ayuda a prevenir resfriados.",
+  "Pera": "La pera es hidratante, ayuda a la digestión y es buena para la piel.",
+  "Sandía": "La sandía hidrata, aporta antioxidantes y ayuda a la salud del corazón.",
+  "Kiwi": "El kiwi es rico en vitamina C, ayuda a la digestión y fortalece el sistema inmunológico.",
+  "Fresa": "La fresa es antioxidante, ayuda a la salud del corazón y mejora la piel.",
+  "Piña": "La piña ayuda a la digestión, reduce la inflamación y es rica en vitamina C.",
+  "Mango": "El mango es rico en vitaminas A y C, ayuda a la digestión y fortalece la vista.",
+  "Cereza": "La cereza reduce inflamaciones, mejora el sueño y es antioxidante.",
+  "Melón": "El melón hidrata, aporta vitaminas A y C, y es bueno para la piel.",
+  "Uva": "La uva mejora la circulación, es antioxidante y ayuda a la salud del corazón.",
+  "Papaya": "La papaya ayuda a la digestión, fortalece el sistema inmunológico y es antioxidante.",
+  "Coco": "El coco hidrata, aporta energía y mejora la digestión.",
+
+  // Verduras añadidas:
+  "Zanahoria": "La zanahoria es rica en betacaroteno, buena para la vista y la piel, y fortalece el sistema inmune.",
+  "Tomate": "El tomate es antioxidante, protege el corazón y mejora la salud de la piel.",
+  "Lechuga": "La lechuga es baja en calorías, buena para la digestión y tiene efectos relajantes.",
+  "Brócoli": "El brócoli fortalece el sistema inmune, es rico en fibra y previene enfermedades.",
+  "Pepino": "El pepino hidrata, ayuda a eliminar toxinas y es bueno para la piel."
+};
+
+    // Función agregar al carrito
     function agregarAlCarrito(id) {
       carrito.push(id);
       mostrarCarrito();
     }
-
+    // Mostrar carrito
     function mostrarCarrito() {
       const ul = document.getElementById('carrito-lista');
       ul.innerHTML = '';
-      let total = 0;
-      const cantidades = {};
+      const contProductos = {};
 
       carrito.forEach(id => {
-        cantidades[id] = (cantidades[id] || 0) + 1;
+        contProductos[id] = (contProductos[id] || 0) + 1;
       });
 
-      for (const id in cantidades) {
+      let total = 0;
+
+      for (const id in contProductos) {
         const producto = productos.find(p => p.id == id);
-        const cantidad = cantidades[id];
-        const subtotal = cantidad * producto.precio;
-        total += subtotal;
+        const cantidad = contProductos[id];
+        const precioTotal = producto.precio * cantidad;
+        total += precioTotal;
 
         const li = document.createElement('li');
-        li.textContent = `${producto.nombre} x${cantidad} - $${subtotal.toFixed(2)}`;
+        li.textContent = `${producto.nombre} x${cantidad} - $${precioTotal.toFixed(2)}`;
         ul.appendChild(li);
       }
 
       document.getElementById('total').textContent = total.toFixed(2);
     }
 
+    // Pagar (vaciar carrito)
     function pagar() {
-      if (carrito.length === 0) {
-        alert("Tu carrito está vacío.");
+      if(carrito.length === 0) {
+        alert("Tu carrito está vacío. Agrega productos antes de pagar.");
         return;
       }
       alert("¡Gracias por tu compra! Total: $" + document.getElementById('total').textContent);
@@ -553,12 +540,14 @@
       mostrarCarrito();
     }
 
+    // Función búsqueda
     document.getElementById('buscar').addEventListener('input', e => {
       const texto = e.target.value.toLowerCase();
       const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(texto));
       renderProductos(filtrados);
     });
 
+    // Modo claro/oscuro
     function toggleModo() {
       document.body.classList.toggle('dark');
     }
@@ -569,3 +558,4 @@
   </script>
 </body>
 </html>
+
