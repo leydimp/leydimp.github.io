@@ -1,1 +1,18 @@
+function mostrarFormularioReclamos() {
+  document.getElementById("seccion-reclamos").classList.remove("oculto");
+}
 
+function cerrarFormularioReclamos() {
+  document.getElementById("seccion-reclamos").classList.add("oculto");
+}
+
+function enviarReclamo(event) {
+  event.preventDefault();
+  alert("Gracias por tu reclamo. Será procesado.");
+  cerrarFormularioReclamos();
+}
+
+function procesarPago(event) {
+  event.preventDefault();
+  alert("✅ Pago realizado con éxito. ¡Gracias por tu compra!");
+}

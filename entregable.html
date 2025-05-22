@@ -353,33 +353,31 @@
       <button onclick="pagar()">Pagar</button>
     </section>
   </main>
-  <footer>
-    <section id="seccion-reclamos" class="formulario oculto">
-  <h2>📖 Libro de Reclamos</h2>
-  <form id="reclamoForm" onsubmit="enviarReclamo(event)">
-    <label>
-      Nombre completo:
-      <input type="text" name="nombre" required>
-    </label><br>
-    <label>
-      Correo electrónico:
-      <input type="email" name="correo" required>
-    </label><br>
-    <label>
-      DNI:
-      <input type="text" name="dni" maxlength="8" required>
-    </label><br>
-    <label>
-      Lugar de nacimiento:
-      <input type="text" name="lugar" required>
-    </label><br>
-    <label>
-      Tu reclamo:
-      <textarea name="reclamo" rows="4" required></textarea>
-    </label><br>
-    <button type="submit">Enviar reclamo</button>
-    <button type="button" onclick="cerrarFormularioReclamos()">❌ Cerrar formulario</button>
-         <div class="extras-container" aria-label="Sección adicional">
+<footer>
+  <section id="seccion-reclamos" class="formulario oculto">
+    <h2>📖 Libro de Reclamos</h2>
+    <form id="reclamoForm" onsubmit="enviarReclamo(event)">
+      <label>Nombre completo:
+        <input type="text" name="nombre" required>
+      </label><br>
+      <label>Correo electrónico:
+        <input type="email" name="correo" required>
+      </label><br>
+      <label>DNI:
+        <input type="text" name="dni" maxlength="8" required>
+      </label><br>
+      <label>Lugar de nacimiento:
+        <input type="text" name="lugar" required>
+      </label><br>
+      <label>Tu reclamo:
+        <textarea name="reclamo" rows="4" required></textarea>
+      </label><br>
+      <button type="submit">Enviar reclamo</button>
+      <button type="button" onclick="cerrarFormularioReclamos()">❌ Cerrar formulario</button>
+    </form>
+  </section>
+
+  <div class="extras-container" aria-label="Sección adicional">
     <section class="extra" aria-label="Recomendados para ti">
       <h2>Recomendados para ti 🥝🍒</h2>
       <p>Basado en tus gustos, te recomendamos probar el kiwi y las fresas, ricos en antioxidantes y vitamina C.</p>
@@ -392,42 +390,37 @@
       <p>📍 Dirección: Av. Frutal 123, Puno, Perú</p>
     </section>
 
-    <section class="extra" aria-label="Medios de pago">
+    <section class="extra" aria-label="Medios de pago" id="medios">
       <h2>Medios de pago 💳</h2>
       <ul class="medios-pago">
         <li><img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Tarjeta"> Tarjetas de crédito y débito</li>
         <li><img src="https://marketing-peru.beglobal.biz/wp-content/uploads/2025/01/logo-yape-bolivia.jpeg" alt="Yape"> Yape</li>
         <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN94zsmpdqN7p2ugqBBrPygthpvfIsDB4QJA&s" alt="Plin"> Plin</li>
-        
-        <section class="formulario-pago"> 
-  <h3>Realizar pago</h3>
-  <form onsubmit="procesarPago(event)">
-    <label>
-      Nombre en tarjeta:
-      <input type="text" required>
-    </label>
-    <label>
-      Número de tarjeta:
-      <input type="text" maxlength="16" required>
-    </label>
-    <label>
-      Fecha de vencimiento:
-      <input type="month" required>
-    </label>
-    <label>
-      Código CVV:
-      <input type="text" maxlength="3" required>
-    </label>
-    <button type="submit">Pagar ahora</button>
-     <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
-  </form>
-</section>
       </ul>
+
+      <section class="formulario-pago">
+        <h3>Realizar pago</h3>
+        <form onsubmit="procesarPago(event)">
+          <label>Nombre en tarjeta:
+            <input type="text" required>
+          </label>
+          <label>Número de tarjeta:
+            <input type="text" maxlength="16" required>
+          </label>
+          <label>Fecha de vencimiento:
+            <input type="month" required>
+          </label>
+          <label>Código CVV:
+            <input type="text" maxlength="3" required>
+          </label>
+          <button type="submit">Pagar ahora</button>
+        </form>
+      </section>
     </section>
   </div>
-  </footer>
-  </form>
-</section>
+
+  <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
+</footer>
 
   <script>
     const productos = [
