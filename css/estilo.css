@@ -66,3 +66,41 @@ footer {
   padding: 15px;
   margin-top: 20px;
 }
+
+  .formulario-pago {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 10px;
+    color: #000; /* Asegura texto negro visible */
+    font-size: 16px;
+  }
+
+  .formulario-pago label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .formulario-pago input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .formulario-pago button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .formulario-pago button:hover {
+    background-color: #45a049;
+  }
