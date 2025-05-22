@@ -200,9 +200,9 @@
 
   <nav>
     <a href="#" onclick="toggleModoOscuro()">🌓 Modo Oscuro</a>
-    <a href="#" onclick="mostrarFormularioReclamos(); return false;">📖 Libro de Reclamaciones</a>
     <a href="#medios">💳 Medios de pago</a>
     <a href="#juego">🎮 Minijuego</a>
+    <a href="contactos"> Contactanos</a>
   </nav>
 
   <main>
@@ -211,8 +211,12 @@
       <!-- Contenedor para renderizar frutas dinámicamente -->
       <div id="lista-productos" class="frutas"></div>
     </section>
-
-    <section id="seccion-reclamos" class="formulario oculto" aria-label="Libro de reclamaciones">
+      <div>
+        <button onclick="adivinar('Manzana')">Manzana</button>
+        <button onclick="adivinar('Banana')">Banana</button>
+        <button onclick="adivinar('Naranja')">Naranja</button>
+        <button onclick="adivinar('Pera')">Pera</button>
+         <section id="seccion-reclamos" class="formulario oculto" aria-label="Libro de reclamaciones">
       <h2>Libro de Reclamaciones</h2>
       <form onsubmit="enviarReclamo(event)">
         <label>Nombre:
@@ -279,14 +283,7 @@
         id="imagen-fruta"
         src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg"
         alt="Imagen de fruta misteriosa"
-      />
-      <div>
-        <button onclick="adivinar('Manzana')">Manzana</button>
-        <button onclick="adivinar('Banana')">Banana</button>
-        <button onclick="adivinar('Naranja')">Naranja</button>
-        <button onclick="adivinar('Pera')">Pera</button>
-      </div>
-      <p id="resultado-juego"></p>
+        id="resultado-juego"></p>
     </section>
   </main>
 
