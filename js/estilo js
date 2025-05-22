@@ -1,17 +1,1 @@
-function mostrarFormularioReclamos() {
-  const formulario = document.getElementById('seccion-reclamos');
-  formulario.style.display = 'block';
-  formulario.scrollIntoView({ behavior: 'smooth' });
-}
 
-function cerrarFormularioReclamos() {
-  const formulario = document.getElementById('seccion-reclamos');
-  formulario.style.display = 'none';
-}
-
-function enviarReclamo(event) {
-  event.preventDefault();
-  alert("✅ ¡Tu reclamo ha sido enviado correctamente!\nGracias por comunicarte con nosotros.");
-  document.getElementById("reclamoForm").reset();
-  cerrarFormularioReclamos();
-}
