@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto - Tienda de Frutas y Verduras</title>
+  <title>Frutas y Verduras Recomendadas - Tienda</title>
   <style>
-    /* Misma base de estilos que verduras.html para coherencia */
+    /* Misma base de estilos */
     body {
       font-family: Arial, sans-serif;
       background: #f7f9fc;
@@ -39,43 +39,48 @@
       color: #333;
       margin-top: 25px;
     }
-    form {
-      background: white;
-      max-width: 450px;
-      margin: 30px auto;
-      padding: 25px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
     }
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
+    .card {
+      background: white;
+      border-radius: 10px;
+      width: 220px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      height: 140px;
+      object-fit: cover;
+    }
+    .card h3 {
+      margin: 15px 0 8px 0;
       color: #4caf50;
     }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 15px;
-      resize: vertical;
+    .card p {
+      color: #555;
+      font-size: 14px;
+      height: 45px;
+      overflow: hidden;
     }
-    button {
-      margin-top: 20px;
-      background: #4caf50;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
+    .card span {
+      display: block;
       font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      width: 100%;
-    }
-    button:hover {
-      background-color: #388e3c;
+      margin: 10px 0;
+      color: #222;
+      font-size: 18px;
     }
   </style>
 </head>
@@ -93,20 +98,14 @@
   </ul>
 </nav>
 
-<h1>Contáctanos</h1>
+<h1>Frutas y Verduras Recomendadas</h1>
 
-<form action="#" method="post" onsubmit="alert('Gracias por contactarnos!'); return false;">
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" name="nombre" required />
-
-  <label for="email">Correo electrónico:</label>
-  <input type="email" id="email" name="email" required />
-
-  <label for="mensaje">Mensaje:</label>
-  <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-
-  <button type="submit">Enviar</button>
-</form>
-
-</body>
-</html>
+<div class="productos">
+  <div class="card">
+    <img src="https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg" alt="Manzana" />
+    <h3>Manzana</h3>
+    <p>Una fruta dulce y crujiente, perfecta para meriendas.</p>
+    <span>$1.00</span>
+  </div>
+  <div class="card">
+    <img src="https://cdn0.recetasgratis.net/es/posts/6/4/1/como

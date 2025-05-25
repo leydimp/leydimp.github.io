@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verduras - Tienda de Frutas y Verduras</title>
+  <style>
+    /* Copia aquí el mismo CSS de la página principal para mantener el estilo */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 0;
+    }
+    .menu {
+      background: #4caf50;
+      padding: 15px;
+      text-align: center;
+    }
+    .menu ul {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .menu ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .menu ul li a:hover {
+      background-color: #388e3c;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 25px;
+    }
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      width: 220px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      height: 140px;
+      object-fit: cover;
+    }
+    .card h3 {
+      margin: 15px 0 8px 0;
+      color: #4caf50;
+    }
+    .card p {
+      color: #555;
+      font-size: 14px;
+      height: 45px;
+      overflow: hidden;
+    }
+    .card span {
+      display: block;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #222;
+      font-size: 18px;
+    }
+    .card button {
+      background: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .card button:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="menu">
+  <ul>
+    <li><a href="indexP.html">Productos</a></li>
+    <li><a href="verduras.html">Verduras</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="librodereclamaciones.html">Libro de Reclamaciones</a></li>
+    <li><a href="carrito.html">Carrito</a></li>
+    <li><a href="recomendados.html">Frutas y Verduras Recomendadas</a></li>
+    <li><a href="mediosdepago.html">Medios de Pago</a></li>
+  </ul>
+</nav>
+
+<h1>Verduras frescas y saludables</h1>
+
+<div class="productos">
+  <div class="card">
+    <img src="https://cdn0.recetasgratis.net/es/posts/6/4/1/como_cocer_zanahorias_6746_orig.jpg" alt="Zanahoria" />
+    <h3>Zanahoria</h3>
+    <p>Fuente de betacaroteno, excelente para la vista.</p>
+    <span>$0.90</span>
+    <button>Agregar al carrito</button>
+  </div>
+  <div class="card">
+    <img src="https://www.shutterstock.com/image-photo/fresh-broccoli-isolated-on-white-600nw-1728971865.jpg" alt="Brócoli" />
+    <h3>Brócoli</h3>
+    <p>Rico en fibra y antioxidantes. Ideal para cocinar al vapor.</p>
+    <span>$1.20</span>
+    <button>Agregar al carrito</button>
+  </div>
+  <div class="card">
+    <img src="https://www.recetasnestle.com.mx/sites/default/files/inline-images/espinacas.jpg" alt="Espinaca" />
+    <h3>Espinaca</h3>
+    <p>Muy nutritiva, con hierro y vitaminas A y C.</p>
+    <span>$1.10</span>
+    <button>Agregar al carrito</button>
+  </div>
+  <div class="card">
+    <img src="https://cdn0.ecologiaverde.com/es/posts/7/8/4/como_sembrar_lechuga_paso_a_paso_2487_orig.jpg" alt="Lechuga" />
+    <h3>Lechuga</h3>
+    <p>Fresca, crujiente y perfecta para ensaladas.</p>
+    <span>$0.80</span>
+    <button>Agregar al carrito</button>
+  </div>
+  <div class="card">
+    <img src="https://www.recetasnestle.com.pe/sites/default/files/2022-07/tomate.jpg" alt="Tomate" />
+    <h3>Tomate</h3>
+    <p>Base para muchas recetas, jugoso y versátil.</p>
+    <span>$1.00</span>
+    <button>Agregar al carrito</button>
+  </div>
+</div>
+
+</body>
+</html>

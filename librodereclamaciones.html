@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto - Tienda de Frutas y Verduras</title>
+  <title>Libro de Reclamaciones - Tienda de Frutas y Verduras</title>
   <style>
-    /* Misma base de estilos que verduras.html para coherencia */
+    /* Estilos base iguales */
     body {
       font-family: Arial, sans-serif;
       background: #f7f9fc;
@@ -41,7 +41,7 @@
     }
     form {
       background: white;
-      max-width: 450px;
+      max-width: 500px;
       margin: 30px auto;
       padding: 25px 30px;
       border-radius: 10px;
@@ -53,7 +53,7 @@
       font-weight: bold;
       color: #4caf50;
     }
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 10px;
       margin-top: 6px;
@@ -93,19 +93,28 @@
   </ul>
 </nav>
 
-<h1>Contáctanos</h1>
+<h1>Libro de Reclamaciones</h1>
 
-<form action="#" method="post" onsubmit="alert('Gracias por contactarnos!'); return false;">
-  <label for="nombre">Nombre:</label>
+<form action="#" method="post" onsubmit="alert('Reclamación enviada. Gracias por ayudarnos a mejorar!'); return false;">
+  <label for="nombre">Nombre completo:</label>
   <input type="text" id="nombre" name="nombre" required />
 
   <label for="email">Correo electrónico:</label>
   <input type="email" id="email" name="email" required />
 
-  <label for="mensaje">Mensaje:</label>
-  <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+  <label for="motivo">Motivo de la reclamación:</label>
+  <select id="motivo" name="motivo" required>
+    <option value="">--Seleccione--</option>
+    <option value="producto">Producto defectuoso</option>
+    <option value="servicio">Mal servicio</option>
+    <option value="pedido">Problemas con el pedido</option>
+    <option value="otro">Otro</option>
+  </select>
 
-  <button type="submit">Enviar</button>
+  <label for="detalle">Detalle:</label>
+  <textarea id="detalle" name="detalle" rows="5" required></textarea>
+
+  <button type="submit">Enviar reclamación</button>
 </form>
 
 </body>
