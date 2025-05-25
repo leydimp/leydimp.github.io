@@ -354,7 +354,7 @@
 
 <header>
   <!-- Logo horizontal -->
-  <img src="https://cdn-icons-png.flaticon.com/512/415/415682.png" alt="Logo Frutas y Verduras" id="logo" />
+  <img src="https://www.salud.mapfre.es/media/2016/07/prevencion-cancer-frutas-verduras-3.jpg" alt="Logo Frutas y Verduras" id="logo" />
   <!-- Menu -->
   <nav>
     <ul>
@@ -409,6 +409,7 @@
         <li>¿Cómo hacer seguimiento a mi compra?</li>
       </ul>
       <p>Si necesitas ayuda directa, contáctanos desde la sección de Contacto.</p>
+      <img src="https://img.freepik.com/vector-premium/ilustracion-chica-mirando-asombro-tienen-pregunta_444663-3706.jpg">
     </div>
   </section>
 
@@ -460,13 +461,45 @@
           <img src="https://cdn-icons-png.flaticon.com/512/633/633611.png" alt="Transferencia" />
           <span>Transferencia</span>
         </div>
-        <div class="medio-pago" title="Pago con PayPal">
-          <img src="https://cdn-icons-png.flaticon.com/512/888/888870.png" alt="PayPal" />
-          <span>PayPal</span>
-        </div>
         <div class="medio-pago" title="Pago en efectivo al recibir">
           <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Efectivo" />
           <span>Efectivo</span>
+          <body>
+  <section class="formulario-pago">
+    <h3>Realizar pago</h3>
+    <form id="formPago">
+      <label>Nombre en tarjeta:
+        <input type="text" name="nombre" required />
+      </label>
+      <label>Número de tarjeta:
+        <input type="text" name="numero" maxlength="16" required pattern="\d{16}" title="Ingrese 16 dígitos" />
+      </label>
+      <label>Fecha de vencimiento:
+        <input type="month" name="vencimiento" required />
+      </label>
+      <label>Código CVV:
+        <input type="text" name="cvv" maxlength="3" required pattern="\d{3}" title="Ingrese 3 dígitos" />
+      </label>
+      <button type="submit">Pagar ahora</button>
+    </form>
+    <div class="mensaje" id="mensajePago"></div>
+  </section>
+
+  <script>
+    const formPago = document.getElementById('formPago');
+    const mensajePago = document.getElementById('mensajePago');
+
+    formPago.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita recargar la página
+
+      // Aquí podrías agregar validaciones extras o enviar datos a un servidor
+      mensajePago.textContent = 'Pago procesado correctamente. ¡Gracias por su compra!';
+
+      // Limpiar formulario después de enviar
+      formPago.reset();
+    });
+  </script>
+
         </div>
       </div>
     </div>
@@ -503,42 +536,44 @@
 
   // Productos simulados (puedes cambiar o ampliar)
   const productos = [
-    {
-      id: 1,
-      nombre: "Manzana Roja",
-      precio: 1200,
-      imagen: "https://cdn-icons-png.flaticon.com/512/415/415733.png",
-      beneficio: "Rica en antioxidantes, perfecta para snacks saludables."
-    },
-    {
-      id: 2,
-      nombre: "Banana",
-      precio: 800,
-      imagen: "https://cdn-icons-png.flaticon.com/512/415/415733.png",
-      beneficio: "Fuente de potasio, ideal para energía rápida."
-    },
-    {
-      id: 3,
-      nombre: "Zanahoria",
-      precio: 1500,
-      imagen: "https://cdn-icons-png.flaticon.com/512/415/415745.png",
-      beneficio: "Ayuda a la vista y la piel gracias a su vitamina A."
-    },
-    {
-      id: 4,
-      nombre: "Lechuga",
-      precio: 1000,
-      imagen: "https://cdn-icons-png.flaticon.com/512/415/415755.png",
-      beneficio: "Perfecta para ensaladas frescas y ligeras."
-    },
-    {
-      id: 5,
-      nombre: "Tomate",
-      precio: 1100,
-      imagen: "https://cdn-icons-png.flaticon.com/512/415/415748.png",
-      beneficio: "Ideal para cocinar y ensaladas, fuente de licopeno."
-    }
-  ];
+    { nombre: "Manzana", precio: 1.00, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg",
+      beneficio: "Rica en fibra y vitamina C, ayuda a la digestión y fortalece el sistema inmunológico." },
+    { nombre: "Banana", precio: 1.00, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg",
+      beneficio: "Fuente de potasio, ayuda a regular la presión arterial y aporta energía rápida." },
+    { nombre: "Naranja", precio: 1.10, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp",
+      beneficio: "Alto contenido de vitamina C, ayuda a prevenir resfriados y fortalece la piel." },
+    { nombre: "Pera", precio: 1.30, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg",
+      beneficio: "Buena para el corazón, rica en fibra y antioxidantes." },
+    { nombre: "Sandía", precio: 2.50, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg",
+      beneficio: "Muy hidratante, rica en antioxidantes y vitaminas A y C." },
+    { nombre: "Kiwi", precio: 1.80, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg",
+      beneficio: "Excelente fuente de vitamina C, mejora la digestión y fortalece el sistema inmune." },
+    { nombre: "Fresa", precio: 2.00, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487",
+      beneficio: "Rica en antioxidantes, ayuda a la salud del corazón y la piel." },
+    { nombre: "Piña", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg",
+      beneficio: "Contiene bromelina, ayuda a la digestión y reduce inflamación." },
+    { nombre: "Mango", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg",
+      beneficio: "Alto en vitamina A, mejora la vista y fortalece la piel." },
+    { nombre: "Cereza", precio: 3.00, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN",
+      beneficio: "Rica en antioxidantes, ayuda a reducir inflamaciones y mejora el sueño." },
+    { nombre: "Melón", precio: 1.50, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s",
+      beneficio: "Muy hidratante, rico en vitamina C y potasio." },
+    { nombre: "Uva", precio: 3.40, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png",
+      beneficio: "Contiene antioxidantes que mejoran la salud del corazón y la piel." },
+    // Verduras agregadas
+    { nombre: "Zanahoria", precio: 1.20, imagen: "https://upload.wikimedia.org/wikipedia/commons/7/70/Carrot.jpg",
+      beneficio: "Excelente para la vista, rica en vitamina A y fibra." },
+    { nombre: "Lechuga", precio: 0.90, imagen: "https://upload.wikimedia.org/wikipedia/commons/6/66/Lechuga-en-hojas.jpg",
+      beneficio: "Baja en calorías, buena para la digestión y rica en agua." },
+    { nombre: "Tomate", precio: 1.50, imagen: "https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg",
+      beneficio: "Rico en licopeno, antioxidante que ayuda a prevenir enfermedades cardíacas." },
+    { nombre: "Brócoli", precio: 2.50, imagen: "https://upload.wikimedia.org/wikipedia/commons/0/03/Broccoli_and_cross_section_edit.jpg",
+      beneficio: "Alto en fibra y vitamina C, ayuda a fortalecer el sistema inmunológico." },
+    { nombre: "Pepino", precio: 1.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/4/49/Cucumis_sativus_002.JPG",
+      beneficio: "Muy hidratante, ayuda a la piel y contiene antioxidantes." },
+    { nombre: "Pimiento rojo", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Pimientos_rojos.JPG",
+      beneficio: "Rico en vitamina C y antioxidantes, fortalece el sistema inmunológico." }
+  ]; 
 
   const productosGrid = document.getElementById("productos-grid");
   const beneficioText = document.getElementById("beneficio");
