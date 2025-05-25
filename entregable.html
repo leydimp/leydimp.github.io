@@ -2,24 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Verdulería Online</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --verde: #14532d;
+      --verde-claro: #4ade80;
+      --fondo: #1a1a1a;
+      --blanco: #fff;
+    }
+
     * {
       box-sizing: border-box;
     }
 
     body {
-      background-color: #222;
-      color: #fff;
       font-family: Arial, sans-serif;
+      background-color: var(--fondo);
+      color: var(--blanco);
       margin: 0;
       padding: 0;
     }
 
     header {
-      background-color: #111;
+      background-color: var(--verde);
       padding: 1rem;
       text-align: center;
     }
@@ -38,7 +45,7 @@
     }
 
     nav ul li a {
-      color: #fff;
+      color: var(--blanco);
       text-decoration: none;
       font-weight: bold;
     }
@@ -52,36 +59,57 @@
       display: block;
     }
 
-    .product {
-      display: inline-block;
-      width: 180px;
-      margin: 1rem;
+    h1, h2 {
       text-align: center;
-      border: 1px solid #444;
-      padding: 1rem;
-      border-radius: 8px;
-      background-color: #333;
+      color: var(--verde-claro);
     }
 
-    .product img {
-      width: 150px;
+    .contenedor-productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .producto {
+      background-color: #2e2e2e;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px #0005;
+    }
+
+    .producto img {
+      width: 100%;
       height: 150px;
       object-fit: cover;
-      border-radius: 6px;
+      border-radius: 8px;
+    }
+
+    .producto h2 {
+      font-size: 18px;
+      color: var(--verde-claro);
+    }
+
+    .precio {
+      color: #ffd700;
+      font-weight: bold;
     }
 
     .carrito {
-      border: 1px solid #666;
       margin-top: 2rem;
+      background-color: #2a2a2a;
       padding: 1rem;
-      background-color: #333;
+      border-radius: 10px;
     }
 
-    .formulario-pago {
+    .formulario-pago, .formulario-contacto {
       margin-top: 2rem;
+      background-color: #2a2a2a;
+      padding: 1rem;
+      border-radius: 10px;
     }
 
-    input, select, button {
+    input, select, button, textarea {
       width: 100%;
       padding: 0.5rem;
       margin: 0.5rem 0;
@@ -90,33 +118,33 @@
     }
 
     button {
-      background-color: #4CAF50;
-      color: white;
+      background-color: var(--verde-claro);
+      color: #000;
+      font-weight: bold;
       cursor: pointer;
     }
 
     footer {
-      background-color: #111;
-      color: #aaa;
+      background-color: var(--verde);
+      color: #ddd;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
     }
 
     .redes-sociales a {
-      color: #fff;
+      color: var(--blanco);
       margin: 0 0.5rem;
       font-size: 1.5rem;
     }
 
     @media (max-width: 600px) {
-      .product {
+      .producto {
         width: 100%;
       }
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>Verdulería Online</h1>
@@ -127,6 +155,7 @@
         <li><a href="#ayuda">Ayuda</a></li>
         <li><a href="#ubicacion">Ubicación</a></li>
         <li><a href="#medios-pago">Medios de Pago</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -136,73 +165,16 @@
     <p>¡Gracias por visitar nuestra tienda en línea!</p>
   </section>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Verdulería Online</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #121212;
-      color: #fff;
-      margin: 0;
-      padding: 20px;
-    }
-    h1, h2 {
-      text-align: center;
-      color: #ff9800;
-    }
-    .contenedor-productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .producto {
-      background-color: #1e1e1e;
-      border-radius: 15px;
-      padding: 15px;
-      box-shadow: 0 4px 10px rgba(255, 152, 0, 0.2);
-      transition: transform 0.2s ease;
-    }
-    .producto:hover {
-      transform: translateY(-5px);
-    }
-    .producto img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-    .producto h2 {
-      font-size: 20px;
-      margin: 10px 0 5px;
-      color: #ffcc80;
-    }
-    .producto p {
-      font-size: 14px;
-      margin: 5px 0;
-    }
-    .precio {
-      color: #ffeb3b;
-      font-weight: bold;
-    }
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      color: #aaa;
-    }
-    .redes-sociales a {
-      color: #ff9800;
-      margin: 0 10px;
-      font-size: 24px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Catálogo de Frutas y Verduras</h1>
-  <div class="contenedor-productos" id="contenedor"></div>
+  <section id="productos">
+    <h2>Catálogo de Frutas y Verduras</h2>
+    <div class="contenedor-productos" id="contenedor"></div>
+
+    <div class="carrito" id="carrito">
+      <h3>Carrito de Compras</h3>
+      <ul id="lista-carrito"></ul>
+      <p><strong>Total: $<span id="total">0.00</span></strong></p>
+    </div>
+  </section>
 
   <section id="ayuda">
     <h2>Ayuda</h2>
@@ -211,36 +183,47 @@
 
   <section id="ubicacion">
     <h2>Ubicación</h2>
-    <p>Nos encontramos en calle Falsa 123, Ciudad Verdura.</p>
+    <p>Estamos en Calle Falsa 123, Ciudad Verdura.</p>
   </section>
 
   <section id="medios-pago">
     <h2>Medios de Pago</h2>
-    <div class="medio-pago">
-      <h3>Pago en efectivo</h3>
-      <p>Paga en efectivo al momento de la entrega.</p>
-    </div>
-    <div class="medio-pago">
-      <h3>Transferencia Bancaria</h3>
-      <p>CBU: 1234567890123456789012</p>
-    </div>
+    <ul>
+      <li>Efectivo al recibir</li>
+      <li>Transferencia Bancaria - CBU: 1234567890123456789012</li>
+    </ul>
 
     <div class="formulario-pago">
-      <h2>Formulario de Pago</h2>
+      <h3>Formulario de Pago</h3>
       <form>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" required>
+        <label>Nombre:</label>
+        <input type="text" required>
 
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" required>
+        <label>Dirección:</label>
+        <input type="text" required>
 
-        <label for="metodo">Método de pago:</label>
-        <select id="metodo" required>
+        <label>Método de Pago:</label>
+        <select required>
           <option value="efectivo">Efectivo</option>
           <option value="transferencia">Transferencia</option>
         </select>
 
         <button type="submit">Finalizar Compra</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="formulario-contacto">
+      <form>
+        <label>Nombre:</label>
+        <input type="text" required>
+        <label>Correo electrónico:</label>
+        <input type="email" required>
+        <label>Mensaje:</label>
+        <textarea rows="4" required></textarea>
+        <button type="submit">Enviar</button>
       </form>
     </div>
   </section>
@@ -256,28 +239,17 @@
 
   <script>
     const productos = [
-      { nombre: "Manzana", precio: 1.00, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", beneficio: "Rica en fibra y vitamina C, ayuda a la digestión y fortalece el sistema inmunológico." },
-      { nombre: "Banana", precio: 1.00, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", beneficio: "Fuente de potasio, ayuda a regular la presión arterial y aporta energía rápida." },
-      { nombre: "Naranja", precio: 1.10, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp", beneficio: "Alto contenido de vitamina C, ayuda a prevenir resfriados y fortalece la piel." },
-      { nombre: "Pera", precio: 1.30, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg", beneficio: "Buena para el corazón, rica en fibra y antioxidantes." },
-      { nombre: "Sandía", precio: 2.50, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg", beneficio: "Muy hidratante, rica en antioxidantes y vitaminas A y C." },
-      { nombre: "Kiwi", precio: 1.80, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg", beneficio: "Excelente fuente de vitamina C, mejora la digestión y fortalece el sistema inmune." },
-      { nombre: "Fresa", precio: 2.00, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487", beneficio: "Rica en antioxidantes, ayuda a la salud del corazón y la piel." },
-      { nombre: "Piña", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg", beneficio: "Contiene bromelina, ayuda a la digestión y reduce inflamación." },
-      { nombre: "Mango", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg", beneficio: "Alto en vitamina A, mejora la vista y fortalece la piel." },
-      { nombre: "Cereza", precio: 3.00, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN", beneficio: "Rica en antioxidantes, ayuda a reducir inflamaciones y mejora el sueño." },
-      { nombre: "Melón", precio: 1.50, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s", beneficio: "Muy hidratante, rico en vitamina C y potasio." },
-      { nombre: "Uva", precio: 3.40, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png", beneficio: "Contiene antioxidantes que mejoran la salud del corazón y la piel." },
-      { nombre: "Zanahoria", precio: 1.20, imagen: "https://upload.wikimedia.org/wikipedia/commons/7/70/Carrot.jpg", beneficio: "Excelente para la vista, rica en vitamina A y fibra." },
-      { nombre: "Lechuga", precio: 0.90, imagen: "https://agroferiacr.com/wp-content/uploads/2023/04/LECHUGA-1-2-1.jpg", beneficio: "Baja en calorías, buena para la digestión y rica en agua." },
-      { nombre: "Tomate", precio: 1.50, imagen: "https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg", beneficio: "Rico en licopeno, antioxidante que ayuda a prevenir enfermedades cardíacas." },
-      { nombre: "Brócoli", precio: 2.50, imagen: "https://upload.wikimedia.org/wikipedia/commons/0/03/Broccoli_and_cross_section_edit.jpg", beneficio: "Alto en fibra y vitamina C, ayuda a fortalecer el sistema inmunológico." },
-      { nombre: "Pepino", precio: 1.00, imagen: "https://s3.abcstatics.com/media/bienestar/2020/06/10/penino-ficha-kTUF--1248x698@abc.jpg", beneficio: "Muy hidratante, ayuda a la piel y contiene antioxidantes." },
-      { nombre: "Pimiento rojo", precio: 2.00, imagen: "https://tienda.frutaseloy.com/wp-content/uploads/2024/10/pimientos-rojos-sobre-cuenco-de-madera-480x480.png.webp", beneficio: "Rico en vitamina C y antioxidantes, fortalece el sistema inmunológico." }
+      { nombre: "Manzana", precio: 1.00, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", beneficio: "Rica en fibra y vitamina C." },
+      { nombre: "Banana", precio: 1.00, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", beneficio: "Fuente de potasio." },
+      { nombre: "Pera", precio: 1.30, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg", beneficio: "Buena para el corazón." }
     ];
 
     const contenedor = document.getElementById("contenedor");
-    productos.forEach(producto => {
+    const carrito = [];
+    const listaCarrito = document.getElementById("lista-carrito");
+    const totalEl = document.getElementById("total");
+
+    productos.forEach((producto, index) => {
       const div = document.createElement("div");
       div.className = "producto";
       div.innerHTML = `
@@ -285,8 +257,36 @@
         <h2>${producto.nombre}</h2>
         <p class="precio">$${producto.precio.toFixed(2)}</p>
         <p>${producto.beneficio}</p>
+        <button onclick="agregarAlCarrito(${index})">Agregar al carrito</button>
       `;
       contenedor.appendChild(div);
+    });
+
+    function agregarAlCarrito(index) {
+      carrito.push(productos[index]);
+      renderizarCarrito();
+    }
+
+    function renderizarCarrito() {
+      listaCarrito.innerHTML = "";
+      let total = 0;
+      carrito.forEach(prod => {
+        const li = document.createElement("li");
+        li.textContent = `${prod.nombre} - $${prod.precio.toFixed(2)}`;
+        listaCarrito.appendChild(li);
+        total += prod.precio;
+      });
+      totalEl.textContent = total.toFixed(2);
+    }
+
+    // Navegación
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const id = link.getAttribute("href").replace("#", "");
+        document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+      });
     });
   </script>
 </body>
