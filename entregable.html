@@ -29,6 +29,7 @@
       display: flex;
       flex-direction: column;
     }
+    
 
     header {
       background-color: var(--acento);
@@ -268,7 +269,7 @@
       height: 32px;
       object-fit: contain;
       border-radius: 5px;
-      border: 1px solid #ddd;
+      border: 1px solid #131111;
       user-select: none;
     }
 
@@ -318,16 +319,49 @@
         max-width: 100%;
       }
     }
+    nav a {
+    display: inline-block;
+    background-color: #e0ffe0;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px solid #8bc34a;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  nav a:hover {
+    background-color: #c5f7c5;
+    transform: scale(1.05);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+</style>
   </style>
 </head>
 <body>
+  
   <header>
     <h1>La Casa de las Frutas</h1>
     <p>Frutas frescas directo a tu hogar 🍓🍍🍇</p>
   </header>
 
-  <div class="menu-principal" title="Menú Principal - La Casa de las Frutas">
-    <img src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-bc24-61f7-843f-3a9e1706fb7f/raw?se=2025-05-22T12%3A46%3A30Z&sp=r&sv=2024-08-04&sr=b&scid=1e476302-9463-5bbb-8f32-cb621369de6e&skoid=c953efd6-2ae8-41b4-a6d6-34b1475ac07c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-21T20%3A18%3A37Z&ske=2025-05-22T20%3A18%3A37Z&sks=b&skv=2024-08-04&sig=fwOl3n352qmcjqxffn70TkALDqj756s44G97kczTHNk%3D" alt="Menú principal frutas" />
+ <div class="menu-principal" title="Menú Principal - La Casa de las Frutas">
+  <img src="https://www.casadelafruta.com/wp-content/smush-webp/2023/06/Logo-Casa-de-la-fruta-green.png.webp" />
+</div>
+<nav>
+  <button onclick="location.href='reclamos.html'">📖 Libro de Reclamos</button>
+  <a href="#medios">💳 Medios de pago</a>
+  <a href="contacto">Contactos</a>
+</nav>
   </div>
 
   <div class="barra">
@@ -345,11 +379,31 @@
       <button onclick="pagar()">Pagar</button>
     </section>
   </main>
+<footer>
+  <section id="seccion-reclamos" class="formulario oculto">
+    <h2>📖 Libro de Reclamos</h2>
+    <form id="reclamoForm" onsubmit="enviarReclamo(event)">
+      <label>Nombre completo:
+        <input type="text" name="nombre" required>
+      </label><br>
+      <label>Correo electrónico:
+        <input type="email" name="correo" required>
+      </label><br>
+      <label>DNI:
+        <input type="text" name="dni" maxlength="8" required>
+      </label><br>
+      <label>Lugar de nacimiento:
+        <input type="text" name="lugar" required>
+      </label><br>
+      <label>Tu reclamo:
+        <textarea name="reclamo" rows="4" required></textarea>
+      </label><br>
+      <button type="submit">Enviar reclamo</button>
+      <button type="button" onclick="cerrarFormularioReclamos()">❌ Cerrar formulario</button>
+    </form>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
-    <a href="#" onclick="alert('Libro de Reclamaciones en proceso digital 📖'); return false;">📖 Libro de Reclamaciones</a>
-     <div class="extras-container" aria-label="Sección adicional">
+  <div class="extras-container" aria-label="Sección adicional">
     <section class="extra" aria-label="Recomendados para ti">
       <h2>Recomendados para ti 🥝🍒</h2>
       <p>Basado en tus gustos, te recomendamos probar el kiwi y las fresas, ricos en antioxidantes y vitamina C.</p>
@@ -362,18 +416,37 @@
       <p>📍 Dirección: Av. Frutal 123, Puno, Perú</p>
     </section>
 
-    <section class="extra" aria-label="Medios de pago">
+    <section class="extra" aria-label="Medios de pago" id="medios">
       <h2>Medios de pago 💳</h2>
       <ul class="medios-pago">
         <li><img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Tarjeta"> Tarjetas de crédito y débito</li>
         <li><img src="https://marketing-peru.beglobal.biz/wp-content/uploads/2025/01/logo-yape-bolivia.jpeg" alt="Yape"> Yape</li>
         <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN94zsmpdqN7p2ugqBBrPygthpvfIsDB4QJA&s" alt="Plin"> Plin</li>
-        <li><img src="https://cdn-icons-png.flaticon.com/512/1885/1885396.png" alt="Transferencia"> Transferencias bancarias</li>
-        <li><img src="https://cdn-icons-png.flaticon.com/512/1486/1486435.png" alt="Entrega"> Pago contra entrega</li>
       </ul>
+
+      <section class="formulario-pago">
+        <h3>Realizar pago</h3>
+        <form onsubmit="procesarPago(event)">
+          <label>Nombre en tarjeta:
+            <input type="text" required>
+          </label>
+          <label>Número de tarjeta:
+            <input type="text" maxlength="16" required>
+          </label>
+          <label>Fecha de vencimiento:
+            <input type="month" required>
+          </label>
+          <label>Código CVV:
+            <input type="text" maxlength="3" required>
+          </label>
+          <button type="submit">Pagar ahora</button>
+        </form>
+      </section>
     </section>
   </div>
-  </footer>
+
+  <p>&copy; 2025 La Casa de las Frutas. Todos los derechos reservados.</p>
+</footer>
 
   <script>
     const productos = [
@@ -401,16 +474,17 @@
       productosParaMostrar.forEach(producto => {
         const div = document.createElement('div');
         div.classList.add('producto');
-        div.title = Haz clic para ver para qué sirve la ${producto.nombre};
+      div.title = `Haz click para ver para qué sirve ${producto.nombre}`;
         div.setAttribute('role', 'button');
         div.setAttribute('tabindex', '0');
-        div.innerHTML = 
-          <img src="${producto.imagen}" alt="Imagen de ${producto.nombre}" loading="lazy" />
-          <h3>${producto.nombre}</h3>
-          <p>${producto.descripcion}</p>
-          <p><strong>Precio: $${producto.precio.toFixed(2)}</strong></p>
-          <button aria-label="Agregar ${producto.nombre} al carrito">Agregar al carrito</button>
-        ;
+        div.innerHTML = `
+  <img src="${producto.imagen}" alt="Imagen de ${producto.nombre}" loading="lazy" />
+  <h3>${producto.nombre}</h3>
+  <p>${producto.descripcion}</p>
+  <p><strong>Precio: $${producto.precio.toFixed(2)}</strong></p>
+  <button aria-label="Agregar ${producto.nombre} al carrito">Agregar al carrito</button>
+`;
+
         // Agregar evento click al div para redirigir a página fruta
         div.addEventListener('click', e => {
           if(e.target.tagName.toLowerCase() === 'button') return; // No activar cuando se presiona botón
@@ -433,7 +507,8 @@
     }
     // Mostrar info fruta (redireccionar)
     function mostrarInfoFruta(producto) {
-      alert(Para qué es buena la fruta ${producto.nombre}:\n\n${infoFrutas[producto.nombre] || 'Información no disponible.'});
+      alert(`Para qué es buena la fruta ${producto.nombre}:\n\n${infoFrutas[producto.nombre] || 'Información no disponible.'}`);
+
     }
 
     // Información de cada fruta para la alerta
@@ -478,10 +553,8 @@
         total += precioTotal;
 
         const li = document.createElement('li');
-        li.textContent = ${producto.nombre} x${cantidad} - $${precioTotal.toFixed(2)};
+       li.textContent = `${producto.nombre} x${cantidad} - $${precioTotal.toFixed(2)}`;
         ul.appendChild(li);
-      }
-
       document.getElementById('total').textContent = total.toFixed(2);
     }
 
@@ -509,8 +582,5 @@
     }
 
     // Inicial
-    renderProductos(productos);
-    mostrarCarrito();
-  </script>
-</body>
-</html>
+    renderProductos(productos);    mostrarCarrito();
+  }
