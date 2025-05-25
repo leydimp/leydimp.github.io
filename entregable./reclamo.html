@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Libro de Reclamaciones - Tienda de Frutas y Verduras</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7fdf9;
+      color: #333;
+    }
+    header {
+      background-color: #4CAF50;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    nav {
+      background-color: #388E3C;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #c8facc;
+    }
+    main {
+      padding: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-top: 0;
+    }
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    form button {
+      margin-top: 20px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #d32f2f;
+    }
+    .imagen-header {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Tienda de Frutas y Verduras</h1>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="reclamo.html">Libro de Reclamaciones</a>
+  <a href="index.html#pago">Medios de Pago</a>
+</nav>
+
+<main>
+  <img src="https://images.unsplash.com/photo-1572379490591-7ca9d2371a17?auto=format&fit=crop&w=800&q=80" alt="Libro de reclamaciones" class="imagen-header" />
+  <h1>Libro de Reclamaciones</h1>
+  <form>
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" type="text" required />
+    
+    <label for="email">Correo electrónico:</label>
+    <input id="email" type="email" required />
+    
+    <label for="detalle">Detalle del reclamo:</label>
+    <textarea id="detalle" rows="5" required></textarea>
+    
+    <button type="submit">Enviar reclamo</button>
+  </form>
+</main>
+
+</body>
+</html>
