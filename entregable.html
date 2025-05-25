@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- ... HEAD IGUAL ... -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Verdulería Online</title>
@@ -9,7 +10,7 @@
     :root {
       --verde: #14532d;
       --verde-claro: #4ade80;
-      --fondo: #1a1a1a;
+      --fondo: #292626;
       --blanco: #fff;
     }
 
@@ -71,11 +72,11 @@
     }
 
     .producto {
-      background-color: #2e2e2e;
+      background-color: #413838;
       border-radius: 10px;
       padding: 10px;
       text-align: center;
-      box-shadow: 0 0 10px #0005;
+      box-shadow: 0 0 10px rgba(32, 30, 30, 0.333);
     }
 
     .producto img {
@@ -156,6 +157,7 @@
         <li><a href="#ubicacion">Ubicación</a></li>
         <li><a href="#medios-pago">Medios de Pago</a></li>
         <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#reclamaciones">Libro de Reclamaciones</a></li>
       </ul>
     </nav>
   </header>
@@ -224,6 +226,26 @@
         <label>Mensaje:</label>
         <textarea rows="4" required></textarea>
         <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="reclamaciones">
+    <h2>Libro de Reclamaciones</h2>
+    <div class="formulario-contacto">
+      <form>
+        <label>Nombre completo:</label>
+        <input type="text" required>
+        <label>Correo electrónico:</label>
+        <input type="email" required>
+        <label>Motivo del reclamo:</label>
+        <textarea rows="4" placeholder="Escribe tu reclamo o sugerencia..." required></textarea>
+        <label>¿Deseas una respuesta?</label>
+        <select required>
+          <option value="si">Sí</option>
+          <option value="no">No</option>
+        </select>
+        <button type="submit">Enviar Reclamo</button>
       </form>
     </div>
   </section>
