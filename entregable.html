@@ -1,226 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Casa de las Frutas y Verduras</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
-    <div class="logo">🍎 La Casa de las Frutas y Verduras</div>
     <nav>
+      <img src="logo.png" alt="Logo" class="logo">
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="pages/contacto.html">Contacto</a></li>
-        <li><a href="pages/medios.html">Medios de Pago</a></li>
-        <li><a href="pages/reclamaciones.html">Libro de Reclamaciones</a></li>
-        <li><a href="#" id="ver-carrito">🛒 Carrito (<span id="carrito-contador">0</span>)</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="pagos.html">Medios de Pago</a></li>
+        <li><a href="reclamaciones.html">Libro de Reclamaciones</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <h1>Nuestros Productos</h1>
-    <div class="productos" id="productos-container">
-      <!-- Aquí se insertan los productos con JavaScript -->
-    </div>
-    <div id="carrito" class="carrito oculto">
-      <h2>Carrito de Compras</h2>
-      <ul id="lista-carrito"></ul>
-      <button onclick="vaciarCarrito()">Vaciar Carrito</button>
-    </div>
+    <h1>Bienvenidos a La Casa de las Frutas y Verduras</h1>
+    <section class="productos">
+      <!-- Productos generados por JavaScript -->
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 La Casa de las Frutas y Verduras</p>
+    <p>&copy; 2025 La Casa de las Frutas y Verduras. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
-"""
-
-# CSS para el diseño café y blanco
-styles_css = """
-body {
-  font-family: Arial, sans-serif;
-  background-color: #fffaf2;
-  color: #4e342e;
-  margin: 0;
-}
-header {
-  background-color: #6d4c41;
-  color: white;
-  padding: 1em;
-}
-header .logo {
-  font-size: 1.5em;
-}
-nav ul {
-  list-style: none;
-  padding: 0;
-}
-nav ul li {
-  display: inline;
-  margin-right: 1em;
-}
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-.productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1em;
-  padding: 1em;
-}
-.producto {
-  border: 1px solid #ddd;
-  padding: 1em;
-  background: white;
-  border-radius: 8px;
-  text-align: center;
-}
-.producto img {
-  max-width: 100%;
-  height: auto;
-}
-footer {
-  background-color: #6d4c41;
-  color: white;
-  text-align: center;
-  padding: 1em;
-  margin-top: 2em;
-}
-.oculto {
-  display: none;
-}
-"""
-
-# JavaScript para productos y carrito
-script_js = """
-const productos = [
-  { nombre: "Manzana", imagen: "manzana.jpg", pagina: "manzana.html" },
-  { nombre: "Plátano", imagen: "platano.jpg", pagina: "platano.html" },
-  { nombre: "Naranja", imagen: "naranja.jpg", pagina: "naranja.html" },
-  { nombre: "Pera", imagen: "pera.jpg", pagina: "pera.html" },
-  { nombre: "Piña", imagen: "pina.jpg", pagina: "pina.html" },
-  { nombre: "Sandía", imagen: "sandia.jpg", pagina: "sandia.html" },
-  { nombre: "Fresa", imagen: "fresa.jpg", pagina: "fresa.html" },
-  { nombre: "Uva", imagen: "uva.jpg", pagina: "uva.html" },
-  { nombre: "Melón", imagen: "melon.jpg", pagina: "melon.html" },
-  { nombre: "Kiwi", imagen: "kiwi.jpg", pagina: "kiwi.html" },
-  { nombre: "Zanahoria", imagen: "zanahoria.jpg", pagina: "zanahoria.html" },
-  { nombre: "Lechuga", imagen: "lechuga.jpg", pagina: "lechuga.html" },
-  { nombre: "Tomate", imagen: "tomate.jpg", pagina: "tomate.html" },
-  { nombre: "Cebolla", imagen: "cebolla.jpg", pagina: "cebolla.html" },
-  { nombre: "Papa", imagen: "papa.jpg", pagina: "papa.html" },
-  { nombre: "Brócoli", imagen: "brocoli.jpg", pagina: "brocoli.html" },
-  { nombre: "Coliflor", imagen: "coliflor.jpg", pagina: "coliflor.html" },
-  { nombre: "Espinaca", imagen: "espinaca.jpg", pagina: "espinaca.html" },
-  { nombre: "Pepino", imagen: "pepino.jpg", pagina: "pepino.html" },
-  { nombre: "Ajo", imagen: "ajo.jpg", pagina: "ajo.html" }
-];
-
-const carrito = [];
-
-function mostrarProductos() {
-  const contenedor = document.getElementById("productos-container");
-  productos.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "producto";
-    div.innerHTML = \`
-      <a href="pages/\${p.pagina}">
-        <img src="images/\${p.imagen}" alt="\${p.nombre}" />
-        <h3>\${p.nombre}</h3>
-      </a>
-      <button onclick="agregarAlCarrito('\${p.nombre}')">Agregar</button>
-    \`;
-    contenedor.appendChild(div);
-  });
-}
-
-function agregarAlCarrito(nombre) {
-  carrito.push(nombre);
-  document.getElementById("carrito-contador").innerText = carrito.length;
-  actualizarCarrito();
-}
-
-function actualizarCarrito() {
-  const lista = document.getElementById("lista-carrito");
-  lista.innerHTML = "";
-  carrito.forEach(p => {
-    const li = document.createElement("li");
-    li.textContent = p;
-    lista.appendChild(li);
-  });
-}
-
-function vaciarCarrito() {
-  carrito.length = 0;
-  actualizarCarrito();
-  document.getElementById("carrito-contador").innerText = "0";
-}
-
-document.getElementById("ver-carrito").addEventListener("click", () => {
-  document.getElementById("carrito").classList.toggle("oculto");
-});
-
-document.addEventListener("DOMContentLoaded", mostrarProductos);
-"""
-
-# Crear páginas adicionales (contacto, medios de pago, reclamos)
-paginas_estaticas = {
-    "contacto.html": "<h1>Contacto</h1><p>Puedes escribirnos a contacto@frutasyverduras.com</p>",
-    "medios.html": "<h1>Medios de Pago</h1><p>Aceptamos tarjetas, transferencias y pagos móviles.</p>",
-    "reclamaciones.html": "<h1>Libro de Reclamaciones</h1><form><input type='text' placeholder='Tu reclamo...'><button>Enviar</button></form>"
-}
-
-for nombre, contenido in paginas_estaticas.items():
-    with open(os.path.join(pages_dir, nombre), "w", encoding="utf-8") as f:
-        f.write(f"<!DOCTYPE html><html><head><meta charset='utf-8'><title>{nombre}</title><link rel='stylesheet' href='../styles.css'></head><body><a href='../index.html'>← Volver</a>{contenido}</body></html>")
-
-# Crear archivos principales
-with open(os.path.join(base_dir, "index.html"), "w", encoding="utf-8") as f:
-    f.write(index_html)
-
-with open(os.path.join(base_dir, "styles.css"), "w", encoding="utf-8") as f:
-    f.write(styles_css)
-
-with open(os.path.join(base_dir, "script.js"), "w", encoding="utf-8") as f:
-    f.write(script_js)
-
-# Crear páginas de producto con beneficios
-productos_beneficios = {
-    "manzana.html": "Buena para la digestión y el corazón.",
-    "platano.html": "Fuente de potasio, ideal para energía.",
-    "naranja.html": "Rica en vitamina C para la inmunidad.",
-    "pera.html": "Hidratante y buena para el sistema digestivo.",
-    "pina.html": "Antiinflamatoria y buena para la digestión.",
-    "sandia.html": "Refrescante e hidratante.",
-    "fresa.html": "Antioxidante y buena para la piel.",
-    "uva.html": "Buena para el corazón y antioxidante.",
-    "melon.html": "Hidratante y buena para la visión.",
-    "kiwi.html": "Alta en vitamina C y fibra.",
-    "zanahoria.html": "Buena para la vista y antioxidante.",
-    "lechuga.html": "Ligera, ideal para dietas.",
-    "tomate.html": "Rico en licopeno, bueno para el corazón.",
-    "cebolla.html": "Antibacteriana y antioxidante.",
-    "papa.html": "Fuente de energía, rica en potasio.",
-    "brocoli.html": "Rico en hierro y fibra.",
-    "coliflor.html": "Antioxidante y anticancerígeno.",
-    "espinaca.html": "Rica en hierro y vitaminas.",
-    "pepino.html": "Hidratante y diurético.",
-    "ajo.html": "Fortalece el sistema inmune."
-}
-
-for archivo, beneficio in productos_beneficios.items():
-    with open(os.path.join(pages_dir, archivo), "w", encoding="utf-8") as f:
-        f.write(f"""<!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>{archivo}</title>
-<link rel="stylesheet" href="../styles.css"></head>
-<body><a href="../index.html">← Volver</a>
-<h1>{archivo.replace('.html', '').capitalize()}</h1>
-<p>{beneficio}</p>
-</body></html>
 
