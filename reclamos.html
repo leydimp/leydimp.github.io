@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Libro de Reclamos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 2em;
+    }
+    .formulario {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="formulario">
+    <h2>📖 Libro de Reclamos</h2>
+    <form id="reclamoForm" onsubmit="enviarReclamo(event)">
+      <label>Nombre completo:
+        <input type="text" name="nombre" required>
+      </label>
+      <label>Correo electrónico:
+        <input type="email" name="correo" required>
+      </label>
+      <label>DNI:
+        <input type="text" name="dni" maxlength="8" required>
+      </label>
+      <label>Lugar de nacimiento:
+        <input type="text" name="lugar" required>
+      </label>
+      <label>Tu reclamo:
+        <textarea name="reclamo" rows="4" required></textarea>
+      </label>
+      <button type="submit">Enviar reclamo</button>
+    </form>
+  </section>
+
+  <script>
+    function enviarReclamo(event) {
+      event.preventDefault();
+      alert("✅ Reclamo enviado correctamente. Gracias por tu mensaje.");
+      document.getElementById("reclamoForm").reset();
+    }
+  </script>
+
+</body>
+</html>
+<!-- reclamaciones.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Libro de Reclamaciones</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>📖 Libro de Reclamaciones</h1>
+    <a href="index.html">← Volver a la tienda</a>
+  </header>
+  <main style="padding: 2rem;">
+    <form>
+      <label>Nombre completo:<br><input type="text" required></label><br><br>
+      <label>Email:<br><input type="email" required></label><br><br>
+      <label>Reclamación:<br><textarea rows="5" required></textarea></label><br><br>
+      <button type="submit">Enviar Reclamación</button>
+    </form>
+  </main>
+</body>
+</html>
+
