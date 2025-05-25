@@ -171,18 +171,12 @@
     <h2>Catálogo de Frutas y Verduras</h2>
     <div class="contenedor-productos" id="contenedor"></div>
 
-    <section id="productos">
-  <h2>Catálogo de Frutas y Verduras</h2>
-
-  <div class="carrito" id="carrito">
-    <h3>Carrito de Compras</h3>
-    <ul id="lista-carrito"></ul>
-    <p><strong>Total: $<span id="total">0.00</span></strong></p>
-  </div>
-
-  <div class="contenedor-productos" id="contenedor"></div>
-</section>
-
+    <div class="carrito" id="carrito">
+      <h3>Carrito de Compras</h3>
+      <ul id="lista-carrito"></ul>
+      <p><strong>Total: $<span id="total">0.00</span></strong></p>
+    </div>
+  </section>
 
   <section id="ayuda">
     <h2>Ayuda</h2>
@@ -279,6 +273,7 @@
   { nombre: "Tomate", precio: 1.20, imagen: "https://www.ecoticias.com/wp-content/uploads/2022/09/tomates-ecologicos.jpg", beneficio: "Rico en licopeno." },
   { nombre: "Cebolla", precio: 0.80, imagen: "https://okdiario.com/img/2021/11/23/que-propiedades-tiene-la-cebolla--655x368.jpg", beneficio: "Propiedades antiinflamatorias." }
 ];
+
 
     const contenedor = document.getElementById("contenedor");
     const carrito = [];
