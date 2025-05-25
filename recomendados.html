@@ -6,6 +6,22 @@
   <title>Frutas y Verduras Recomendadas - Tienda</title>
   <style>
     /* Misma base de estilos */
+    .productos {
+  display: flex;
+  overflow-x: auto;
+  gap: 25px;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.productos::-webkit-scrollbar {
+  display: none;
+}
+.card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
     body {
       font-family: Arial, sans-serif;
       background: #f7f9fc;
