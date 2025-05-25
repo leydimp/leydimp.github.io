@@ -1,36 +1,168 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Casa de las Frutas y Verduras</title>
-  <link rel="stylesheet" href="estilos.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fffaf5;
+      color: #2e2416;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #8b5e3c;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav {
+      background-color: #d2b48c;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #3e2f1c;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .producto {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .producto:hover {
+      transform: scale(1.05);
+    }
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .producto h3 {
+      margin: 10px 0;
+    }
+    .footer {
+      background-color: #8b5e3c;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    .seccion {
+      padding: 30px;
+    }
+    .seccion h2 {
+      color: #8b5e3c;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background-color: #8b5e3c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function redirigir(nombre) {
+      window.location.href = `producto_${nombre.toLowerCase().replace(/ /g, '_')}.html`;
+    }
+  </script>
 </head>
 <body>
   <header>
-    <nav>
-      <img src="logo.png" alt="Logo" class="logo">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="pagos.html">Medios de Pago</a></li>
-        <li><a href="reclamaciones.html">Libro de Reclamaciones</a></li>
-        <li><a href="carrito.html">Carrito</a></li>
-      </ul>
-    </nav>
+    <h1>La Casa de las Frutas y Verduras</h1>
   </header>
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#pagos">Medios de Pago</a>
+    <a href="#reclamos">Libro de Reclamaciones</a>
+  </nav>
+  <section id="productos" class="productos">
+    <div class="producto" onclick="redirigir('Manzana')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/640px-Red_Apple.jpg" alt="Manzana">
+      <h3>Manzana</h3>
+      <p>S/ 2.00 unidad</p>
+    </div>
+    <div class="producto" onclick="redirigir('Zanahoria')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Carrot.jpg/640px-Carrot.jpg" alt="Zanahoria">
+      <h3>Zanahoria</h3>
+      <p>S/ 1.50 unidad</p>
+    </div>
+    <div class="producto" onclick="redirigir('Platano')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/640px-Banana-Single.jpg" alt="Plátano">
+      <h3>Plátano</h3>
+      <p>S/ 1.00 unidad</p>
+    </div>
+    <div class="producto" onclick="redirigir('Brocoli')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Broccoli_and_cross_section_edit.jpg/640px-Broccoli_and_cross_section_edit.jpg" alt="Brócoli">
+      <h3>Brócoli</h3>
+      <p>S/ 3.00 unidad</p>
+    </div>
+    <!-- Más productos se añadirán luego -->
+  </section>
 
-  <main>
-    <h1>Bienvenidos a La Casa de las Frutas y Verduras</h1>
-    <section class="productos">
-      <!-- Productos generados por JavaScript -->
-    </section>
-  </main>
+  <section id="contacto" class="seccion">
+    <h2>Contacto</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu correo" required>
+      <textarea rows="4" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
 
-  <footer>
+  <section id="pagos" class="seccion">
+    <h2>Medios de Pago</h2>
+    <p>Aceptamos:</p>
+    <ul>
+      <li>Tarjeta de crédito y débito</li>
+      <li>Yape / Plin</li>
+      <li>Transferencia bancaria</li>
+    </ul>
+  </section>
+
+  <section id="reclamos" class="seccion">
+    <h2>Libro de Reclamaciones</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu correo" required>
+      <textarea rows="4" placeholder="Escribe tu reclamo aquí" required></textarea>
+      <button type="submit">Enviar Reclamo</button>
+    </form>
+  </section>
+
+  <footer class="footer">
     <p>&copy; 2025 La Casa de las Frutas y Verduras. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
-
