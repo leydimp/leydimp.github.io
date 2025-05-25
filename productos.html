@@ -24,23 +24,134 @@
 
   <section>
     <h2>Productos</h2>
-    <div class="productos">
-      <!-- Copia aquí los productos con imágenes y botones -->
-       { id: 1, nombre: "Manzana", precio: 1.0, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", descripcion: "Una fruta dulce y crujiente, perfecta para meriendas." },
-      { id: 2, nombre: "Banana", precio: 1.0, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", descripcion: "Rica en potasio, ideal para deportistas." },
-      { id: 3, nombre: "Naranja", precio: 1.1, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp", descripcion: "Fuente de vitamina C, ideal para jugos." },
-      { id: 4, nombre: "Pera", precio: 1.3, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg", descripcion: "Suave, jugosa y refrescante." },
-      { id: 5, nombre: "Sandía", precio: 2.5, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg", descripcion: "Perfecta para días calurosos." },
-      { id: 6, nombre: "Kiwi", precio: 1.8, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg", descripcion: "Exótico y lleno de sabor, con mucha vitamina C." },
-      { id: 7, nombre: "Fresa", precio: 2.0, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487", descripcion: "Pequeñas delicias rojas, ricas en antioxidantes." },
-      { id: 8, nombre: "Piña", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg", descripcion: "Tropical, jugosa y refrescante." },
-      { id: 9, nombre: "Mango", precio: 2.0, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg", descripcion: "Dulce y aromático, muy popular." },
-      { id: 10, nombre: "Cereza", precio: 3.0, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN", descripcion: "Pequeñas y dulces, para un gusto especial." },
-      { id: 11, nombre: "Melón", precio: 1.5, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s", descripcion: "Dulce y refrescante, ideal para verano." },
-      { id: 12, nombre: "Uva", precio: 3.4, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png", descripcion: "Pequeñas y jugosas, para comer o hacer jugo." },
-      { id: 13, nombre: "Papaya", precio: 1.7, imagen: "https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg", descripcion: "Ideal para la digestión y desayuno." },
-      { id: 14, nombre: "Coco", precio: 2.1, imagen: "https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg", descripcion: "Tropical, con agua y carne nutritiva." }
-    </div>
+    <div class="productos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px;">
+  <!-- Producto 1 -->
+  <div class="producto" style="border: 1px solid #ccc; border-radius: 10px; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    <img src="https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg" alt="Manzana" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+    <h3>Manzana</h3>
+    <p>Una fruta dulce y crujiente, perfecta para meriendas.</p>
+    <p><strong>$1.00</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 2 -->
+  <div class="producto">
+    <img src="https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg" alt="Banana">
+    <h3>Banana</h3>
+    <p>Rica en potasio, ideal para deportistas.</p>
+    <p><strong>$1.00</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 3 -->
+  <div class="producto">
+    <img src="https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp" alt="Naranja">
+    <h3>Naranja</h3>
+    <p>Fuente de vitamina C, ideal para jugos.</p>
+    <p><strong>$1.10</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 4 -->
+  <div class="producto">
+    <img src="https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg" alt="Pera">
+    <h3>Pera</h3>
+    <p>Suave, jugosa y refrescante.</p>
+    <p><strong>$1.30</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 5 -->
+  <div class="producto">
+    <img src="https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg" alt="Sandía">
+    <h3>Sandía</h3>
+    <p>Perfecta para días calurosos.</p>
+    <p><strong>$2.50</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 6 -->
+  <div class="producto">
+    <img src="https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg" alt="Kiwi">
+    <h3>Kiwi</h3>
+    <p>Exótico y lleno de sabor, con mucha vitamina C.</p>
+    <p><strong>$1.80</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 7 -->
+  <div class="producto">
+    <img src="https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487" alt="Fresa">
+    <h3>Fresa</h3>
+    <p>Pequeñas delicias rojas, ricas en antioxidantes.</p>
+    <p><strong>$2.00</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 8 -->
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg" alt="Piña">
+    <h3>Piña</h3>
+    <p>Tropical, jugosa y refrescante.</p>
+    <p><strong>$2.00</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 9 -->
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg" alt="Mango">
+    <h3>Mango</h3>
+    <p>Dulce y aromático, muy popular.</p>
+    <p><strong>$2.00</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 10 -->
+  <div class="producto">
+    <img src="https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN" alt="Cereza">
+    <h3>Cereza</h3>
+    <p>Pequeñas y dulces, para un gusto especial.</p>
+    <p><strong>$3.00</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 11 -->
+  <div class="producto">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s" alt="Melón">
+    <h3>Melón</h3>
+    <p>Dulce y refrescante, ideal para verano.</p>
+    <p><strong>$1.50</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 12 -->
+  <div class="producto">
+    <img src="https://iberiana.es/wp-content/uploads/2022/06/uvas.png" alt="Uva">
+    <h3>Uva</h3>
+    <p>Pequeñas y jugosas, para comer o hacer jugo.</p>
+    <p><strong>$3.40</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 13 -->
+  <div class="producto">
+    <img src="https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg" alt="Papaya">
+    <h3>Papaya</h3>
+    <p>Ideal para la digestión y desayuno.</p>
+    <p><strong>$1.70</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 14 -->
+  <div class="producto">
+    <img src="https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg" alt="Coco">
+    <h3>Coco</h3>
+    <p>Tropical, con agua y carne nutritiva.</p>
+    <p><strong>$2.10</strong></p>
+    <button>Agregar al carrito</button>
+  </div>
+</div>
+
   </section>
 </body>
 </html>
