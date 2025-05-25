@@ -39,12 +39,11 @@
 
     section {
       padding: 20px;
-      animation: fadeIn 1s ease-in-out;
     }
 
     .productos {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
@@ -83,21 +82,44 @@
       background-color: #45a049;
     }
 
-    .carrito {
-      background: #e8f5e9;
-      padding: 20px;
-      border-radius: 12px;
+    /* CARRITO ESTILO */
+    .carrito-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: 2px solid #4CAF50;
+      padding: 15px;
+      border-radius: 10px;
+      width: 300px;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 999;
+    }
+
+    .carrito-toggle {
+      position: fixed;
+      top: 20px;
+      right: 330px;
+      background: #4CAF50;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 1000;
     }
 
     .carrito-item {
       display: flex;
       justify-content: space-between;
-      padding: 5px 0;
+      margin-bottom: 8px;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
+    .total {
+      margin-top: 10px;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -109,445 +131,92 @@
 
   <nav>
     <a href="#productos">Productos</a>
-    <a href="#recomendadas">Recomendadas</a>
-    <a href="#carrito">Carrito</a>
     <a href="#contacto">Contacto</a>
     <a href="#reclamo">Libro de Reclamaciones</a>
     <a href="#pago">Medios de Pago</a>
   </nav>
 
+  <div class="carrito-toggle" onclick="toggleCarrito()">🛒 Ver Carrito</div>
+
+  <div class="carrito-container" id="carrito">
+    <h3>Tu carrito</h3>
+    <div id="items"></div>
+    <div class="total">Total: $<span id="total">0.00</span></div>
+  </div>
+
   <section id="productos">
     <h2>Productos</h2>
-    <div class="productos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px;">
-  <!-- Producto 1 -->
-  <div class="producto" style="border: 1px solid #ccc; border-radius: 10px; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-    <img src="https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg" alt="Manzana" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
-    <h3>Manzana</h3>
-    <p>Una fruta dulce y crujiente, perfecta para meriendas.</p>
-    <p><strong>$1.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 2 -->
-  <div class="producto">
-    <img src="https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg" alt="Banana">
-    <h3>Banana</h3>
-    <p>Rica en potasio, ideal para deportistas.</p>
-    <p><strong>$1.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 3 -->
-  <div class="producto">
-    <img src="https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp" alt="Naranja">
-    <h3>Naranja</h3>
-    <p>Fuente de vitamina C, ideal para jugos.</p>
-    <p><strong>$1.10</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 4 -->
-  <div class="producto">
-    <img src="https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg" alt="Pera">
-    <h3>Pera</h3>
-    <p>Suave, jugosa y refrescante.</p>
-    <p><strong>$1.30</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 5 -->
-  <div class="producto">
-    <img src="https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg" alt="Sandía">
-    <h3>Sandía</h3>
-    <p>Perfecta para días calurosos.</p>
-    <p><strong>$2.50</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 6 -->
-  <div class="producto">
-    <img src="https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg" alt="Kiwi">
-    <h3>Kiwi</h3>
-    <p>Exótico y lleno de sabor, con mucha vitamina C.</p>
-    <p><strong>$1.80</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 7 -->
-  <div class="producto">
-    <img src="https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487" alt="Fresa">
-    <h3>Fresa</h3>
-    <p>Pequeñas delicias rojas, ricas en antioxidantes.</p>
-    <p><strong>$2.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 8 -->
-  <div class="producto">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg" alt="Piña">
-    <h3>Piña</h3>
-    <p>Tropical, jugosa y refrescante.</p>
-    <p><strong>$2.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 9 -->
-  <div class="producto">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg" alt="Mango">
-    <h3>Mango</h3>
-    <p>Dulce y aromático, muy popular.</p>
-    <p><strong>$2.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 10 -->
-  <div class="producto">
-    <img src="https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN" alt="Cereza">
-    <h3>Cereza</h3>
-    <p>Pequeñas y dulces, para un gusto especial.</p>
-    <p><strong>$3.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 11 -->
-  <div class="producto">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s" alt="Melón">
-    <h3>Melón</h3>
-    <p>Dulce y refrescante, ideal para verano.</p>
-    <p><strong>$1.50</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 12 -->
-  <div class="producto">
-    <img src="https://iberiana.es/wp-content/uploads/2022/06/uvas.png" alt="Uva">
-    <h3>Uva</h3>
-    <p>Pequeñas y jugosas, para comer o hacer jugo.</p>
-    <p><strong>$3.40</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 13 -->
-  <div class="producto">
-    <img src="https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg" alt="Papaya">
-    <h3>Papaya</h3>
-    <p>Ideal para la digestión y desayuno.</p>
-    <p><strong>$1.70</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 14 -->
-  <div class="producto">
-    <img src="https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg" alt="Coco">
-    <h3>Coco</h3>
-    <p>Tropical, con agua y carne nutritiva.</p>
-    <p><strong>$2.10</strong></p>
-    <button>Agregar al carrito</button>
-    <section>
-    <h2>Productos</h2>
-    <div class="productos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px;">
-  <!-- Producto 1 -->
-  <div class="producto" style="border: 1px solid #ccc; border-radius: 10px; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-    <img src="https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg" alt="Manzana" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
-    <h3>Manzana</h3>
-    <p>Una fruta dulce y crujiente, perfecta para meriendas.</p>
-    <p><strong>$1.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 2 -->
-  <div class="producto">
-    <img src="https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg" alt="Banana">
-    <h3>Banana</h3>
-    <p>Rica en potasio, ideal para deportistas.</p>
-    <p><strong>$1.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 3 -->
-  <div class="producto">
-    <img src="https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp" alt="Naranja">
-    <h3>Naranja</h3>
-    <p>Fuente de vitamina C, ideal para jugos.</p>
-    <p><strong>$1.10</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 4 -->
-  <div class="producto">
-    <img src="https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg" alt="Pera">
-    <h3>Pera</h3>
-    <p>Suave, jugosa y refrescante.</p>
-    <p><strong>$1.30</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 5 -->
-  <div class="producto">
-    <img src="https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg" alt="Sandía">
-    <h3>Sandía</h3>
-    <p>Perfecta para días calurosos.</p>
-    <p><strong>$2.50</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 6 -->
-  <div class="producto">
-    <img src="https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg" alt="Kiwi">
-    <h3>Kiwi</h3>
-    <p>Exótico y lleno de sabor, con mucha vitamina C.</p>
-    <p><strong>$1.80</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 7 -->
-  <div class="producto">
-    <img src="https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487" alt="Fresa">
-    <h3>Fresa</h3>
-    <p>Pequeñas delicias rojas, ricas en antioxidantes.</p>
-    <p><strong>$2.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 8 -->
-  <div class="producto">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg" alt="Piña">
-    <h3>Piña</h3>
-    <p>Tropical, jugosa y refrescante.</p>
-    <p><strong>$2.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 9 -->
-  <div class="producto">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg" alt="Mango">
-    <h3>Mango</h3>
-    <p>Dulce y aromático, muy popular.</p>
-    <p><strong>$2.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 10 -->
-  <div class="producto">
-    <img src="https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN" alt="Cereza">
-    <h3>Cereza</h3>
-    <p>Pequeñas y dulces, para un gusto especial.</p>
-    <p><strong>$3.00</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 11 -->
-  <div class="producto">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s" alt="Melón">
-    <h3>Melón</h3>
-    <p>Dulce y refrescante, ideal para verano.</p>
-    <p><strong>$1.50</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 12 -->
-  <div class="producto">
-    <img src="https://iberiana.es/wp-content/uploads/2022/06/uvas.png" alt="Uva">
-    <h3>Uva</h3>
-    <p>Pequeñas y jugosas, para comer o hacer jugo.</p>
-    <p><strong>$3.40</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 13 -->
-  <div class="producto">
-    <img src="https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg" alt="Papaya">
-    <h3>Papaya</h3>
-    <p>Ideal para la digestión y desayuno.</p>
-    <p><strong>$1.70</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-
-  <!-- Producto 14 -->
-  <div class="producto">
-    <img src="https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg" alt="Coco">
-    <h3>Coco</h3>
-    <p>Tropical, con agua y carne nutritiva.</p>
-    <p><strong>$2.10</strong></p>
-    <button>Agregar al carrito</button>
-  </div>
-</div>
-
-  </section>
-  </div>
-</div>
-
-  </section>
-
-  <section id="carrito" class="carrito">
-    <h2>Carrito</h2>
-    <div id="carrito-items"></div>
-    <p><strong>Total: S/ <span id="total">0.00</span></strong></p>
-  </section>
-
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Escríbenos a <strong>contacto@frutasyverdes.pe</strong></p>
-  </section>
-
-  <section id="reclamo">
-    <h2>Libro de Reclamaciones</h2>
-    <form>
-      <label>Nombre:<br><input type="text" required></label><br><br>
-      <label>Correo:<br><input type="email" required></label><br><br>
-      <label>Mensaje:<br><textarea rows="4" required></textarea></label><br><br>
-      <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto - Tienda de Frutas y Verduras</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f9fc;
-      margin: 0;
-      padding: 0;
-    }
-    .menu {
-      background: #4caf50;
-      padding: 15px;
-      text-align: center;
-    }
-    .menu ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    .menu ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 15px;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-    .menu ul li a:hover {
-      background-color: #388e3c;
-    }
-    .contenido {
-      max-width: 800px;
-      margin: 30px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      color: #4caf50;
-      text-align: center;
-    }
-    p, label {
-      color: #333;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-    button {
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background-color: #388e3c;
-    }
-  </style>
-</head>
-<body>
-  <nav class="menu">
-    <ul>
-      <li><a href="indexP.html">Productos</a></li>
-      <li><a href="verduras.html">Verduras</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="librodereclamaciones.html">Libro de Reclamaciones</a></li>
-      <li><a href="carrito.html">Carrito</a></li>
-      <li><a href="recomendados.html">Recomendados</a></li>
-      <li><a href="mediosdepago.html">Medios de Pago</a></li>
-    </ul>
-  </nav>
-
-  <div class="contenido">
-    <h1>Contáctanos</h1>
-    <form>
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required />
-
-      <label for="correo">Correo electrónico:</label>
-      <input type="email" id="correo" name="correo" required />
-
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-
-      <button type="submit">Enviar mensaje</button>
-    </form>
-  </div>
-</body>
-</html>
-
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <section id="pago">
-    <h2>Medios de Pago</h2>
-    <p>Aceptamos:</p>
-    <ul>
-      <li>Tarjeta de crédito/débito</li>
-      <li>Yape y Plin</li>
-      <li>Pago contra entrega</li>
-    </ul>
+    <div class="productos" id="lista-productos">
+      <!-- Productos dinámicos -->
+    </div>
   </section>
 
   <script>
+    const productos = [
+      { nombre: "Manzana", precio: 1.00, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg" },
+      { nombre: "Banana", precio: 1.00, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg" },
+      { nombre: "Naranja", precio: 1.10, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp" },
+      { nombre: "Pera", precio: 1.30, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg" },
+      { nombre: "Sandía", precio: 2.50, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg" },
+      { nombre: "Kiwi", precio: 1.80, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg" },
+      { nombre: "Fresa", precio: 2.00, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487" },
+      { nombre: "Piña", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg" },
+      { nombre: "Mango", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg" },
+      { nombre: "Cereza", precio: 3.00, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN" },
+      { nombre: "Melón", precio: 1.50, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s" },
+      { nombre: "Uva", precio: 3.40, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png" },
+      { nombre: "Papaya", precio: 1.70, imagen: "https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg" },
+      { nombre: "Coco", precio: 2.10, imagen: "https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg" }
+    ];
+
+    const lista = document.getElementById("lista-productos");
     const carrito = [];
-    const carritoItems = document.getElementById('carrito-items');
-    const total = document.getElementById('total');
+    const itemsContainer = document.getElementById("items");
+    const totalSpan = document.getElementById("total");
 
-    function agregarAlCarrito(nombre, precio) {
+    productos.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "producto";
+      div.innerHTML = `
+        <img src="${p.imagen}" alt="${p.nombre}">
+        <h3>${p.nombre}</h3>
+        <p>Precio: $${p.precio.toFixed(2)}</p>
+        <button onclick="agregarCarrito('${p.nombre}', ${p.precio})">Agregar al carrito</button>
+      `;
+      lista.appendChild(div);
+    });
+
+    function agregarCarrito(nombre, precio) {
       carrito.push({ nombre, precio });
-      actualizarCarrito();
+      renderizarCarrito();
     }
 
-    function eliminarDelCarrito(index) {
-      carrito.splice(index, 1);
-      actualizarCarrito();
-    }
-
-    function actualizarCarrito() {
-      carritoItems.innerHTML = '';
-      let totalPrecio = 0;
-      carrito.forEach((item, index) => {
-        totalPrecio += item.precio;
-        const div = document.createElement('div');
-        div.className = 'carrito-item';
+    function renderizarCarrito() {
+      itemsContainer.innerHTML = "";
+      let total = 0;
+      carrito.forEach((item, i) => {
+        total += item.precio;
+        const div = document.createElement("div");
+        div.className = "carrito-item";
         div.innerHTML = `
-          ${item.nombre} - S/ ${item.precio.toFixed(2)}
-          <button onclick="eliminarDelCarrito(${index})">Eliminar</button>
+          ${item.nombre} - $${item.precio.toFixed(2)}
+          <button onclick="eliminar(${i})">❌</button>
         `;
-        carritoItems.appendChild(div);
+        itemsContainer.appendChild(div);
       });
-      total.textContent = totalPrecio.toFixed(2);
+      totalSpan.textContent = total.toFixed(2);
+    }
+
+    function eliminar(index) {
+      carrito.splice(index, 1);
+      renderizarCarrito();
+    }
+
+    function toggleCarrito() {
+      const c = document.getElementById("carrito");
+      c.style.display = c.style.display === "none" || c.style.display === "" ? "block" : "none";
     }
   </script>
 
 </body>
 </html>
-
