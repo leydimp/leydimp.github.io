@@ -1,221 +1,445 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tienda de Frutas y Verduras</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f7fdf9;
-    }
-
-    header {
-      background-color: #4CAF50;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
-
-    nav {
-      background-color: #388E3C;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #c8facc;
-    }
-
-    section {
-      padding: 20px;
-    }
-
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .producto {
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      padding: 15px;
-      text-align: center;
-      background: white;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-
-    .producto:hover {
-      transform: scale(1.05);
-    }
-
-    .producto img {
-      max-width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    button {
-      padding: 8px 12px;
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    /* CARRITO ESTILO */
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tienda Frutas y Verduras</title>
+<style>
+  body {
+    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7fdf9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background-color: #4CAF50;
+    padding: 20px;
+    color: white;
+    text-align: center;
+  }
+  nav {
+    background-color: #388E3C;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 12px 10px;
+  }
+  nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+  }
+  nav button:hover,
+  nav button.active {
+    background-color: #2E7D32;
+  }
+  main {
+    flex: 1;
+    padding: 20px;
+    max-width: 960px;
+    margin: auto;
+    width: 90%;
+  }
+  section {
+    display: none;
+  }
+  section.active {
+    display: block;
+  }
+  /* Productos */
+  .productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+  }
+  .producto {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+  }
+  .producto:hover {
+    transform: scale(1.05);
+  }
+  .producto img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  button.compra-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button.compra-btn:hover {
+    background-color: #45a049;
+  }
+  /* Carrito */
+  .carrito-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    user-select: none;
+  }
+  .carrito-container {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: white;
+    border: 2px solid #4CAF50;
+    padding: 15px;
+    border-radius: 12px;
+    width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    display: none;
+    z-index: 999;
+  }
+  .carrito-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .carrito-item button {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .total {
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+  }
+  /* Beneficio texto */
+  #beneficio {
+    margin-top: 15px;
+    background: #e7f3e7;
+    border-left: 6px solid #4CAF50;
+    padding: 12px 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    font-style: italic;
+    color: #2e7d32;
+  }
+  /* Formulario */
+  form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+  }
+  form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-size: 1rem;
+  }
+  form button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  form button:hover {
+    background-color: #45a049;
+  }
+  /* Sobre Nosotros */
+  #sobre-nosotros {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.6;
+  }
+  /* Responsive */
+  @media(max-width:600px){
     .carrito-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: white;
-      border: 2px solid #4CAF50;
-      padding: 15px;
-      border-radius: 10px;
-      width: 300px;
-      max-height: 400px;
-      overflow-y: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      display: none;
-      z-index: 999;
+      width: 90vw;
+      right: 5vw;
+      top: 70px;
     }
-
-    .carrito-toggle {
-      position: fixed;
-      top: 20px;
-      right: 330px;
-      background: #4CAF50;
-      color: white;
-      padding: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    .carrito-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    .total {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Tienda de Frutas y Verduras</h1>
-  </header>
 
-  <nav>
-    <a href="#productos">Productos</a>
-    <a href="#contacto">Contacto</a>
-    <a href="#reclamo">Libro de Reclamaciones</a>
-    <a href="#pago">Medios de Pago</a>
-  </nav>
+<header>
+  <h1>Tienda de Frutas y Verduras</h1>
+</header>
 
-  <div class="carrito-toggle" onclick="toggleCarrito()">🛒 Ver Carrito</div>
+<nav>
+  <button class="nav-btn active" data-target="productos">Productos</button>
+  <button class="nav-btn" data-target="contacto">Contacto</button>
+  <button class="nav-btn" data-target="reclamo">Libro de Reclamaciones</button>
+  <button class="nav-btn" data-target="sobre-nosotros">Sobre Nosotros</button>
+</nav>
 
-  <div class="carrito-container" id="carrito">
-    <h3>Tu carrito</h3>
-    <div id="items"></div>
-    <div class="total">Total: $<span id="total">0.00</span></div>
-  </div>
+<div class="carrito-toggle" onclick="toggleCarrito()">🛒 Carrito</div>
+<div class="carrito-container" id="carrito">
+  <h3>Tu carrito</h3>
+  <div id="items"></div>
+  <div class="total">Total: $<span id="total">0.00</span></div>
+</div>
 
-  <section id="productos">
+<main>
+  <!-- Productos -->
+  <section id="productos" class="active">
     <h2>Productos</h2>
-    <div class="productos" id="lista-productos">
-      <!-- Productos dinámicos -->
-    </div>
+    <div class="productos" id="lista-productos"></div>
+    <div id="beneficio"></div>
   </section>
 
-  <script>
-    const productos = [
-      { nombre: "Manzana", precio: 1.00, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg" },
-      { nombre: "Banana", precio: 1.00, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg" },
-      { nombre: "Naranja", precio: 1.10, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp" },
-      { nombre: "Pera", precio: 1.30, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg" },
-      { nombre: "Sandía", precio: 2.50, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg" },
-      { nombre: "Kiwi", precio: 1.80, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg" },
-      { nombre: "Fresa", precio: 2.00, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487" },
-      { nombre: "Piña", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg" },
-      { nombre: "Mango", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg" },
-      { nombre: "Cereza", precio: 3.00, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN" },
-      { nombre: "Melón", precio: 1.50, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s" },
-      { nombre: "Uva", precio: 3.40, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png" },
-      { nombre: "Papaya", precio: 1.70, imagen: "https://irp.cdn-website.com/586fb047/dms3rep/multi/papaya.jpg" },
-      { nombre: "Coco", precio: 2.10, imagen: "https://campograndeperu.com/wp-content/uploads/2024/03/torta-de-coco-3.jpg" }
-    ];
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form id="form-contacto">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" required />
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" required />
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" rows="4" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
 
-    const lista = document.getElementById("lista-productos");
-    const carrito = [];
-    const itemsContainer = document.getElementById("items");
-    const totalSpan = document.getElementById("total");
+  <!-- Libro de Reclamaciones -->
+  <section id="reclamo">
+    <h2>Libro de Reclamaciones</h2>
+    <form id="form-reclamo">
+      <label for="nombreR">Nombre:</label>
+      <input type="text" id="nombreR" required />
+      <label for="emailR">Correo electrónico:</label>
+      <input type="email" id="emailR" required />
+      <label for="reclamo-mensaje">Reclamo:</label>
+      <textarea id="reclamo-mensaje" rows="5" required></textarea>
+      <button type="submit">Enviar Reclamo</button>
+    </form>
+  </section>
 
-    productos.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "producto";
+  <!-- Sobre Nosotros -->
+  <section id="sobre-nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>
+      Somos una tienda dedicada a ofrecer las mejores frutas y verduras frescas, con entrega rápida y servicio al cliente excepcional.
+      Nuestra misión es promover una alimentación saludable con productos naturales y de calidad.
+    </p>
+    <p>
+      Ubicados en el corazón de la ciudad, trabajamos directamente con agricultores locales para garantizar frescura y variedad durante todo el año.
+    </p>
+    <p>
+      ¡Gracias por confiar en nosotros!
+    </p>
+  </section>
+</main>
+
+<script>
+  const productos = [
+    { nombre: "Manzana", precio: 1.00, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg",
+      beneficio: "Rica en fibra y vitamina C, ayuda a la digestión y fortalece el sistema inmunológico." },
+    { nombre: "Banana", precio: 1.00, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg",
+      beneficio: "Fuente de potasio, ayuda a regular la presión arterial y aporta energía rápida." },
+    { nombre: "Naranja", precio: 1.10, imagen: "https://media.zummocorp.com/Blog/tipos-variedades-naranjas-1691235048vTbul.webp",
+      beneficio: "Alto contenido de vitamina C, ayuda a prevenir resfriados y fortalece la piel." },
+    { nombre: "Pera", precio: 1.30, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg",
+      beneficio: "Buena para el corazón, rica en fibra y antioxidantes." },
+    { nombre: "Sandía", precio: 2.50, imagen: "https://www.gastronomiavasca.net/uploads/image/file/3428/sandia.jpg",
+      beneficio: "Muy hidratante, rica en antioxidantes y vitaminas A y C." },
+    { nombre: "Kiwi", precio: 1.80, imagen: "https://www.5aldia.es/es/wp-content/uploads/2017/09/kiwi.jpeg",
+      beneficio: "Excelente fuente de vitamina C, mejora la digestión y fortalece el sistema inmune." },
+    { nombre: "Fresa", precio: 2.00, imagen: "https://image.tuasaude.com/media/article/ry/ku/fresa_59601.jpg?width=686&height=487",
+      beneficio: "Rica en antioxidantes, ayuda a la salud del corazón y la piel." },
+    { nombre: "Piña", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/800px-Pineapple_and_cross_section.jpg",
+      beneficio: "Contiene bromelina, ayuda a la digestión y reduce inflamación." },
+    { nombre: "Mango", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg",
+      beneficio: "Alto en vitamina A, mejora la vista y fortalece la piel." },
+    { nombre: "Cereza", precio: 3.00, imagen: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-04/cerezas%C2%A9iStock.jpg.webp?itok=zliCvDoN",
+      beneficio: "Rica en antioxidantes, ayuda a reducir inflamaciones y mejora el sueño." },
+    { nombre: "Melón", precio: 1.50, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2PK3W4pTDw-vuD9sQrT4daxyOWpKO3AK1Q&s",
+      beneficio: "Muy hidratante, rico en vitamina C y potasio." },
+    { nombre: "Uva", precio: 3.40, imagen: "https://iberiana.es/wp-content/uploads/2022/06/uvas.png",
+      beneficio: "Contiene antioxidantes que mejoran la salud del corazón y la piel." },
+    // Verduras agregadas
+    { nombre: "Zanahoria", precio: 1.20, imagen: "https://upload.wikimedia.org/wikipedia/commons/7/70/Carrot.jpg",
+      beneficio: "Excelente para la vista, rica en vitamina A y fibra." },
+    { nombre: "Lechuga", precio: 0.90, imagen: "https://upload.wikimedia.org/wikipedia/commons/6/66/Lechuga-en-hojas.jpg",
+      beneficio: "Baja en calorías, buena para la digestión y rica en agua." },
+    { nombre: "Tomate", precio: 1.50, imagen: "https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg",
+      beneficio: "Rico en licopeno, antioxidante que ayuda a prevenir enfermedades cardíacas." },
+    { nombre: "Brócoli", precio: 2.50, imagen: "https://upload.wikimedia.org/wikipedia/commons/0/03/Broccoli_and_cross_section_edit.jpg",
+      beneficio: "Alto en fibra y vitamina C, ayuda a fortalecer el sistema inmunológico." },
+    { nombre: "Pepino", precio: 1.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/4/49/Cucumis_sativus_002.JPG",
+      beneficio: "Muy hidratante, ayuda a la piel y contiene antioxidantes." },
+    { nombre: "Pimiento rojo", precio: 2.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Pimientos_rojos.JPG",
+      beneficio: "Rico en vitamina C y antioxidantes, fortalece el sistema inmunológico." }
+  ];
+
+  // Mostrar productos
+  const listaProductos = document.getElementById('lista-productos');
+  const beneficioDiv = document.getElementById('beneficio');
+  const carritoToggle = document.querySelector('.carrito-toggle');
+  const carritoContainer = document.getElementById('carrito');
+  const itemsDiv = document.getElementById('items');
+  const totalSpan = document.getElementById('total');
+
+  let carrito = [];
+
+  function mostrarProductos(){
+    listaProductos.innerHTML = '';
+    productos.forEach((prod, i) => {
+      const div = document.createElement('div');
+      div.className = 'producto';
       div.innerHTML = `
-        <img src="${p.imagen}" alt="${p.nombre}">
-        <h3>${p.nombre}</h3>
-        <p>Precio: $${p.precio.toFixed(2)}</p>
-        <button onclick="agregarCarrito('${p.nombre}', ${p.precio})">Agregar al carrito</button>
+        <img src="${prod.imagen}" alt="${prod.nombre}" />
+        <h3>${prod.nombre}</h3>
+        <p>$${prod.precio.toFixed(2)}</p>
+        <button class="compra-btn">Agregar al carrito</button>
       `;
-      lista.appendChild(div);
-    });
-
-    function agregarCarrito(nombre, precio) {
-      carrito.push({ nombre, precio });
-      renderizarCarrito();
-    }
-
-    function renderizarCarrito() {
-      itemsContainer.innerHTML = "";
-      let total = 0;
-      carrito.forEach((item, i) => {
-        total += item.precio;
-        const div = document.createElement("div");
-        div.className = "carrito-item";
-        div.innerHTML = `
-          ${item.nombre} - $${item.precio.toFixed(2)}
-          <button onclick="eliminar(${i})">❌</button>
-        `;
-        itemsContainer.appendChild(div);
+      // Mostrar beneficio al click en producto (no botón)
+      div.addEventListener('click', e => {
+        // Si clickeó el botón, no mostrar beneficio aquí
+        if(e.target.tagName.toLowerCase() === 'button') return;
+        beneficioDiv.textContent = prod.beneficio;
       });
-      totalSpan.textContent = total.toFixed(2);
-    }
+      // Agregar al carrito al click en botón
+      div.querySelector('button.compra-btn').addEventListener('click', e => {
+        e.stopPropagation();
+        agregarAlCarrito(i);
+      });
+      listaProductos.appendChild(div);
+    });
+  }
 
-    function eliminar(index) {
-      carrito.splice(index, 1);
-      renderizarCarrito();
+  function agregarAlCarrito(index){
+    const prod = productos[index];
+    const found = carrito.find(item => item.nombre === prod.nombre);
+    if(found){
+      found.cantidad++;
+    } else {
+      carrito.push({ ...prod, cantidad: 1 });
     }
+    mostrarCarrito();
+  }
 
-    function toggleCarrito() {
-      const c = document.getElementById("carrito");
-      c.style.display = c.style.display === "none" || c.style.display === "" ? "block" : "none";
+  function mostrarCarrito(){
+    if(carrito.length === 0){
+      itemsDiv.innerHTML = '<p>El carrito está vacío.</p>';
+      totalSpan.textContent = '0.00';
+      return;
     }
-  </script>
+    itemsDiv.innerHTML = '';
+    let total = 0;
+    carrito.forEach((item, idx) => {
+      total += item.precio * item.cantidad;
+      const div = document.createElement('div');
+      div.className = 'carrito-item';
+      div.innerHTML = `
+        <span>${item.nombre} x${item.cantidad}</span>
+        <span>
+          $${(item.precio * item.cantidad).toFixed(2)} 
+          <button title="Eliminar" data-index="${idx}">&times;</button>
+        </span>
+      `;
+      itemsDiv.appendChild(div);
+    });
+    totalSpan.textContent = total.toFixed(2);
+
+    // Asignar eventos a botones de eliminar
+    itemsDiv.querySelectorAll('button').forEach(btn => {
+      btn.onclick = e => {
+        const idx = +e.target.getAttribute('data-index');
+        carrito.splice(idx,1);
+        mostrarCarrito();
+      };
+    });
+  }
+
+  function toggleCarrito(){
+    if(carritoContainer.style.display === 'block'){
+      carritoContainer.style.display = 'none';
+    } else {
+      carritoContainer.style.display = 'block';
+    }
+  }
+
+  // Navegación entre secciones
+  const navBtns = document.querySelectorAll('.nav-btn');
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      navBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
+      const target = btn.getAttribute('data-target');
+      document.getElementById(target).classList.add('active');
+      beneficioDiv.textContent = ''; // borrar texto beneficio al cambiar sección
+    });
+  });
+
+  // Formularios (solo muestra alertas de ejemplo)
+  document.getElementById('form-contacto').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Gracias por contactarnos, ' + e.target.nombre.value + '!');
+    e.target.reset();
+  });
+  document.getElementById('form-reclamo').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Reclamo enviado. Gracias por su mensaje, ' + e.target.nombreR.value + '.');
+    e.target.reset();
+  });
+
+  mostrarProductos();
+  mostrarCarrito();
+</script>
 
 </body>
 </html>
