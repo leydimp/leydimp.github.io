@@ -1,324 +1,153 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- ... HEAD IGUAL ... -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Verdulería Online</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Tienda Frutas y Verduras</title>
   <style>
-    :root {
-      --verde: #14532d;
-      --verde-claro: #4ade80;
-      --fondo: #292626;
-      --blanco: #fff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: Arial, sans-serif;
-      background-color: var(--fondo);
-      color: var(--blanco);
       margin: 0;
-      padding: 0;
+      font-family: sans-serif;
+      background: #fff;
+      color: #333;
     }
-
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
     header {
-      background-color: var(--verde);
-      padding: 1rem;
       text-align: center;
+      margin-bottom: 2rem;
     }
-
-    nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav ul li {
-      margin: 0.5rem 1rem;
-    }
-
-    nav ul li a {
-      color: var(--blanco);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      display: none;
-      padding: 2rem;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    h1, h2 {
-      text-align: center;
-      color: var(--verde-claro);
-    }
-
-    .contenedor-productos {
+    .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
     }
-
-    .producto {
-      background-color: #413838;
-      border-radius: 10px;
-      padding: 10px;
+    .card {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 1rem;
       text-align: center;
-      box-shadow: 0 0 10px rgba(32, 30, 30, 0.333);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
-    .producto img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 8px;
+    .card .image {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
     }
-
-    .producto h2 {
-      font-size: 18px;
-      color: var(--verde-claro);
-    }
-
-    .precio {
-      color: #ffd700;
-      font-weight: bold;
-    }
-
-    .carrito {
-      margin-top: 2rem;
-      background-color: #2a2a2a;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-
-    .formulario-pago, .formulario-contacto {
-      margin-top: 2rem;
-      background-color: #2a2a2a;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-
-    input, select, button, textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
+    .card button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
       border: none;
-      border-radius: 4px;
-    }
-
-    button {
-      background-color: var(--verde-claro);
-      color: #000;
-      font-weight: bold;
+      background: #4caf50;
+      color: white;
+      border-radius: 6px;
       cursor: pointer;
     }
-
-    footer {
-      background-color: var(--verde);
-      color: #ddd;
-      text-align: center;
+    .cart, .reclamos, .pagos {
+      background: #f1f1f1;
       padding: 1rem;
       margin-top: 2rem;
+      border-radius: 10px;
     }
-
-    .redes-sociales a {
-      color: var(--blanco);
-      margin: 0 0.5rem;
-      font-size: 1.5rem;
+    .cart ul {
+      padding-left: 1.2rem;
     }
-
-    @media (max-width: 600px) {
-      .producto {
-        width: 100%;
-      }
+    .total {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .reclamos form,
+    .reclamos textarea,
+    .reclamos input {
+      width: 100%;
+      margin-bottom: 0.8rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .reclamos button {
+      background: #ff9800;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Verdulería Online</h1>
-    <nav>
+  <div class="container">
+    <header>
+      <h1>Frutas y Verduras Online</h1>
+      <p>Productos frescos directo a tu hogar</p>
+    </header>
+
+    <section class="products">
+      <div class="card">
+        <div class="image">🍎</div>
+        <h2>Manzanas</h2>
+        <p>S/ 3.50</p>
+        <button>Agregar al carrito</button>
+      </div>
+      <div class="card">
+        <div class="image">🍌</div>
+        <h2>Plátanos</h2>
+        <p>S/ 2.00</p>
+        <button>Agregar al carrito</button>
+      </div>
+      <div class="card">
+        <div class="image">🥕</div>
+        <h2>Zanahorias</h2>
+        <p>S/ 1.80</p>
+        <button>Agregar al carrito</button>
+      </div>
+      <div class="card">
+        <div class="image">🥬</div>
+        <h2>Lechuga</h2>
+        <p>S/ 1.20</p>
+        <button>Agregar al carrito</button>
+      </div>
+    </section>
+
+    <section class="cart">
+      <h2>🛒 Carrito</h2>
+      <p>Tu carrito está vacío.</p>
+      <p class="total">Total: S/ 0.00</p>
+    </section>
+
+    <section class="reclamos">
+      <h2>📖 Libro de Reclamaciones</h2>
+      <form onsubmit="alert('Reclamo enviado'); return false;">
+        <input placeholder="Nombre completo" required />
+        <input type="email" placeholder="Correo electrónico" required />
+        <textarea placeholder="Reclamo o sugerencia" required></textarea>
+        <button type="submit">Enviar reclamo</button>
+      </form>
+    </section>
+
+    <section class="pagos">
+      <h2>💳 Medios de Pago</h2>
       <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#ayuda">Ayuda</a></li>
-        <li><a href="#ubicacion">Ubicación</a></li>
-        <li><a href="#medios-pago">Medios de Pago</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#reclamaciones">Libro de Reclamaciones</a></li>
+        <li>Tarjeta de crédito/débito</li>
+        <li>Transferencia bancaria</li>
+        <li>Pago contra entrega</li>
+        <li>Yape / Plin</li>
       </ul>
-    </nav>
-  </header>
+    </section>
 
-  <section id="inicio" class="active">
-    <h2>Bienvenidos</h2>
-    <p>¡Gracias por visitar nuestra tienda en línea!</p>
-  </section>
-
-  <section id="productos">
-    <h2>Catálogo de Frutas y Verduras</h2>
-    <div class="contenedor-productos" id="contenedor"></div>
-
-    <div class="carrito" id="carrito">
-      <h3>Carrito de Compras</h3>
-      <ul id="lista-carrito"></ul>
-      <p><strong>Total: $<span id="total">0.00</span></strong></p>
-    </div>
-  </section>
-
-  <section id="ayuda">
-    <h2>Ayuda</h2>
-    <p>Si necesitas asistencia, contáctanos por WhatsApp o correo electrónico.</p>
-  </section>
-
-  <section id="ubicacion">
-    <h2>Ubicación</h2>
-    <p>Estamos en Calle Falsa 123, Ciudad Verdura.</p>
-  </section>
-
-  <section id="medios-pago">
-    <h2>Medios de Pago</h2>
-    <ul>
-      <li>Efectivo al recibir</li>
-      <li>Transferencia Bancaria - CBU: 1234567890123456789012</li>
-    </ul>
-
-    <div class="formulario-pago">
-      <h3>Formulario de Pago</h3>
-      <form>
-        <label>Nombre:</label>
-        <input type="text" required>
-
-        <label>Dirección:</label>
-        <input type="text" required>
-
-        <label>Método de Pago:</label>
-        <select required>
-          <option value="efectivo">Efectivo</option>
-          <option value="transferencia">Transferencia</option>
-        </select>
-
-        <button type="submit">Finalizar Compra</button>
-      </form>
-    </div>
-  </section>
-
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <div class="formulario-contacto">
-      <form>
-        <label>Nombre:</label>
-        <input type="text" required>
-        <label>Correo electrónico:</label>
-        <input type="email" required>
-        <label>Mensaje:</label>
-        <textarea rows="4" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
-  </section>
-
-  <section id="reclamaciones">
-    <h2>Libro de Reclamaciones</h2>
-    <div class="formulario-contacto">
-      <form>
-        <label>Nombre completo:</label>
-        <input type="text" required>
-        <label>Correo electrónico:</label>
-        <input type="email" required>
-        <label>Motivo del reclamo:</label>
-        <textarea rows="4" placeholder="Escribe tu reclamo o sugerencia..." required></textarea>
-        <label>¿Deseas una respuesta?</label>
-        <select required>
-          <option value="si">Sí</option>
-          <option value="no">No</option>
-        </select>
-        <button type="submit">Enviar Reclamo</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Verdulería Online. Todos los derechos reservados.</p>
-    <div class="redes-sociales">
-      <a href="#"><i class="fab fa-facebook-square"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
-    </div>
-  </footer>
-
-  <script>
-    const productos = [
-  { nombre: "Manzana", precio: 1.00, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", beneficio: "Rica en fibra y vitamina C." },
-  { nombre: "Banana", precio: 1.00, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", beneficio: "Fuente de potasio." },
-  { nombre: "Pera", precio: 1.30, imagen: "https://www.saborusa.com/cr/wp-content/uploads/sites/14/2023/12/propiedades-de-la-pera-salud-belleza.jpg", beneficio: "Buena para el corazón." },
-  { nombre: "Naranja", precio: 0.90, imagen: "https://www.frutas-hortalizas.com/img/fruites_verdures/presentacio/36.jpg", beneficio: "Alto contenido de vitamina C." },
-  { nombre: "Frutilla", precio: 2.50, imagen: "https://upload.wikimedia.org/wikipedia/commons/2/29/PerfectStrawberry.jpg", beneficio: "Antioxidante natural." },
-  { nombre: "Sandía", precio: 3.00, imagen: "https://www.eluniversal.com.mx/resizer/9u_UtJVaASc1r4tAnC0ZRm0XG-Q=/1100x666/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/GWQFLBRRRBEOXK6VTDURVP3S4A.jpg", beneficio: "Hidratante y refrescante." },
-  { nombre: "Zanahoria", precio: 0.70, imagen: "https://www.ecologiaverde.com/wp-content/uploads/2022/09/para-que-sirve-la-zanahoria-propiedades-y-beneficios-1.jpg", beneficio: "Buena para la vista." },
-  { nombre: "Lechuga", precio: 1.10, imagen: "https://www.hogarmania.com/archivos/202205/lechuga-tipos-propiedades-y-beneficios-668x400x80xX.jpg", beneficio: "Baja en calorías y rica en fibra." },
-  { nombre: "Papa", precio: 1.50, imagen: "https://cdn0.ecologiaverde.com/es/posts/8/3/2/como_cultivar_papas_en_casa_23238_600_square.jpg", beneficio: "Fuente de energía." },
-  { nombre: "Tomate", precio: 1.20, imagen: "https://www.ecoticias.com/wp-content/uploads/2022/09/tomates-ecologicos.jpg", beneficio: "Rico en licopeno." },
-  { nombre: "Cebolla", precio: 0.80, imagen: "https://okdiario.com/img/2021/11/23/que-propiedades-tiene-la-cebolla--655x368.jpg", beneficio: "Propiedades antiinflamatorias." }
-];
-
-
-    const contenedor = document.getElementById("contenedor");
-    const carrito = [];
-    const listaCarrito = document.getElementById("lista-carrito");
-    const totalEl = document.getElementById("total");
-
-    productos.forEach((producto, index) => {
-      const div = document.createElement("div");
-      div.className = "producto";
-      div.innerHTML = `
-        <img src="${producto.imagen}" alt="${producto.nombre}">
-        <h2>${producto.nombre}</h2>
-        <p class="precio">$${producto.precio.toFixed(2)}</p>
-        <p>${producto.beneficio}</p>
-        <button onclick="agregarAlCarrito(${index})">Agregar al carrito</button>
-      `;
-      contenedor.appendChild(div);
-    });
-
-    function agregarAlCarrito(index) {
-      carrito.push(productos[index]);
-      renderizarCarrito();
-    }
-
-    function renderizarCarrito() {
-      listaCarrito.innerHTML = "";
-      let total = 0;
-      carrito.forEach(prod => {
-        const li = document.createElement("li");
-        li.textContent = `${prod.nombre} - $${prod.precio.toFixed(2)}`;
-        listaCarrito.appendChild(li);
-        total += prod.precio;
-      });
-      totalEl.textContent = total.toFixed(2);
-    }
-
-    // Navegación
-    document.querySelectorAll("nav a").forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const id = link.getAttribute("href").replace("#", "");
-        document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-        document.getElementById(id).classList.add("active");
-      });
-    });
-  </script>
+    <footer>
+      <h2>📞 Contáctanos</h2>
+      <p>Teléfono: +51 999 888 777</p>
+      <p>Email: contacto@frutasyverduras.pe</p>
+      <small>© 2025 Frutas y Verduras Online</small>
+    </footer>
+  </div>
 </body>
 </html>
