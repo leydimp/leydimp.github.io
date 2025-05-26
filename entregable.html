@@ -1,55 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Verdulería Online</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoMarket - Tu tienda saludable</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --verde: #2e7d32;
-      --verde-claro: #81c784;
-      --fondo: #f3f3f3;
-      --texto: #333;
-      --blanco: #fff;
+      --color-primario: #e67e22;
+      --color-secundario: #f39c12;
+      --color-fondo: #fff8f0;
+      --color-texto: #333;
+      --color-card: #fff;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--fondo);
-      color: var(--texto);
-      line-height: 1.6;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
     }
 
     header {
-      background-color: var(--verde);
-      color: var(--blanco);
+      background-color: var(--color-primario);
       padding: 1rem;
       text-align: center;
+      color: white;
     }
 
     nav ul {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       list-style: none;
-      margin-top: 1rem;
+      padding: 0;
+      margin: 0;
+      background-color: var(--color-secundario);
     }
 
     nav ul li {
-      margin: 0 1rem;
+      margin: 0.5rem 1rem;
     }
 
     nav ul li a {
-      color: var(--blanco);
+      color: white;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .carrito {
+      background-color: #ffefcc;
+      padding: 1rem;
+      text-align: center;
     }
 
     section {
@@ -62,7 +68,7 @@
     }
 
     h1, h2 {
-      color: var(--verde);
+      color: var(--color-primario);
       text-align: center;
     }
 
@@ -70,16 +76,14 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      margin-top: 2rem;
     }
 
     .producto {
-      background-color: var(--blanco);
-      border: 1px solid #ddd;
+      background-color: var(--color-card);
       border-radius: 10px;
-      padding: 1rem;
+      padding: 10px;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     .producto img {
@@ -91,185 +95,110 @@
 
     .producto h2 {
       font-size: 18px;
-      margin: 0.5rem 0;
-      color: var(--verde);
+      color: var(--color-primario);
     }
 
     .precio {
-      color: #d32f2f;
+      color: #c0392b;
       font-weight: bold;
     }
 
-    button {
-      background-color: var(--verde-claro);
-      color: #000;
-      border: none;
-      padding: 0.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 0.5rem;
-    }
-
-    button:hover {
-      background-color: #66bb6a;
-    }
-
-    .carrito, .formulario-pago, .formulario-contacto {
-      background-color: var(--blanco);
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 2rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
     footer {
-      background-color: var(--verde);
-      color: var(--blanco);
+      background-color: var(--color-primario);
+      color: white;
       text-align: center;
       padding: 1rem;
-      margin-top: 2rem;
     }
 
     .redes-sociales a {
-      color: var(--blanco);
+      color: white;
       margin: 0 0.5rem;
       font-size: 1.5rem;
-    }
-
-    img.banner {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-top: 1rem;
-    }
-
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Verdulería Online</h1>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#nosotros">Sobre Nosotros</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#ayuda">Ayuda</a></li>
-        <li><a href="#ubicacion">Ubicación</a></li>
-        <li><a href="#medios-pago">Pago</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#reclamaciones">Reclamos</a></li>
-      </ul>
-    </nav>
+    <h1>EcoMarket</h1>
+    <p>Frutas, verduras y cereales al alcance de un clic</p>
   </header>
 
-  <section id="inicio" class="active">
-    <h2>Bienvenidos a nuestra tienda</h2>
-    <p style="text-align: center;">Productos frescos directo del campo a tu mesa.</p>
-    <img src="https://img.freepik.com/foto-gratis/mercado-agricultores-cesta-frutas-verduras-frescas-generada-ia_188544-41021.jpg" class="banner" alt="banner tienda">
-  </section>
+  <div class="carrito">
+    <h3>Carrito de Compras</h3>
+    <ul id="lista-carrito"></ul>
+    <p><strong>Total: $<span id="total">0.00</span></strong></p>
+  </div>
 
-  <section id="nosotros">
-    <h2>Sobre Nosotros</h2>
-    <p>Somos una verdulería familiar dedicada a ofrecer frutas y verduras frescas, cultivadas localmente, con el compromiso de brindar productos de calidad y atención personalizada.</p>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#sobre">Sobre Nosotros</a></li>
+      <li><a href="#medios">Medios de Pago</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#reclamos">Libro de Reclamaciones</a></li>
+    </ul>
+  </nav>
+
+  <section id="inicio" class="active">
+    <h2>Bienvenidos a EcoMarket</h2>
+    <p>Compra saludable, local y rápido desde casa. ¡Tu bienestar es nuestra prioridad!</p>
+    <img src="https://cdn.pixabay.com/photo/2017/08/10/07/32/vegetables-2619464_960_720.jpg" alt="bienvenida" style="width:100%; max-width:600px; display:block; margin:auto; border-radius:10px;">
   </section>
 
   <section id="productos">
     <h2>Catálogo de Productos</h2>
     <div class="contenedor-productos" id="contenedor"></div>
-
-    <div class="carrito">
-      <h3>Carrito de Compras</h3>
-      <ul id="lista-carrito"></ul>
-      <p><strong>Total: $<span id="total">0.00</span></strong></p>
-    </div>
   </section>
 
-  <section id="ayuda">
-    <h2>Ayuda</h2>
-    <p>¿Tienes dudas? Escríbenos al WhatsApp o envíanos un correo electrónico.</p>
+  <section id="sobre">
+    <h2>Sobre Nosotros</h2>
+    <p>EcoMarket es un emprendimiento familiar que promueve el consumo responsable de frutas, verduras y cereales de estación. Apostamos por lo natural y saludable.</p>
+    <img src="https://cdn.pixabay.com/photo/2020/04/14/15/57/vegetables-5046318_960_720.jpg" style="width:100%; max-width:600px; display:block; margin:auto; border-radius:10px;">
   </section>
 
-  <section id="ubicacion">
-    <h2>Ubicación</h2>
-    <p>Nos encontramos en Av. Principal 123, Ciudad Frutal.</p>
-    <iframe src="https://maps.google.com/maps?q=Buenos%20Aires&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300" style="border:0;" allowfullscreen=""></iframe>
-  </section>
-
-  <section id="medios-pago">
+  <section id="medios">
     <h2>Medios de Pago</h2>
     <ul>
-      <li>✔ Efectivo al recibir</li>
-      <li>✔ Transferencia Bancaria - CBU: 1234567890123456789012</li>
+      <li>Transferencia bancaria</li>
+      <li>Pago contra entrega</li>
+      <li>MercadoPago / Tarjetas</li>
     </ul>
-    <div class="formulario-pago">
-      <h3>Finalizar Compra</h3>
-      <form>
-        <label>Nombre:</label>
-        <input type="text" required>
-        <label>Dirección:</label>
-        <input type="text" required>
-        <label>Método de Pago:</label>
-        <select required>
-          <option value="efectivo">Efectivo</option>
-          <option value="transferencia">Transferencia</option>
-        </select>
-        <button type="submit">Confirmar Pedido</button>
-      </form>
-    </div>
   </section>
 
   <section id="contacto">
     <h2>Contacto</h2>
-    <div class="formulario-contacto">
-      <form>
-        <label>Nombre:</label>
-        <input type="text" required>
-        <label>Correo electrónico:</label>
-        <input type="email" required>
-        <label>Mensaje:</label>
-        <textarea rows="4" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
+    <form>
+      <label>Nombre:</label>
+      <input type="text" required>
+      <label>Email:</label>
+      <input type="email" required>
+      <label>Mensaje:</label>
+      <textarea rows="4" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
   </section>
 
-  <section id="reclamaciones">
+  <section id="reclamos">
     <h2>Libro de Reclamaciones</h2>
-    <div class="formulario-contacto">
-      <form>
-        <label>Nombre completo:</label>
-        <input type="text" required>
-        <label>Correo electrónico:</label>
-        <input type="email" required>
-        <label>Reclamo:</label>
-        <textarea rows="4" required></textarea>
-        <label>¿Desea una respuesta?</label>
-        <select required>
-          <option value="si">Sí</option>
-          <option value="no">No</option>
-        </select>
-        <button type="submit">Enviar Reclamo</button>
-      </form>
-    </div>
+    <form>
+      <label>Nombre completo:</label>
+      <input type="text" required>
+      <label>Correo electrónico:</label>
+      <input type="email" required>
+      <label>Motivo del reclamo:</label>
+      <textarea rows="4" placeholder="Describe tu reclamo..." required></textarea>
+      <label>¿Deseas recibir una respuesta?</label>
+      <select required>
+        <option value="si">Sí</option>
+        <option value="no">No</option>
+      </select>
+      <button type="submit">Enviar Reclamo</button>
+    </form>
   </section>
 
   <footer>
-    <p>&copy; 2025 Verdulería Online. Todos los derechos reservados.</p>
+    <p>&copy; 2025 EcoMarket - Todos los derechos reservados.</p>
     <div class="redes-sociales">
       <a href="#"><i class="fab fa-facebook-square"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
@@ -277,14 +206,8 @@
     </div>
   </footer>
 
+  <script src="items.js"></script>
   <script>
-    const productos = [
-      { nombre: "Manzana", precio: 1.00, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", beneficio: "Rica en fibra y vitamina C." },
-      { nombre: "Banana", precio: 1.00, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", beneficio: "Fuente de potasio." },
-      { nombre: "Zanahoria", precio: 0.70, imagen: "https://www.ecologiaverde.com/wp-content/uploads/2022/09/para-que-sirve-la-zanahoria-propiedades-y-beneficios-1.jpg", beneficio: "Buena para la vista." },
-      { nombre: "Lechuga", precio: 1.10, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfhBsCV_ocHMSbeRxbQM-FDb_2ZQw51rgQWA&s", beneficio: "Rica en fibra y baja en calorías." }
-    ];
-
     const contenedor = document.getElementById("contenedor");
     const carrito = [];
     const listaCarrito = document.getElementById("lista-carrito");
@@ -320,7 +243,7 @@
       totalEl.textContent = total.toFixed(2);
     }
 
-    // Navegación
+    // Navegación por secciones
     document.querySelectorAll("nav a").forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
@@ -332,4 +255,3 @@
   </script>
 </body>
 </html>
-
