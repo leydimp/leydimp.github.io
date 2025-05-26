@@ -207,7 +207,7 @@
   <section id="ubicacion">
     <h2>Ubicación</h2>
     <p>Nos encontramos en Av. Principal 123, Ciudad Frutal.</p>
-    <iframe src="https://wikiperu.com/wp-content/uploads/Mapa-de-Puno-1.webp" width="100%" height="300" style="border:0;" allowfullscreen=""></iframe>
+    <iframe src="https://wikiperu.com/wp-content/uploads/Mapa-de-Puno-1.webp" width="100%" height="200" style="border:0;" allowfullscreen=""></iframe>
   </section>
 
   <section id="medios-pago">
@@ -215,7 +215,7 @@
     <ul>
       <li>✔ Efectivo al recibir</li>
       <li>✔ Transferencia Bancaria - CBU: 1234567890123456789012</li>
-      <img src="https://academia.r.worldssl.net/uploads/default/files/medios-de-pago-peru-min.webp" class="banner" alt="banner tienda">
+      <img src="https://www.parabrisasinterglass.com/images/icon/pagos.jpg" class="banner" alt="banner tienda">
     </ul>
     <div class="formulario-pago">
       <h3>Finalizar Compra</h3>
@@ -280,32 +280,48 @@
     </div>
   </footer>
 
-  <script>
+ <script>
     const productos = [
-      { nombre: "Manzana", precio: 1.00, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", beneficio: "Rica en fibra y vitamina C." },
-      { nombre: "Banana", precio: 1.00, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", beneficio: "Fuente de potasio." },
-      { nombre: "Zanahoria", precio: 0.70, imagen: "https://www.ecologiaverde.com/wp-content/uploads/2022/09/para-que-sirve-la-zanahoria-propiedades-y-beneficios-1.jpg", beneficio: "Buena para la vista." },
-      { nombre: "Lechuga", precio: 1.10, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfhBsCV_ocHMSbeRxbQM-FDb_2ZQw51rgQWA&s", beneficio: "Rica en fibra y baja en calorías." }
-      
+      { nombre: "Manzana", precio: 1.00, imagen: "https://www.recetasnestle.com.pe/sites/default/files/2022-07/tipos-de-manzana-royal-gala.jpg", beneficio: "Rica en fibra y vitamina C.", categoria: "fruta" },
+      { nombre: "Banana", precio: 0.90, imagen: "https://www.bigbasket.com/media/uploads/p/xxl/10000027_32-fresho-banana-robusta.jpg", beneficio: "Fuente de potasio y energía natural.", categoria: "fruta" },
+      { nombre: "Zanahoria", precio: 0.70, imagen: "https://www.ecologiaverde.com/wp-content/uploads/2022/09/para-que-sirve-la-zanahoria-propiedades-y-beneficios-1.jpg", beneficio: "Buena para la vista y la piel.", categoria: "verdura" },
+      { nombre: "Lechuga", precio: 1.10, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfhBsCV_ocHMSbeRxbQM-FDb_2ZQw51rgQWA&s", beneficio: "Ligera y rica en agua.", categoria: "verdura" },
+      { nombre: "Naranja", precio: 1.20, imagen: "https://frutasolivar.com/wp-content/uploads/2021/11/naranja-valencia-late.jpg", beneficio: "Refuerza el sistema inmune.", categoria: "fruta" },
+      { nombre: "Papa", precio: 0.80, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgDN6LrkbDZtxWjkoZP5zJxv9HyK2zjCQ9Nw", beneficio: "Energía y carbohidratos saludables.", categoria: "verdura" },
+      { nombre: "Tomate", precio: 1.30, imagen: "https://hortomallas.com/wp-content/uploads/2016/06/tomate.jpg", beneficio: "Rico en antioxidantes.", categoria: "verdura" },
+      { nombre: "Palta", precio: 2.50, imagen: "https://cdn0.ecologiaverde.com/es/posts/4/0/0/aguacate_propiedades_y_beneficios_4004_600.jpg", beneficio: "Grasas saludables para el corazón.", categoria: "fruta" },
+      { nombre: "Fresa", precio: 1.80, imagen: "https://www.frutasyverduras.info/wp-content/uploads/2020/07/fresa.jpg", beneficio: "Antioxidantes y vitamina C.", categoria: "fruta" },
+      { nombre: "Espinaca", precio: 1.40, imagen: "https://www.hogarmania.com/archivos/202210/espinacas-beneficios-668x400x80xX.jpg", beneficio: "Buena fuente de hierro.", categoria: "verdura" },
+      { nombre: "Maíz", precio: 1.00, imagen: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Maize.jpg", beneficio: "Aporta energía y fibra.", categoria: "cereal" },
+      { nombre: "Cebolla", precio: 0.85, imagen: "https://elpoderdelconsumidor.org/wp-content/uploads/2021/07/Cebolla.jpg", beneficio: "Refuerza el sistema inmunológico.", categoria: "verdura" },
+      { nombre: "Avena", precio: 1.60, imagen: "https://cdn0.recetasgratis.net/es/posts/3/6/1/propiedades_de_la_avena_2163_600.jpg", beneficio: "Ideal para el corazón y la digestión.", categoria: "cereal" },
+      { nombre: "Brócoli", precio: 1.70, imagen: "https://www.hogarmania.com/archivos/202203/brocoli-668x400x80xX.jpg", beneficio: "Anticancerígeno y rico en fibra.", categoria: "verdura" },
+      { nombre: "Quinua", precio: 2.20, imagen: "https://cdn.shopify.com/s/files/1/0272/8954/9496/articles/beneficios-de-la-quinua.jpg", beneficio: "Proteína vegetal completa.", categoria: "cereal" }
     ];
 
     const contenedor = document.getElementById("contenedor");
+    const filtroCategoria = document.getElementById("filtroCategoria");
     const carrito = [];
     const listaCarrito = document.getElementById("lista-carrito");
     const totalEl = document.getElementById("total");
 
-    productos.forEach((producto, index) => {
-      const div = document.createElement("div");
-      div.className = "producto";
-      div.innerHTML = `
-        <img src="${producto.imagen}" alt="${producto.nombre}">
-        <h2>${producto.nombre}</h2>
-        <p class="precio">$${producto.precio.toFixed(2)}</p>
-        <p>${producto.beneficio}</p>
-        <button onclick="agregarAlCarrito(${index})">Agregar al carrito</button>
-      `;
-      contenedor.appendChild(div);
-    });
+    function mostrarProductos(categoria = "todos") {
+      contenedor.innerHTML = "";
+      productos.filter(p => categoria === "todos" || p.categoria === categoria).forEach((producto, index) => {
+        const div = document.createElement("div");
+        div.className = "producto";
+        div.innerHTML = `
+          <img src="${producto.imagen}" alt="${producto.nombre}">
+          <h2>${producto.nombre}</h2>
+          <p class="precio">$${producto.precio.toFixed(2)}</p>
+          <p>${producto.beneficio}</p>
+          <button onclick="agregarAlCarrito(${index})">Agregar al carrito</button>
+        `;
+        contenedor.appendChild(div);
+      });
+    }
+
+    filtroCategoria.addEventListener("change", () => mostrarProductos(filtroCategoria.value));
 
     function agregarAlCarrito(index) {
       carrito.push(productos[index]);
@@ -324,7 +340,6 @@
       totalEl.textContent = total.toFixed(2);
     }
 
-    // Navegación
     document.querySelectorAll("nav a").forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
@@ -333,7 +348,8 @@
         document.getElementById(id).classList.add("active");
       });
     });
+
+    mostrarProductos();
   </script>
 </body>
 </html>
-
